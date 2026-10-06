@@ -5,387 +5,248 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Katrin Luxe Locks — наращивание волос</title>
 <meta name="description" content="Katrin Luxe Locks — мастер по наращиванию волос. Капсульное, ленточное наращивание и Hair Talk. Естественно, бережно, роскошно.">
-<meta name="theme-color" content="#0c2a22">
+<meta name="theme-color" content="#c9d5e1">
 <meta property="og:title" content="Katrin Luxe Locks — Hair Extensions Studio">
-<meta property="og:description" content="Волосы, о которых ты мечтала. Наращивание волос от Катрин.">
+<meta property="og:description" content="Длиннее. Гуще. Роскошнее. Наращивание волос от Катрин.">
 <meta property="og:image" content="assets/img/logo.webp">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;600;700;800&family=Cormorant+Garamond:ital,wght@1,500;1,600;1,700&family=Manrope:wght@400;500;600;700;800&family=Marck+Script&family=Mrs+Saint+Delafield&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://images.unsplash.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 <script>document.documentElement.classList.add('js')</script>
 </head>
 <body class="is-loading">
 
-<!-- ===== SVG sprites ===== -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
-    <symbol id="star" viewBox="0 0 24 24"><path d="M12 0C13 8 16 11 24 12 16 13 13 16 12 24 11 16 8 13 0 12 8 11 11 8 12 0Z" fill="currentColor"/></symbol>
-    <symbol id="arrow" viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-    <symbol id="i-whatsapp" viewBox="0 0 24 24"><path d="M12 2.500a9.500 9.500 0 0 0-8.100 14.400L2.600 21.400l4.600-1.200A9.500 9.500 0 1 0 12 2.500Z" fill="none" stroke="currentColor" stroke-width="1.800" stroke-linejoin="round"/><path d="M8.800 7.600c.3-.5.7-.4.900-.2l.9 1.900c.1.300 0 .5-.3.800-.2.200-.4.400-.2.700.5.900 1.300 1.700 2.300 2.200.4.200.5 0 .7-.2.3-.4.500-.5.900-.3l1.700.8c.3.200.3.500.1 1-.4.800-1.400 1.200-2.200 1-2.900-.7-5.100-2.800-5.700-5.600-.1-.5 0-.9.300-1.400Z" fill="currentColor"/></symbol>
-    <symbol id="i-telegram" viewBox="0 0 24 24"><path d="M21.500 3.600 2.600 10.900c-.9.400-.9 1.100-.2 1.300l4.800 1.500 1.900 5.800c.2.600.4.700.9.400l2.700-2.200 4.700 3.500c.9.500 1.500.2 1.700-.9L22.900 4.900c.3-1.300-.5-1.900-1.400-1.300Z" fill="currentColor" opacity=".95"/><path d="m9.300 14.300 9-6.400c.4-.3.800-.1.500.2l-7.500 7.200-.3 3-1.700-4Z" fill="#0c2a22" opacity=".35"/></symbol>
-    <symbol id="i-instagram" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5.500" fill="none" stroke="currentColor" stroke-width="1.800"/><circle cx="12" cy="12" r="4.200" fill="none" stroke="currentColor" stroke-width="1.800"/><circle cx="17.300" cy="6.700" r="1.200" fill="currentColor"/></symbol>
+    <symbol id="arrow" viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+    <symbol id="star" viewBox="0 0 24 24"><path d="M12 2.5l2.9 6 6.6.8-4.9 4.5 1.3 6.5L12 17l-5.9 3.3 1.3-6.5L2.5 9.3l6.6-.8z" fill="currentColor"/></symbol>
+    <symbol id="i-whatsapp" viewBox="0 0 24 24"><path d="M12 2.5a9.5 9.5 0 0 0-8.1 14.4L2.6 21.4l4.6-1.2A9.5 9.5 0 1 0 12 2.5Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M8.8 7.6c.3-.5.7-.4.9-.2l.9 1.900c.1.3 0 .5-.3.8-.2.2-.4.4-.2.7.5.9 1.3 1.7 2.3 2.2.4.2.5 0 .7-.2.3-.4.5-.5.9-.3l1.7.8c.3.2.3.5.1 1-.4.8-1.4 1.2-2.2 1-2.9-.7-5.1-2.8-5.7-5.6-.1-.5 0-.9.3-1.4Z" fill="currentColor"/></symbol>
+    <symbol id="i-telegram" viewBox="0 0 24 24"><path d="M21.5 3.6 2.6 10.9c-.9.4-.9 1.1-.2 1.3l4.8 1.5 1.9 5.8c.2.6.4.7.9.4l2.7-2.2 4.7 3.5c.9.5 1.5.2 1.7-.9L22.9 4.9c.3-1.3-.5-1.9-1.4-1.3Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="m9.3 14.3 8.4-6.2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+    <symbol id="i-instagram" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5.5" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor"/></symbol>
   </defs>
 </svg>
 
-<!-- ===== Preloader ===== -->
-<div id="loader" aria-hidden="true">
-  <div class="loader__inner">
-    <img src="assets/img/logo.webp" alt="" class="loader__logo">
-    <div class="loader__bar"><span></span></div>
-  </div>
-</div>
-
-<!-- ===== FX layers ===== -->
+<div id="loader" aria-hidden="true"><img src="assets/img/logo.webp" alt="" class="loader__logo"><span class="loader__bar"><i></i></span></div>
 <canvas id="fx" aria-hidden="true"></canvas>
 <div class="cursor" aria-hidden="true"><i class="cursor__dot"></i><i class="cursor__ring"><b></b></i></div>
 <div class="progress" aria-hidden="true"><span></span></div>
-<div class="grain" aria-hidden="true"></div>
 
-<!-- ===== Header ===== -->
+<!-- ================= NAV ================= -->
 <header class="nav" id="nav">
-  <a href="#home" class="nav__logo magnetic" aria-label="Katrin Luxe Locks — на главную"><span>K</span></a>
   <nav class="nav__pills" aria-label="Основная навигация">
+    <a href="#top" class="nav__logo magnetic" aria-label="Katrin Luxe Locks — наверх"><span>K</span></a>
     <a href="#about" class="pill">Обо мне</a>
     <a href="#services" class="pill">Услуги</a>
     <a href="#works" class="pill">Работы</a>
-    <a href="#lab" class="pill">Образ</a>
+    <a href="#lab" class="pill">Hair Lab</a>
     <a href="#reviews" class="pill">Отзывы</a>
     <a href="#faq" class="pill">Вопросы</a>
   </nav>
-  <a href="#book" class="btn btn--dark nav__cta magnetic"><span>Записаться</span><svg><use href="#arrow"/></svg></a>
+  <a href="#book" class="btn btn--dark nav__cta magnetic"><span>Записаться</span><svg class="arr"><use href="#arrow"/></svg></a>
   <button class="nav__burger" id="burger" aria-label="Открыть меню" aria-expanded="false"><i></i><i></i></button>
 </header>
 
 <div class="menu" id="menu" aria-hidden="true">
   <nav>
-    <a href="#about">Обо мне</a>
-    <a href="#services">Услуги</a>
-    <a href="#works">Работы</a>
-    <a href="#lab">Собери образ</a>
-    <a href="#reviews">Отзывы</a>
-    <a href="#faq">Вопросы</a>
-    <a href="#book" class="menu__cta">Записаться ✦</a>
+    <a href="#about">Обо мне</a><a href="#services">Услуги</a><a href="#works">Работы</a>
+    <a href="#lab">Hair Lab</a><a href="#reviews">Отзывы</a><a href="#faq">Вопросы</a>
   </nav>
-  <div class="menu__soc">
-    <a data-link="instagram" aria-label="Instagram"><svg><use href="#i-instagram"/></svg></a>
-    <a data-link="telegram" aria-label="Telegram"><svg><use href="#i-telegram"/></svg></a>
-    <a data-link="whatsapp" aria-label="WhatsApp"><svg><use href="#i-whatsapp"/></svg></a>
-  </div>
+  <a href="#book" class="btn btn--dark btn--lg menu__cta"><span>Записаться</span><svg class="arr"><use href="#arrow"/></svg></a>
 </div>
 
 <main>
-<!-- ============ HERO ============ -->
-<section class="hero" id="home">
-  <div class="hero__bg" aria-hidden="true">
-    <i class="sun" data-depth="26"></i>
-    <span class="bgword" data-depth="-14">LUXE</span>
+<!-- ================= HERO ================= -->
+<section class="hero" id="top">
+  <div class="hero__media" aria-hidden="true">
+    <img src="https://images.unsplash.com/photo-1636153279424-cb5d1e00f5a2?w=1400&q=80&auto=format&fit=crop"
+         srcset="https://images.unsplash.com/photo-1636153279424-cb5d1e00f5a2?w=900&q=80&auto=format&fit=crop 900w, https://images.unsplash.com/photo-1636153279424-cb5d1e00f5a2?w=1600&q=80&auto=format&fit=crop 1600w"
+         sizes="(max-width:900px) 100vw, 55vw" alt="" fetchpriority="high">
   </div>
+  <div class="hero__light" aria-hidden="true"></div>
 
-  <div class="container hero__grid">
+  <div class="container hero__inner">
     <div class="hero__copy">
-      <div class="hero__tag" data-reveal><span class="live"></span> Открыта запись</div>
-
-      <h1 class="hero__title split" aria-label="Длиннее. Гуще. Роскошнее.">Длиннее. Гуще.<br><em>Роскошнее.</em></h1>
-
-      <p class="hero__lead" data-reveal style="--d:500">
-        Наращивание волос, которое не видно никому, кроме тебя&nbsp;— и твоего отражения.
-        Бережно, красиво и&nbsp;так естественно, что подруги будут спрашивать про секрет.
-      </p>
-
-      <div class="chips" data-reveal style="--d:650">
-        <button class="chip" data-goto="#services" data-svc="0">Капсулы</button>
-        <button class="chip" data-goto="#services" data-svc="1">Ленты</button>
-        <button class="chip" data-goto="#services" data-svc="2">Hair Talk</button>
-        <button class="chip chip--gold" data-goto="#lab">Собрать свой образ ✦</button>
+      <div class="tags" data-reveal>
+        <a href="#services" class="tag">Капсулы</a>
+        <a href="#services" class="tag">Ленты</a>
+        <a href="#services" class="tag">Hair Talk</a>
       </div>
-
-      <div class="hero__cta" data-reveal style="--d:800">
-        <a href="#book" class="btn btn--dark btn--lg magnetic" data-cursor="Go">
-          <span>Подобрать услугу за 60 секунд</span><svg><use href="#arrow"/></svg>
-        </a>
-        <a href="#works" class="avatars" data-cursor="Смотреть" aria-label="Смотреть работы">
-          <img src="assets/img/work-black.webp" alt="" width="56" height="56">
-          <img src="assets/img/work-pink-after.webp" alt="" width="56" height="56">
-          <img src="assets/img/work-choco.webp" alt="" width="56" height="56">
-          <span class="avatars__txt">Реальные<br>работы <b>→</b></span>
-        </a>
+      <h1 class="hero__title" data-split>
+        <span class="t-light">Длиннее.</span> Гуще.<br>Роскошнее.
+      </h1>
+      <div class="hero__cta" data-reveal style="--d:450">
+        <a href="#book" class="btn btn--dark btn--lg magnetic"><span>Подобрать образ</span><svg class="arr"><use href="#arrow"/></svg></a>
+        <a href="#works" class="hero__thumb" data-cursor="Работы" aria-label="Смотреть работы"><img src="assets/img/work-brown-after.webp" alt=""></a>
+        <a href="#lab" class="hero__orb" data-cursor="Hair Lab" aria-label="Открыть Hair Lab"></a>
       </div>
     </div>
 
-    <div class="hero__visual">
-      <div class="hero__arch" data-depth="12">
-        <div class="hero__ring"></div>
-        <div class="hero__photo tilt" data-cursor="Смотреть" data-lightbox="brown-after">
-          <img src="assets/img/work-brown-after.webp" alt="Результат наращивания — длинные шоколадные волосы" width="960" height="1280" fetchpriority="high">
-        </div>
-      </div>
+    <p class="hero__note" data-reveal style="--d:650">
+      Наращивание волос, которое не отличить от своих. Капсулы, ленты и Hair Talk — с индивидуальным подбором длины, густоты и оттенка.
+    </p>
 
-      <figure class="float float--a tilt" data-depth="-26" data-cursor="Смотреть" data-lightbox="pink-after">
-        <img src="assets/img/work-pink-after.webp" alt="Результат наращивания — длинные волосы до поясницы" width="300" height="400">
-        <figcaption>после ✦</figcaption>
-      </figure>
-
-      <figure class="float float--b tilt" data-depth="30" data-cursor="Смотреть" data-lightbox="blonde-after">
-        <img src="assets/img/work-blonde-after.webp" alt="Результат наращивания — длинный блонд" width="300" height="400">
-      </figure>
-
-      <div class="note" data-depth="18"><svg class="spark"><use href="#star"/></svg><div><b>Бережно</b><span>к твоим волосам</span></div></div>
-
-      <svg class="badge" viewBox="0 0 120 120" aria-hidden="true" data-depth="-10">
-        <defs><path id="circ" d="M60 60m-44 0a44 44 0 1 1 88 0a44 44 0 1 1-88 0"/></defs>
-        <text><textPath href="#circ" startOffset="0">HAIR EXTENSIONS ✦ LUXE LOCKS ✦ HAIR EXTENSIONS ✦ </textPath></text>
-        <use href="#star" x="48" y="48" width="24" height="24"/>
-      </svg>
-    </div>
-  </div>
-
-  <a href="#about" class="scroll-hint" aria-label="Листать вниз"><span></span></a>
-</section>
-
-<!-- ============ MARQUEE ============ -->
-<section class="marquee" aria-hidden="true">
-  <div class="marquee__row marquee__row--a">
-    <div class="marquee__track">
-      <span>Капсульное наращивание</span><svg><use href="#star"/></svg>
-      <span>Ленточное наращивание</span><svg><use href="#star"/></svg>
-      <span>Hair Talk</span><svg><use href="#star"/></svg>
-      <span>Коррекция</span><svg><use href="#star"/></svg>
-      <span>Бережное снятие</span><svg><use href="#star"/></svg>
-    </div>
-  </div>
-  <div class="marquee__row marquee__row--b">
-    <div class="marquee__track">
-      <span>Длина</span><svg><use href="#star"/></svg>
-      <span>Густота</span><svg><use href="#star"/></svg>
-      <span>Блеск</span><svg><use href="#star"/></svg>
-      <span>Естественность</span><svg><use href="#star"/></svg>
-      <span>Luxe Locks</span><svg><use href="#star"/></svg>
-    </div>
+    <a href="#works" class="hero__card" data-reveal style="--d:850" data-cursor="Смотреть">
+      <span class="hero__card-img"><img src="assets/img/work-pink-after.webp" alt=""></span>
+      <span class="hero__card-txt"><b>До и после</b><small>Реальные работы Катрин</small></span>
+      <svg class="arr"><use href="#arrow"/></svg>
+    </a>
   </div>
 </section>
 
-<!-- ============ ABOUT ============ -->
+<!-- ================= ABOUT ================= -->
 <section class="section about" id="about">
-  <div class="container about__grid">
-    <div class="about__media">
-      <div class="about__main tilt" data-reveal="clip" data-cursor="Смотреть" data-lightbox="choco">
-        <img src="assets/img/work-choco.webp" alt="Работа Катрин — тёмный шоколад, зеркальный блеск" width="960" height="1280" loading="lazy">
-        <span class="about__label">Работа Катрин</span>
-      </div>
-      <div class="about__logo tilt" data-reveal="zoom" style="--d:250">
-        <img src="assets/img/logo.webp" alt="Katrin Luxe Locks — Hair Extensions Studio" width="560" height="373" loading="lazy">
-      </div>
-      <svg class="badge badge--about" viewBox="0 0 120 120" aria-hidden="true">
-        <text><textPath href="#circ">LUXE LOCKS ✦ HAIR STUDIO ✦ LUXE LOCKS ✦ HAIR STUDIO ✦ </textPath></text>
-        <use href="#star" x="48" y="48" width="24" height="24"/>
-      </svg>
-    </div>
-
-    <div class="about__text">
-      <p class="eyebrow" data-reveal>Обо мне</p>
-      <h2 class="h2 split">Привет, я <em>Катрин</em> — и я влюблена в красивые волосы</h2>
-      <p class="lead" data-reveal>
-        Я мастер по наращиванию волос. Превращаю «мечтаю о таких волосах» в «это точно мои?!».
-      </p>
-      <p data-reveal>
-        Для меня наращивание — не про «добавить сантиметры». Это про то, чтобы ты смотрела в зеркало,
-        узнавала себя — и нравилась себе ещё больше. Я подбираю длину, густоту и оттенок под твою структуру,
-        образ жизни и бюджет. И скажу честно, что подойдёт, а что нет — даже если это значит, что
-        наращивание тебе пока не нужно.
-      </p>
-
-      <div class="chips" data-reveal>
-        <span class="chip chip--static">✦ Бережный подход</span>
-        <span class="chip chip--static">✦ Естественный результат</span>
-        <span class="chip chip--static">✦ Индивидуальный подбор</span>
-      </div>
-
-      <a href="#book" class="btn btn--dark magnetic" data-reveal>
-        <span>Обсудить мой образ</span><svg><use href="#arrow"/></svg>
-      </a>
-    </div>
-  </div>
-
   <div class="container">
-    <ul class="stats">
-      <li class="stat tilt" data-reveal><b data-count="3">0</b><span>техники наращивания на выбор</span></li>
-      <li class="stat tilt" data-reveal style="--d:100"><b data-count="1">0</b><span>мастер: от консультации до укладки — всё сама</span></li>
-      <li class="stat tilt" data-reveal style="--d:200"><b data-count="60" data-suffix="″">0</b><span>секунд — и ты знаешь, что тебе подходит</span></li>
-      <li class="stat tilt" data-reveal style="--d:300"><b data-count="100" data-suffix="%">0</b><span>индивидуальный подбор длины и оттенка</span></li>
-    </ul>
+    <p class="label" data-reveal>Обо мне</p>
+    <p class="statement" data-fill>
+      Меня зовут Катрин, я мастер по наращиванию волос. Моя цель — чтобы ты смотрела в зеркало и видела свои волосы, только длиннее, гуще и роскошнее. Без компромиссов в естественности.
+    </p>
 
-    <div class="promise">
-      <article class="card-soft tilt" data-reveal>
-        <svg class="card-soft__ico"><use href="#star"/></svg>
-        <h3>Бережно</h3>
-        <p>Выбираю технику под состояние твоих волос. Твои волосы — это в первую очередь мои заботы.</p>
-      </article>
-      <article class="card-soft tilt" data-reveal style="--d:120">
-        <svg class="card-soft__ico"><use href="#star"/></svg>
-        <h3>Незаметно</h3>
-        <p>Цвет, структура, переход — подбираю так, чтобы не отличить от родных. Даже вблизи.</p>
-      </article>
-      <article class="card-soft tilt" data-reveal style="--d:240">
-        <svg class="card-soft__ico"><use href="#star"/></svg>
-        <h3>Честно</h3>
-        <p>Стоимость называю до начала работы. Если наращивание тебе не нужно — так и скажу.</p>
-      </article>
+    <div class="about__grid">
+      <figure class="about__img" data-reveal>
+        <img src="https://images.unsplash.com/photo-1758315949140-1972ace0644e?w=1000&q=80&auto=format&fit=crop" alt="Длинные шелковистые волосы" loading="lazy">
+      </figure>
+      <div class="features">
+        <div class="feature" data-reveal>
+          <span class="feature__n">01</span>
+          <div><h3>Индивидуальный подбор</h3><p>Оттенок, длина и густота — под твои волосы, образ жизни и бюджет.</p></div>
+        </div>
+        <div class="feature" data-reveal style="--d:100">
+          <span class="feature__n">02</span>
+          <div><h3>Бережно к своим волосам</h3><p>Техника выбирается по состоянию волос. Если наращивание тебе не нужно — скажу честно.</p></div>
+        </div>
+        <div class="feature" data-reveal style="--d:200">
+          <span class="feature__n">03</span>
+          <div><h3>Прозрачная стоимость</h3><p>Цену называю до начала работы. Никаких сюрпризов в конце.</p></div>
+        </div>
+        <a href="#book" class="btn btn--line magnetic" data-reveal style="--d:300"><span>Обсудить мой образ</span><svg class="arr"><use href="#arrow"/></svg></a>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ============ SERVICES ============ -->
+<!-- ================= SERVICES ================= -->
 <section class="section services" id="services">
   <div class="container">
     <header class="head">
-      <p class="eyebrow" data-reveal>Услуги</p>
-      <h2 class="h2 split">Техники, подобранные <em>под тебя</em></h2>
-      <p class="head__sub" data-reveal>Нажми на карточку — расскажу подробнее. Время и сроки ориентировочные: точные зависят от твоих волос.</p>
+      <div>
+        <p class="label" data-reveal>Услуги</p>
+        <h2 class="h2" data-split><span class="t-light">Техники,</span> подобранные под тебя</h2>
+      </div>
+      <p class="head__sub" data-reveal>Нажми на карточку, чтобы узнать подробности. Время и сроки ориентировочные — точные зависят от твоих волос.</p>
     </header>
-
     <div class="svc-grid" id="svcGrid"></div>
-
-    <p class="svc-note" data-reveal>Стоимость зависит от длины, объёма и техники — называю её <b>до начала работы</b>, без сюрпризов.</p>
+    <div class="extra" id="svcExtra"></div>
   </div>
 </section>
 
-<!-- ============ WORKS ============ -->
+<!-- ================= WORKS ================= -->
 <section class="section works" id="works">
-  <div class="works__glow" aria-hidden="true"></div>
   <div class="container">
-    <header class="head head--light">
-      <p class="eyebrow" data-reveal>Портфолио</p>
-      <h2 class="h2 split">Результат, который <em>говорит за меня</em></h2>
-      <p class="head__sub" data-reveal>Тяни ползунок — смотри, как меняются волосы. Реальные работы, без переделок.</p>
+    <header class="head">
+      <div>
+        <p class="label" data-reveal>Работы</p>
+        <h2 class="h2" data-split><span class="t-light">Результат,</span> который говорит сам</h2>
+      </div>
+      <p class="head__sub" data-reveal>Потяни разделитель, чтобы сравнить до и после. Реальные работы Катрин.</p>
     </header>
 
-    <div class="ba-wrap" data-reveal>
-      <div class="ba" id="ba" style="--pos:50%">
-        <img class="ba__img ba__img--before" alt="Волосы до наращивания" width="960" height="1280">
-        <img class="ba__img ba__img--after" alt="Волосы после наращивания" width="960" height="1280">
-        <span class="ba__tag ba__tag--l">до</span>
-        <span class="ba__tag ba__tag--r">после</span>
-        <div class="ba__handle" aria-hidden="true"><span><svg><use href="#star"/></svg></span></div>
-        <input type="range" class="ba__range" min="0" max="100" value="50" aria-label="Сравнение до и после" data-cursor="Тяни ↔">
+    <div class="ba-wrap">
+      <div class="ba" id="ba" style="--pos:50%" data-reveal>
+        <img class="ba__img ba__img--before" alt="Волосы до наращивания">
+        <img class="ba__img ba__img--after" alt="Волосы после наращивания">
+        <span class="ba__tag ba__tag--l">До</span><span class="ba__tag ba__tag--r">После</span>
+        <div class="ba__handle" aria-hidden="true"><span>‹ ›</span></div>
+        <input type="range" class="ba__range" min="0" max="100" value="50" aria-label="Сравнение до и после" data-cursor="Тяни">
       </div>
-
-      <div class="ba-side">
-        <p class="ba-side__k">Выбери историю</p>
+      <div class="ba-side" data-reveal style="--d:150">
         <div class="ba-tabs" id="baTabs"></div>
         <div class="ba-info" id="baInfo"></div>
-        <a href="#book" class="btn btn--gold magnetic"><span>Хочу так же</span><svg><use href="#arrow"/></svg></a>
+        <a href="#book" class="btn btn--dark magnetic"><span>Хочу так же</span><svg class="arr"><use href="#arrow"/></svg></a>
       </div>
     </div>
 
-    <div class="mosaic" id="mosaic"></div>
+    <div class="gallery" id="gallery" data-cursor="Тяни"></div>
   </div>
 </section>
 
-<!-- ============ HAIR LAB ============ -->
+<!-- ================= HAIR LAB ================= -->
 <section class="section lab" id="lab">
   <div class="container lab__grid">
-    <div class="lab__copy">
-      <p class="eyebrow" data-reveal>Hair Lab</p>
-      <h2 class="h2 split">Собери <em>свой образ</em></h2>
-      <p class="lead" data-reveal>Выбери оттенок и длину — и сразу видно, как это выглядит. Потом одним касанием отправь мне как заготовку для консультации.</p>
+    <div class="lab__stage" data-reveal>
+      <canvas id="hairCanvas" aria-label="Визуализация длины и оттенка волос" role="img"></canvas>
+      <div class="lab__ruler" id="ruler" aria-hidden="true"></div>
+      <span class="lab__badge" id="labBadge">до лопаток · Карамель</span>
+    </div>
 
-      <div class="lab__ctrl" data-reveal>
-        <p class="lab__k">Оттенок <b id="shadeName">Карамель</b></p>
+    <div class="lab__panel">
+      <p class="label" data-reveal>Hair Lab</p>
+      <h2 class="h2" data-split><span class="t-light">Примерь</span> длину и оттенок</h2>
+      <p class="sub" data-reveal>Выбери цвет, длину и густоту — визуализация сразу покажет, как может выглядеть результат.</p>
+
+      <div class="ctrl" data-reveal>
+        <div class="ctrl__k"><span>Оттенок</span><b id="shadeName">Карамель</b></div>
         <div class="swatches" id="swatches" role="radiogroup" aria-label="Оттенок"></div>
+      </div>
 
-        <p class="lab__k">Длина <b id="lenName">до лопаток · 55 см</b></p>
-        <div class="range">
-          <input type="range" id="lenRange" min="30" max="80" value="55" step="1" aria-label="Длина волос, см">
-          <div class="range__marks"><span>каре</span><span>плечи</span><span>лопатки</span><span>талия</span><span>бёдра</span></div>
-        </div>
+      <div class="ctrl" data-reveal>
+        <div class="ctrl__k"><span>Длина</span><b id="lenName">до лопаток · 55 см</b></div>
+        <input type="range" id="lenRange" min="30" max="80" value="55" aria-label="Длина волос, см">
+        <div class="marks" id="lenMarks"></div>
+      </div>
 
-        <div class="lab__dens">
-          <p class="lab__k">Густота <b id="densName">естественная</b></p>
+      <div class="ctrl ctrl--row" data-reveal>
+        <div>
+          <div class="ctrl__k"><span>Густота</span></div>
           <div class="seg" id="densSeg" role="radiogroup" aria-label="Густота">
             <button type="button" data-v="0" role="radio">Лёгкая</button>
             <button type="button" data-v="1" role="radio" class="is-on">Естественная</button>
             <button type="button" data-v="2" role="radio">Пышная</button>
           </div>
         </div>
-
-        <button class="btn btn--dark btn--lg magnetic" id="labSend" type="button">
-          <span>Хочу такой образ</span><svg><use href="#arrow"/></svg>
-        </button>
+        <div>
+          <div class="ctrl__k"><span>Текстура</span></div>
+          <div class="seg" id="waveSeg" role="radiogroup" aria-label="Текстура">
+            <button type="button" data-v="0" role="radio" class="is-on">Прямые</button>
+            <button type="button" data-v="1" role="radio">Волна</button>
+          </div>
+        </div>
       </div>
-    </div>
 
-    <div class="lab__stage" data-reveal="zoom">
-      <div class="lab__bg" id="labBg"></div>
-      <svg class="lab__svg" viewBox="0 0 300 450" id="labSvg" aria-label="Образец волос выбранной длины и оттенка" role="img">
-        <defs>
-          <linearGradient id="hairGrad" gradientUnits="userSpaceOnUse" x1="0" y1="70" x2="0" y2="420">
-            <stop offset="0" id="hg0" stop-color="#5a3a24"/>
-            <stop offset=".5" id="hg1" stop-color="#a9733d"/>
-            <stop offset="1" id="hg2" stop-color="#d09a5b"/>
-          </linearGradient>
-          <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f3e4bd"/><stop offset=".5" stop-color="#c9a35a"/><stop offset="1" stop-color="#8f6f2a"/></linearGradient>
-          <filter id="blur6" x="-50%" y="-10%" width="200%" height="120%"><feGaussianBlur stdDeviation="5"/></filter>
-        </defs>
-        <g class="lab__scale" id="labScale"></g>
-        <g id="tress"></g>
-        <rect x="64" y="52" width="172" height="26" rx="13" fill="url(#gold)"/>
-        <rect x="72" y="58" width="156" height="4" rx="2" fill="#fff" opacity=".35"/>
-        <circle cx="150" cy="38" r="15" fill="none" stroke="url(#gold)" stroke-width="5"/>
-      </svg>
-      <div class="lab__chip"><svg class="spark"><use href="#star"/></svg><span id="labChip">до лопаток · Карамель</span></div>
+      <button class="btn btn--dark btn--lg magnetic" id="labSend" type="button" data-reveal><span>Хочу такой образ</span><svg class="arr"><use href="#arrow"/></svg></button>
+      <p class="fine" data-reveal>Визуализация приблизительная. Точный подбор оттенка и длины — на консультации.</p>
     </div>
   </div>
 </section>
 
-<!-- ============ PROCESS ============ -->
+<!-- ================= PROCESS ================= -->
 <section class="section process" id="process">
-  <div class="container">
-    <header class="head">
-      <p class="eyebrow" data-reveal>Как это проходит</p>
-      <h2 class="h2 split">Пять шагов к <em>волосам мечты</em></h2>
+  <div class="container process__grid">
+    <header class="head head--stack">
+      <p class="label" data-reveal>Как это проходит</p>
+      <h2 class="h2" data-split><span class="t-light">Пять шагов</span> к волосам мечты</h2>
+      <a href="#book" class="btn btn--line magnetic" data-reveal><span>Начать с консультации</span><svg class="arr"><use href="#arrow"/></svg></a>
     </header>
-
-    <ol class="steps" id="steps">
-      <li class="step" data-reveal>
-        <span class="step__n">01</span>
-        <h3>Знакомство</h3>
-        <p>Пишешь мне или проходишь мини-анкету. Я уточняю пожелания и показываю варианты.</p>
-      </li>
-      <li class="step" data-reveal style="--d:100">
-        <span class="step__n">02</span>
-        <h3>Подбор</h3>
-        <p>Оттенок, длина, густота и техника — под твои волосы и бюджет. Стоимость озвучиваю заранее.</p>
-      </li>
-      <li class="step" data-reveal style="--d:200">
-        <span class="step__n">03</span>
-        <h3>Наращивание</h3>
-        <p>Без спешки и дискомфорта. Ты отдыхаешь — я делаю свою магию.</p>
-      </li>
-      <li class="step" data-reveal style="--d:300">
-        <span class="step__n">04</span>
-        <h3>Укладка</h3>
-        <p>Финальные штрихи и укладка — чтобы из кресла ты вышла с «вау».</p>
-      </li>
-      <li class="step" data-reveal style="--d:400">
-        <span class="step__n">05</span>
-        <h3>Уход и коррекция</h3>
-        <p>Расскажу, как мыть и расчёсывать. Напомню о коррекции, чтобы результат оставался идеальным.</p>
-      </li>
-      <span class="steps__line" aria-hidden="true"><i></i></span>
+    <ol class="steps">
+      <li class="step" data-reveal><span class="step__n">01</span><div><h3>Знакомство</h3><p>Пишешь мне или проходишь мини-анкету. Уточняю пожелания и показываю варианты.</p></div></li>
+      <li class="step" data-reveal><span class="step__n">02</span><div><h3>Подбор</h3><p>Оттенок, длина, густота и техника — под твои волосы и бюджет. Стоимость называю заранее.</p></div></li>
+      <li class="step" data-reveal><span class="step__n">03</span><div><h3>Наращивание</h3><p>Спокойно и без спешки. Ты отдыхаешь — я работаю.</p></div></li>
+      <li class="step" data-reveal><span class="step__n">04</span><div><h3>Укладка</h3><p>Финальные штрихи, чтобы результат выглядел безупречно с первой минуты.</p></div></li>
+      <li class="step" data-reveal><span class="step__n">05</span><div><h3>Уход и коррекция</h3><p>Расскажу, как ухаживать, и напомню о коррекции, чтобы волосы всегда выглядели идеально.</p></div></li>
     </ol>
   </div>
 </section>
 
-<!-- ============ REVIEWS ============ -->
+<!-- ================= REVIEWS ================= -->
 <section class="section reviews" id="reviews">
   <div class="container">
-    <header class="head head--row">
+    <header class="head">
       <div>
-        <p class="eyebrow" data-reveal>Отзывы</p>
-        <h2 class="h2 split">Говорят мои <em>девочки</em></h2>
+        <p class="label" data-reveal>Отзывы</p>
+        <h2 class="h2" data-split><span class="t-light">Что говорят</span> клиентки</h2>
       </div>
       <div class="rv-nav" data-reveal>
         <button class="round" id="rvPrev" aria-label="Назад"><svg style="transform:scaleX(-1)"><use href="#arrow"/></svg></button>
@@ -393,70 +254,56 @@
       </div>
     </header>
   </div>
-  <div class="rv-scroll" id="rvScroll" tabindex="0" aria-label="Отзывы клиенток">
-    <div class="rv-track" id="rvTrack"></div>
-  </div>
-  <div class="container">
-    <p class="rv-more" data-reveal>Больше историй — в моём <a data-link="instagram" class="u">Instagram</a>. Оставишь свой отзыв после визита — буду рада ✦</p>
-  </div>
+  <div class="rv-scroll" id="rvScroll" data-cursor="Тяни"><div class="rv-track" id="rvTrack"></div></div>
 </section>
 
-<!-- ============ FAQ ============ -->
+<!-- ================= FAQ ================= -->
 <section class="section faq" id="faq">
   <div class="container faq__grid">
-    <header class="head head--left">
-      <p class="eyebrow" data-reveal>Вопросы</p>
-      <h2 class="h2 split">Всё, что ты хотела <em>спросить</em></h2>
+    <header class="head head--stack">
+      <p class="label" data-reveal>Вопросы</p>
+      <h2 class="h2" data-split><span class="t-light">Всё, что ты хотела</span> спросить</h2>
       <p class="head__sub" data-reveal>Не нашла ответ? Напиши мне — отвечу лично.</p>
-      <a href="#book" class="btn btn--dark magnetic" data-reveal><span>Задать вопрос</span><svg><use href="#arrow"/></svg></a>
     </header>
     <div class="acc" id="acc"></div>
   </div>
 </section>
 
-<!-- ============ BOOKING ============ -->
-<section class="section book" id="book">
-  <div class="book__glow" aria-hidden="true"></div>
-  <div class="container book__grid">
-    <div class="book__copy">
-      <p class="eyebrow eyebrow--gold" data-reveal>Запись</p>
-      <h2 class="h2 h2--light split">Давай создадим <em>твой образ</em></h2>
-      <p class="lead lead--light" data-reveal>Ответь на пять коротких вопросов — я пойму, что тебе нужно, и вернусь с расчётом и вариантами.</p>
-
-      <ul class="perks" data-reveal>
-        <li><svg><use href="#star"/></svg>Консультация — без обязательств</li>
-        <li><svg><use href="#star"/></svg>Расчёт стоимости до начала работы</li>
-        <li><svg><use href="#star"/></svg>Подберу оттенок и длину под тебя</li>
-      </ul>
-
-      <div class="soc">
-        <a data-link="instagram" class="soc__a magnetic" aria-label="Instagram"><svg><use href="#i-instagram"/></svg><span>Instagram</span></a>
-        <a data-link="telegram" class="soc__a magnetic" aria-label="Telegram"><svg><use href="#i-telegram"/></svg><span>Telegram</span></a>
-        <a data-link="whatsapp" class="soc__a magnetic" aria-label="WhatsApp"><svg><use href="#i-whatsapp"/></svg><span>WhatsApp</span></a>
-      </div>
-    </div>
-
-    <div class="quiz-wrap" data-reveal="zoom">
-      <form class="quiz" id="quiz" novalidate autocomplete="off">
-        <div class="quiz__top">
-          <div class="quiz__dots" id="qDots"></div>
-          <span class="quiz__count" id="qCount">1 / 5</span>
+<!-- ================= BOOKING ================= -->
+<section class="book" id="book">
+  <div class="book__box">
+    <img class="book__bg" src="https://images.unsplash.com/photo-1496440737103-cd596325d314?w=1600&q=70&auto=format&fit=crop" alt="" loading="lazy" aria-hidden="true">
+    <div class="book__grid">
+      <div class="book__copy">
+        <p class="label label--light" data-reveal>Запись</p>
+        <h2 class="h2 h2--light" data-split><span class="t-light">Давай создадим</span> твой образ</h2>
+        <p class="sub sub--light" data-reveal>Пять коротких вопросов — и я вернусь с вариантами и расчётом стоимости.</p>
+        <ul class="perks" data-reveal>
+          <li>Консультация без обязательств</li>
+          <li>Стоимость — до начала работы</li>
+          <li>Подбор оттенка и длины под тебя</li>
+        </ul>
+        <div class="soc" data-reveal>
+          <a data-link="instagram" class="soc__a" aria-label="Instagram"><svg><use href="#i-instagram"/></svg></a>
+          <a data-link="telegram" class="soc__a" aria-label="Telegram"><svg><use href="#i-telegram"/></svg></a>
+          <a data-link="whatsapp" class="soc__a" aria-label="WhatsApp"><svg><use href="#i-whatsapp"/></svg></a>
         </div>
-        <div class="quiz__bar"><i id="qBar"></i></div>
+      </div>
 
-        <div class="quiz__steps" id="qSteps">
-          <!-- 1 -->
+      <form class="quiz" id="quiz" novalidate autocomplete="off" data-reveal>
+        <div class="quiz__top"><span class="quiz__step" id="qCount">Шаг 1 из 5</span><div class="quiz__bar"><i id="qBar"></i></div></div>
+
+        <div class="quiz__steps">
           <fieldset class="qs is-active" data-step="1">
             <legend>Что ты хочешь получить?</legend>
             <div class="opts opts--2">
               <label class="opt"><input type="radio" name="goal" value="Длину"><span><b>Длину</b><small>хочу длиннее</small></span></label>
               <label class="opt"><input type="radio" name="goal" value="Густоту и объём"><span><b>Густоту</b><small>хочу пышнее</small></span></label>
-              <label class="opt"><input type="radio" name="goal" value="Длину и густоту"><span><b>Всё сразу</b><small>длина + объём</small></span></label>
-              <label class="opt"><input type="radio" name="goal" value="Коррекцию / снятие"><span><b>Коррекцию</b><small>или снятие</small></span></label>
+              <label class="opt"><input type="radio" name="goal" value="Длину и густоту"><span><b>Всё сразу</b><small>длина и объём</small></span></label>
+              <label class="opt"><input type="radio" name="goal" value="Коррекцию или снятие"><span><b>Коррекцию</b><small>или снятие</small></span></label>
               <label class="opt opt--wide"><input type="radio" name="goal" value="Пока не знаю — нужна консультация"><span><b>Пока не знаю</b><small>подскажи, что мне подойдёт</small></span></label>
             </div>
           </fieldset>
-          <!-- 2 -->
           <fieldset class="qs" data-step="2">
             <legend>Какие у тебя волосы сейчас?</legend>
             <p class="qs__k">Длина</p>
@@ -472,16 +319,14 @@
               <label class="opt opt--sm"><input type="radio" name="dens" value="густые"><span><b>Густые</b></span></label>
             </div>
           </fieldset>
-          <!-- 3 -->
           <fieldset class="qs" data-step="3">
             <legend>Какой образ мечтаешь?</legend>
-            <p class="qs__k">Желаемая длина <b id="qLenOut">55 см</b></p>
-            <input type="range" class="qrange" id="qLen" name="len" min="30" max="80" value="55" aria-label="Желаемая длина, см">
+            <p class="qs__k">Длина <b id="qLenOut">55 см</b></p>
+            <input type="range" id="qLen" min="30" max="80" value="55" aria-label="Желаемая длина, см">
             <p class="qs__k">Оттенок <b id="qShadeOut">Карамель</b></p>
             <div class="swatches swatches--sm" id="qSwatches" role="radiogroup" aria-label="Оттенок"></div>
-            <p class="qs__hint">Можно пропустить — подберём вместе ✦</p>
+            <p class="qs__hint">Можно пропустить — подберём вместе на консультации.</p>
           </fieldset>
-          <!-- 4 -->
           <fieldset class="qs" data-step="4">
             <legend>Когда тебе удобно?</legend>
             <div class="opts opts--3">
@@ -489,41 +334,38 @@
               <label class="opt opt--sm"><input type="radio" name="when" value="в течение месяца"><span><b>В месяце</b><small>до 30 дней</small></span></label>
               <label class="opt opt--sm"><input type="radio" name="when" value="пока присматриваюсь"><span><b>Позже</b><small>присматриваюсь</small></span></label>
             </div>
-            <label class="field" style="margin-top:22px"><span>Твой город <em>(необязательно)</em></span><input type="text" name="city" id="fCity" placeholder="Твой город" maxlength="40" autocomplete="address-level2"></label>
+            <label class="field"><span>Город <em>(необязательно)</em></span><input type="text" name="city" placeholder="Твой город" maxlength="40" autocomplete="address-level2"></label>
           </fieldset>
-          <!-- 5 -->
           <fieldset class="qs" data-step="5">
             <legend>Как с тобой связаться?</legend>
-            <label class="field"><span>Как тебя зовут</span><input type="text" name="name" id="fName" placeholder="Например, Анна" maxlength="40" autocomplete="given-name"></label>
-            <p class="qs__k">Удобный мессенджер</p>
+            <label class="field"><span>Имя</span><input type="text" name="name" id="fName" placeholder="Как к тебе обращаться" maxlength="40" autocomplete="given-name"></label>
             <div class="seg seg--full" id="chanSeg" role="radiogroup" aria-label="Мессенджер">
               <button type="button" data-v="WhatsApp" role="radio" class="is-on">WhatsApp</button>
               <button type="button" data-v="Telegram" role="radio">Telegram</button>
               <button type="button" data-v="Instagram" role="radio">Instagram</button>
             </div>
             <label class="field"><span id="contactLbl">Номер WhatsApp</span><input type="text" name="contact" id="fContact" placeholder="+995 ..." maxlength="60" inputmode="tel" autocomplete="tel"></label>
-            <label class="field"><span>Комментарий <em>(необязательно)</em></span><textarea name="comment" id="fComment" rows="2" maxlength="300" placeholder="Например: хочу как на фото из Pinterest"></textarea></label>
+            <label class="field"><span>Комментарий <em>(необязательно)</em></span><textarea name="comment" rows="2" maxlength="300" placeholder="Например: хочу как на фото из Pinterest"></textarea></label>
           </fieldset>
         </div>
 
         <p class="quiz__err" id="qErr" role="alert"></p>
-
         <div class="quiz__nav">
-          <button type="button" class="btn btn--ghost" id="qBack"><span>Назад</span></button>
-          <button type="button" class="btn btn--gold btn--lg" id="qNext"><span>Далее</span><svg><use href="#arrow"/></svg></button>
+          <button type="button" class="btn btn--text" id="qBack"><span>Назад</span></button>
+          <button type="button" class="btn btn--dark btn--lg" id="qNext"><span>Далее</span><svg class="arr"><use href="#arrow"/></svg></button>
         </div>
-        <p class="quiz__legal">Нажимая «Получить расчёт», ты соглашаешься, что я свяжусь с тобой по указанному контакту. Данные нигде не публикуются.</p>
 
-        <!-- success -->
         <div class="done" id="qDone" hidden>
-          <div class="ticket" id="ticket"></div>
-          <p class="done__t">Почти готово! Отправь заявку мне — и я отвечу лично ✦</p>
+          <span class="done__ok" aria-hidden="true"><svg><use href="#arrow"/></svg></span>
+          <h3 class="done__t">Заявка готова</h3>
+          <p class="done__sub">Отправь её мне в удобный мессенджер — отвечу лично.</p>
+          <dl class="summary" id="summary"></dl>
           <div class="done__btns">
-            <a class="btn btn--gold magnetic" id="sendWa" target="_blank" rel="noopener"><svg><use href="#i-whatsapp"/></svg><span>Отправить в WhatsApp</span></a>
-            <a class="btn btn--dark magnetic" id="sendTg" target="_blank" rel="noopener"><svg><use href="#i-telegram"/></svg><span>В Telegram</span></a>
-            <button type="button" class="btn btn--ghost" id="copyReq"><span>Скопировать заявку</span></button>
+            <a class="btn btn--dark" id="sendWa" target="_blank" rel="noopener"><svg><use href="#i-whatsapp"/></svg><span>WhatsApp</span></a>
+            <a class="btn btn--dark" id="sendTg" target="_blank" rel="noopener"><svg><use href="#i-telegram"/></svg><span>Telegram</span></a>
+            <button type="button" class="btn btn--line" id="copyReq"><span>Скопировать</span></button>
           </div>
-          <button type="button" class="done__again" id="qAgain">Заполнить заново</button>
+          <button type="button" class="btn btn--text" id="qAgain"><span>Заполнить заново</span></button>
         </div>
       </form>
     </div>
@@ -531,47 +373,35 @@
 </section>
 </main>
 
-<!-- ============ FOOTER ============ -->
 <footer class="footer">
-  <div class="container footer__top">
-    <div class="footer__brand">
-      <img src="assets/img/logo.webp" alt="Katrin Luxe Locks — Hair Extensions Studio" width="560" height="373" loading="lazy">
-    </div>
+  <div class="container footer__grid">
+    <img class="footer__logo" src="assets/img/logo.webp" alt="Katrin Luxe Locks — Hair Extensions Studio" loading="lazy">
     <nav class="footer__nav" aria-label="Нижняя навигация">
-      <a href="#about">Обо мне</a>
-      <a href="#services">Услуги</a>
-      <a href="#works">Работы</a>
-      <a href="#lab">Собери образ</a>
-      <a href="#reviews">Отзывы</a>
-      <a href="#faq">Вопросы</a>
+      <a href="#about">Обо мне</a><a href="#services">Услуги</a><a href="#works">Работы</a>
+      <a href="#lab">Hair Lab</a><a href="#reviews">Отзывы</a><a href="#faq">Вопросы</a>
     </nav>
     <div class="footer__soc">
-      <a data-link="instagram" class="round magnetic" aria-label="Instagram"><svg><use href="#i-instagram"/></svg></a>
-      <a data-link="telegram" class="round magnetic" aria-label="Telegram"><svg><use href="#i-telegram"/></svg></a>
-      <a data-link="whatsapp" class="round magnetic" aria-label="WhatsApp"><svg><use href="#i-whatsapp"/></svg></a>
+      <a data-link="instagram" class="round" aria-label="Instagram"><svg><use href="#i-instagram"/></svg></a>
+      <a data-link="telegram" class="round" aria-label="Telegram"><svg><use href="#i-telegram"/></svg></a>
+      <a data-link="whatsapp" class="round" aria-label="WhatsApp"><svg><use href="#i-whatsapp"/></svg></a>
     </div>
   </div>
-  <div class="footer__word" aria-hidden="true">Katrin</div>
   <div class="container footer__bot">
-    <span>© <span id="year">2026</span> Katrin Luxe Locks · Hair Extensions Studio</span>
+    <span>© <span id="year">2026</span> Katrin Luxe Locks</span>
     <span>Hair Extensions Studio</span>
-    <a href="#home" class="u">Наверх ↑</a>
   </div>
 </footer>
 
-<!-- mobile dock -->
-<div class="dock" id="dock">
-  <a href="#book" class="btn btn--gold"><span>Записаться</span><svg><use href="#arrow"/></svg></a>
-</div>
+<div class="dock" id="dock"><a href="#book" class="btn btn--dark btn--lg"><span>Записаться</span><svg class="arr"><use href="#arrow"/></svg></a></div>
 
-<!-- lightbox -->
 <div class="lb" id="lb" hidden>
-  <button class="lb__x round" id="lbX" aria-label="Закрыть">✕</button>
-  <button class="lb__nav lb__nav--p round" id="lbP" aria-label="Предыдущее"><svg style="transform:scaleX(-1)"><use href="#arrow"/></svg></button>
-  <button class="lb__nav lb__nav--n round" id="lbN" aria-label="Следующее"><svg><use href="#arrow"/></svg></button>
-  <figure class="lb__fig"><img id="lbImg" alt=""><figcaption id="lbCap"></figcaption></figure>
+  <button class="round lb__x" id="lbX" aria-label="Закрыть"><svg style="transform:rotate(45deg)"><use href="#plus"/></svg></button>
+  <button class="round lb__nav lb__nav--p" id="lbP" aria-label="Предыдущее"><svg style="transform:scaleX(-1)"><use href="#arrow"/></svg></button>
+  <button class="round lb__nav lb__nav--n" id="lbN" aria-label="Следующее"><svg><use href="#arrow"/></svg></button>
+  <figure><img id="lbImg" alt=""><figcaption id="lbCap"></figcaption></figure>
 </div>
 
+<script src="js/hair.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>
