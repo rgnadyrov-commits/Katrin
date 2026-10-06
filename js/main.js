@@ -77,12 +77,12 @@ const SHADES = [
 
 /* ПРИМЕР ОТЗЫВОВ — замените на реальные отзывы клиенток (имя, город, услуга, текст). */
 const REVIEWS = [
-  { n: 'Анна',  city: 'Стамбул', svc: 'Капсульное наращивание', t: 'Боялась, что будут видны капсулы — вообще не видно! Подруги не поверили, что это наращённые. Оттенок подобрали идеально с первого раза.' },
-  { n: 'Мария', city: 'Тбилиси', svc: 'Ленточное наращивание', t: 'Тонкие волосы, всегда мечтала про объём. Сделали быстро, никакого дискомфорта и тяжести. Хожу и перебираю волосы весь день 😊' },
-  { n: 'Дина',  city: 'Стамбул', svc: 'Консультация и подбор', t: 'Пришла со скриншотом из Pinterest — ушла с результатом, который даже лучше. Всё объяснила, ничего не навязывала. Честно и очень тепло.' },
-  { n: 'Нино',  city: 'Тбилиси', svc: 'Коррекция', t: 'После коррекции волосы как новые! Приятно, что мастер следит за состоянием моих собственных волос и говорит как о них заботиться.' },
-  { n: 'Лейла', city: 'Стамбул', svc: 'Hair Talk', t: 'Очень переживала за свои тонкие волосы. Метод подошёл идеально — ни ощущения тяжести, ни дискомфорта. Спасибо!' },
-  { n: 'Софи',  city: 'Тбилиси', svc: 'Капсульное наращивание', t: 'Длина до талии за один визит. Люди на улице спрашивают, где я «отрастила». Теперь только к Катрин ✦' }
+  { n: 'Анна',  svc: 'Капсульное наращивание', t: 'Боялась, что будут видны капсулы — вообще не видно! Подруги не поверили, что это наращённые. Оттенок подобрали идеально с первого раза.' },
+  { n: 'Мария', svc: 'Ленточное наращивание', t: 'Тонкие волосы, всегда мечтала про объём. Сделали быстро, никакого дискомфорта и тяжести. Хожу и перебираю волосы весь день 😊' },
+  { n: 'Дина',  svc: 'Консультация и подбор', t: 'Пришла со скриншотом из Pinterest — ушла с результатом, который даже лучше. Всё объяснила, ничего не навязывала. Честно и очень тепло.' },
+  { n: 'Нино',  svc: 'Коррекция', t: 'После коррекции волосы как новые! Приятно, что мастер следит за состоянием моих собственных волос и говорит как о них заботиться.' },
+  { n: 'Лейла', svc: 'Hair Talk', t: 'Очень переживала за свои тонкие волосы. Метод подошёл идеально — ни ощущения тяжести, ни дискомфорта. Спасибо!' },
+  { n: 'Софи',  svc: 'Капсульное наращивание', t: 'Длина до талии за один визит. Люди на улице спрашивают, где я «отрастила». Теперь только к Катрин ✦' }
 ];
 
 const FAQ = [
@@ -92,7 +92,7 @@ const FAQ = [
   ['Можно ли красить, укладывать, пользоваться плойкой?', 'Да. Наращённые волосы можно укладывать и подкручивать — с термозащитой и без лишнего нагрева у креплений. После визита я расскажу подробно.'],
   ['Можно ли мыть голову, плавать, ходить в хаммам?', 'Можно. У каждого вопроса есть свои мелочи (шампунь, сушка, расчёсывание) — я дам памятку по уходу после процедуры.'],
   ['Как узнать стоимость?', 'Пройди короткую анкету ниже: длина, объём и техника определяют итоговую цену. Я озвучу стоимость до начала работы — без неожиданностей.'],
-  ['Где ты принимаешь?', 'Основной приём — в студии в Стамбуле. Если ты в Тбилиси — напиши мне, договоримся о формате и датах.']
+  ['Как записаться?', 'Заполни короткую анкету ниже или напиши мне в мессенджер. Я отвечу, предложу удобное время и подготовлю расчёт.']
 ];
 
 /* =========================================================
@@ -518,8 +518,9 @@ function initLightbox() {
    Hair Lab
    ========================================================= */
 const lab = { shade: 2, len: 55, dens: 1 };
-const DENS = [{ n: 'лёгкая', s: .88 }, { n: 'естественная', s: 1 }, { n: 'пышная', s: 1.13 }];
-const lenY = L => 215 + (L - 30) * 5.1;
+const DENS = [{ n: 'лёгкая', s: .8 }, { n: 'естественная', s: 1 }, { n: 'пышная', s: 1.28 }];
+const TOP = 74, K = 3.8;
+const lenY = L => TOP + L * K;
 const lenName = L => L < 35 ? 'каре' : L < 47 ? 'до плеч' : L < 60 ? 'до лопаток' : L < 72 ? 'до талии' : 'до бёдер';
 const MARKS = [[30, 'каре'], [40, 'плечи'], [55, 'лопатки'], [65, 'талия'], [80, 'бёдра']];
 let quiz;
@@ -530,20 +531,35 @@ function initLab() {
   sw.innerHTML = swHTML(); qsw.innerHTML = swHTML();
 
   const scale = $('#labScale');
-  scale.innerHTML = MARKS.map(([l, t]) => { const y = lenY(l); return `<g data-l="${l}"><line x1="46" x2="290" y1="${y}" y2="${y}"/><text x="14" y="${y + 3.5}">${t}</text></g>`; }).join('');
+  let ticks = '';
+  for (let c = 30; c <= 80; c += 5) { const y = lenY(c), big = c % 10 === 0; ticks += `<line x1="26" x2="${big ? 40 : 33}" y1="${y}" y2="${y}" class="tk"/>` + (big ? `<text x="22" y="${y + 3.5}" text-anchor="end" class="tn">${c}</text>` : ''); }
+  scale.innerHTML = `<line x1="26" x2="26" y1="${lenY(30)}" y2="${lenY(80)}" class="tk"/>` + ticks +
+    MARKS.map(([l, t]) => { const y = lenY(l); return `<g data-l="${l}"><line x1="226" x2="238" y1="${y}" y2="${y}"/><text x="242" y="${y + 3}">${t}</text></g>`; }).join('');
 
   // marks under slider placed by real value
   const mk = $('.range__marks'); mk.style.cssText = 'position:relative;height:18px;display:block';
   mk.innerHTML = MARKS.map(([l, t]) => `<span style="position:absolute;left:${(l - 30) / 50 * 100}%;transform:translateX(${l === 30 ? '0' : l === 80 ? '-100%' : '-50%'})">${t}</span>`).join('');
 
-  const hp = L => { const b = lenY(L), m = Math.max(b - 80, 190), w = Math.min(14, (L - 30) / 3.5);
-    return `M150 24C110 24 98 60 98 108C98 150 ${92 - w * .4} ${m - 20} ${80 - w} ${b}Q150 ${b + 36} ${220 + w} ${b}C${208 + w * .4} ${m - 20} 202 150 202 108C202 60 190 24 150 24Z`; };
+  const rnd = n => { const x = Math.sin(n * 12.9898) * 43758.5453; return x - Math.floor(x); };
+  function tress() {
+    const L = lab.len * K, d = DENS[lab.dens].s, n = Math.round(42 * d), W = 112 * d, x1 = 150 - W / 2;
+    let out = '', hi = '';
+    for (let k = 0; k < n; k++) {
+      const t = k / (n - 1), x = x1 + t * W, edge = Math.pow(Math.abs(t - .5) * 2, 3);
+      const len = L - rnd(k) * 9 - edge * 12, a = 8 * Math.sin(t * 5.2 + .6) + (rnd(k + 9) - .5) * 3, a2 = a * .7 + 3 * Math.cos(t * 7);
+      const dd = `M${x.toFixed(1)} ${TOP} C${(x + a).toFixed(1)} ${(TOP + len * .28).toFixed(1)} ${(x - a2).toFixed(1)} ${(TOP + len * .62).toFixed(1)} ${(x + a * .5).toFixed(1)} ${(TOP + len).toFixed(1)}`;
+      out += `<path d="${dd}" stroke="url(#hairGrad)" stroke-width="${(3.9 + rnd(k + 3) * 1.6).toFixed(1)}" stroke-linecap="round" fill="none" opacity="${(.82 + rnd(k + 5) * .18).toFixed(2)}"/>`;
+      if (k % 4 === 1) hi += `<path d="${dd}" stroke="#fff" stroke-width="1.1" stroke-linecap="round" fill="none" opacity=".22"/>`;
+      if (k % 5 === 3) hi += `<path d="${dd}" stroke="#000" stroke-width="1.4" stroke-linecap="round" fill="none" opacity=".12"/>`;
+    }
+    const cx = 150 - W * .14, sh = `M${cx} ${TOP} C${cx + 8} ${TOP + L * .3} ${cx - 8} ${TOP + L * .6} ${cx + 3} ${TOP + L * .96}`;
+    $('#tress').innerHTML = out + hi + `<path d="${sh}" stroke="#fff" stroke-width="${(12 * d).toFixed(0)}" stroke-linecap="round" fill="none" opacity=".26" filter="url(#blur6)"/>`;
+    const g = $('#hairGrad'); g.setAttribute('y2', TOP + L);
+  }
 
   function render() {
-    const s = SHADES[lab.shade], d = hp(lab.len);
-    ['hairBack', 'hairStr', 'hairShn'].forEach(id => $('#' + id).setAttribute('d', d));
+    const s = SHADES[lab.shade]; tress();
     ['hg0', 'hg1', 'hg2'].forEach((id, k) => $('#' + id).setAttribute('stop-color', s.c[k]));
-    $('#labSvg').style.setProperty('--dens', DENS[lab.dens].s);
     $('#shadeName').textContent = s.n; $('#lenName').textContent = `${lenName(lab.len)} · ${lab.len} см`; $('#densName').textContent = DENS[lab.dens].n;
     $('#labChip').textContent = `${lenName(lab.len)} · ${s.n}`;
     $$('.sw').forEach(b => { const on = +b.dataset.i === lab.shade; b.classList.toggle('is-on', on); b.setAttribute('aria-checked', on); });
@@ -551,7 +567,7 @@ function initLab() {
     $$('.lab__scale g').forEach(g => g.classList.toggle('is-near', Math.abs(+g.dataset.l - lab.len) <= 3));
     ['lenRange', 'qLen'].forEach(id => { const r = $('#' + id); r.value = lab.len; r.style.setProperty('--fill', (lab.len - 30) / 50 * 100 + '%'); });
     $('#qLenOut').textContent = lab.len + ' см'; $('#qShadeOut').textContent = s.n;
-    $('#labBg').style.background = `radial-gradient(60% 50% at 50% 35%,rgba(255,255,255,.9),transparent 70%), radial-gradient(50% 40% at 50% 80%, ${s.c[1]}33, transparent 70%)`;
+    $('#labBg').style.background = `radial-gradient(60% 45% at 50% 30%,rgba(255,255,255,.85),transparent 70%), radial-gradient(55% 40% at 50% 85%, ${s.c[1]}55, transparent 72%)`;
   }
   const setShade = i => { lab.shade = i; render(); };
   sw.addEventListener('click', e => { const b = e.target.closest('.sw'); if (b) setShade(+b.dataset.i); });
@@ -571,7 +587,7 @@ function buildReviews() {
   track.innerHTML = REVIEWS.map(r => `
     <article class="rv tilt">
       <span class="rv__q" aria-hidden="true">“</span>
-      <div class="rv__head"><div class="rv__av">${r.n[0]}</div><div><b>${r.n}</b><span>${r.city}</span></div></div>
+      <div class="rv__head"><div class="rv__av">${r.n[0]}</div><div><b>${r.n}</b><span>Клиентка Katrin</span></div></div>
       <div class="rv__stars" aria-label="5 из 5">${stars}</div>
       <p class="rv__txt">${r.t}</p>
       <span class="rv__tag">${r.svc}</span>
@@ -623,7 +639,7 @@ function initQuiz() {
     const v = val();
     if (n === 1 && !v.goal) return 'Выбери вариант — это поможет мне подготовиться ✦';
     if (n === 2 && (!v.now || !v.dens)) return 'Выбери длину и густоту волос сейчас';
-    if (n === 4 && (!v.city || !v.when)) return 'Выбери город и удобное время';
+    if (n === 4 && !v.when) return 'Выбери удобное время';
     if (n === 5) {
       if (!v.name || v.name.trim().length < 2) { $('#fName').closest('.field').classList.add('is-bad'); return 'Подскажи, как к тебе обращаться'; }
       const c = (v.contact || '').trim();
@@ -674,7 +690,7 @@ function initQuiz() {
       service ? `Интересует: ${service}.` : '',
       `Мои волосы сейчас: ${v.now}, ${v.dens}.`,
       `Мечтаю об образе: ${lenName(lab.len)} (~${lab.len} см), оттенок «${sh}», густота ${d}.`,
-      `Город: ${v.city}. Когда: ${v.when}.`,
+      `Когда удобно: ${v.when}.${v.city && v.city.trim() ? ' Город: ' + v.city.trim() + '.' : ''}`,
       `Связь: ${chan} — ${v.contact.trim()}.`,
       v.comment && v.comment.trim() ? `Комментарий: ${v.comment.trim()}` : ''
     ].filter(Boolean).join('\n');
@@ -689,7 +705,7 @@ function initQuiz() {
         <div class="ticket__route"><span>${v.now}</span><i></i><span>${lab.len} см</span></div>
         <div class="ticket__rows">
           <div><span>Пассажир</span><b>${escapeHTML(v.name.trim())}</b></div>
-          <div><span>Город</span><b>${v.city}</b></div>
+          <div><span>Длина</span><b>${lenName(lab.len)}</b></div>
           <div><span>Цель</span><b>${v.goal}</b></div>
           <div><span>Когда</span><b>${v.when}</b></div>
           <div><span>Оттенок</span><b>${SHADES[lab.shade].n}</b></div>
