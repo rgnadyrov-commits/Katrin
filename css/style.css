@@ -176,7 +176,7 @@ svg use{pointer-events:none}
 .statement .fw.on{color:var(--ink)}
 .about__grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,6vw,96px);align-items:end}
 .about__img{border-radius:var(--r);overflow:hidden;aspect-ratio:4/5;background:var(--blue-1)}
-.about__img img{width:100%;height:118%;object-fit:cover;object-position:50% 18%;will-change:transform}
+.about__img img{width:100%;height:118%;object-fit:cover;object-position:42% 14%;will-change:transform}
 .features{display:flex;flex-direction:column}
 .feature{display:grid;grid-template-columns:70px 1fr;gap:10px;padding:30px 0;border-top:1px solid var(--line)}
 .feature:last-of-type{border-bottom:1px solid var(--line);margin-bottom:36px}
