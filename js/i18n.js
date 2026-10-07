@@ -9,7 +9,7 @@ window.I18N = {
 en: {
   langName: 'English',
   meta: { title: 'Katrin Luxe Locks — Hair Extensions', desc: 'Katrin Luxe Locks — hair extension specialist. Capsule, tape-in and Hair Talk extensions. Natural, gentle, luxurious.' },
-  nav: { aria: 'Main navigation', top: 'Katrin Luxe Locks — back to top', about: 'About', services: 'Services', works: 'Works', lab: 'Hair Lab', reviews: 'Reviews', faq: 'FAQ', book: 'Book now', menu: 'Open menu', footer: 'Footer navigation', lang: 'Language' },
+  nav: { aria: 'Main navigation', top: 'Katrin Luxe Locks — back to top', about: 'About', services: 'Services', works: 'Works', lab: 'Hair Lab', reviews: 'Reviews', faq: 'FAQ', book: 'Book now', menu: 'Open menu', footer: 'Footer navigation', lang: 'Language', toTop: 'Back to top' },
   cur: { works: 'Works', view: 'View', drag: 'Drag' },
   hero: {
     tag1: 'Capsules', tag2: 'Tape-ins', tag3: 'Hair Talk',
@@ -21,7 +21,7 @@ en: {
   about: {
     label: 'About me',
     statement: 'I’m Katrin, a hair extension specialist. My goal is simple: when you look in the mirror, you see your own hair — just longer, fuller and more luxurious. With zero compromise on how natural it looks.',
-    img: 'Long silky hair',
+    img: 'Katrin — hair extension specialist',
     f1t: 'Tailored to you', f1p: 'Shade, length and density matched to your hair, lifestyle and budget.',
     f2t: 'Gentle on your hair', f2p: 'I choose the technique based on your hair’s condition. If you don’t need extensions, I’ll tell you honestly.',
     f3t: 'Transparent pricing', f3p: 'You’ll know the price before we start. No surprises at the end.',
@@ -126,7 +126,7 @@ en: {
 ru: {
   langName: 'Русский',
   meta: { title: 'Katrin Luxe Locks — наращивание волос', desc: 'Katrin Luxe Locks — мастер по наращиванию волос. Капсульное, ленточное наращивание и Hair Talk. Естественно, бережно, роскошно.' },
-  nav: { aria: 'Основная навигация', top: 'Katrin Luxe Locks — наверх', about: 'Обо мне', services: 'Услуги', works: 'Работы', lab: 'Hair Lab', reviews: 'Отзывы', faq: 'Вопросы', book: 'Записаться', menu: 'Открыть меню', footer: 'Нижняя навигация', lang: 'Язык' },
+  nav: { aria: 'Основная навигация', top: 'Katrin Luxe Locks — наверх', about: 'Обо мне', services: 'Услуги', works: 'Работы', lab: 'Hair Lab', reviews: 'Отзывы', faq: 'Вопросы', book: 'Записаться', menu: 'Открыть меню', footer: 'Нижняя навигация', lang: 'Язык', toTop: 'Наверх' },
   cur: { works: 'Работы', view: 'Смотреть', drag: 'Тяни' },
   hero: {
     tag1: 'Капсулы', tag2: 'Ленты', tag3: 'Hair Talk',
@@ -138,7 +138,7 @@ ru: {
   about: {
     label: 'Обо мне',
     statement: 'Меня зовут Катрин, я мастер по наращиванию волос. Моя цель — чтобы ты смотрела в зеркало и видела свои волосы, только длиннее, гуще и роскошнее. Без компромиссов в естественности.',
-    img: 'Длинные шелковистые волосы',
+    img: 'Катрин — мастер по наращиванию волос',
     f1t: 'Индивидуальный подбор', f1p: 'Оттенок, длина и густота — под твои волосы, образ жизни и бюджет.',
     f2t: 'Бережно к своим волосам', f2p: 'Техника выбирается по состоянию волос. Если наращивание тебе не нужно — скажу честно.',
     f3t: 'Прозрачная стоимость', f3p: 'Цену называю до начала работы. Никаких сюрпризов в конце.',
@@ -243,7 +243,7 @@ ru: {
 tr: {
   langName: 'Türkçe',
   meta: { title: 'Katrin Luxe Locks — Saç Kaynak', desc: 'Katrin Luxe Locks — saç kaynak uzmanı. Kapsül, bant ve Hair Talk kaynak. Doğal, nazik, lüks.' },
-  nav: { aria: 'Ana menü', top: 'Katrin Luxe Locks — başa dön', about: 'Hakkımda', services: 'Hizmetler', works: 'Çalışmalar', lab: 'Hair Lab', reviews: 'Yorumlar', faq: 'SSS', book: 'Randevu al', menu: 'Menüyü aç', footer: 'Alt menü', lang: 'Dil' },
+  nav: { aria: 'Ana menü', top: 'Katrin Luxe Locks — başa dön', about: 'Hakkımda', services: 'Hizmetler', works: 'Çalışmalar', lab: 'Hair Lab', reviews: 'Yorumlar', faq: 'SSS', book: 'Randevu al', menu: 'Menüyü aç', footer: 'Alt menü', lang: 'Dil', toTop: 'Başa dön' },
   cur: { works: 'Çalışmalar', view: 'Bak', drag: 'Kaydır' },
   hero: {
     tag1: 'Kapsül', tag2: 'Bant', tag3: 'Hair Talk',
@@ -255,7 +255,7 @@ tr: {
   about: {
     label: 'Hakkımda',
     statement: 'Ben Katrin, saç kaynak uzmanıyım. Amacım basit: aynaya baktığınızda kendi saçınızı görmeniz — sadece daha uzun, daha gür ve daha lüks. Doğallıktan hiç ödün vermeden.',
-    img: 'Uzun ipeksi saçlar',
+    img: 'Katrin — saç kaynak uzmanı',
     f1t: 'Size özel seçim', f1p: 'Renk, uzunluk ve yoğunluk; saçınıza, yaşam tarzınıza ve bütçenize göre.',
     f2t: 'Saçınıza nazik', f2p: 'Tekniği saçınızın durumuna göre seçerim. Kaynağa ihtiyacınız yoksa bunu dürüstçe söylerim.',
     f3t: 'Şeffaf fiyat', f3p: 'Fiyatı işe başlamadan önce söylerim. Sonunda sürpriz yok.',
@@ -360,7 +360,7 @@ tr: {
 ka: {
   langName: 'ქართული',
   meta: { title: 'Katrin Luxe Locks — თმის დაგრძელება', desc: 'Katrin Luxe Locks — თმის დაგრძელების სპეციალისტი. კაფსულური, ლენტური დაგრძელება და Hair Talk. ბუნებრივად, ფრთხილად, ფუფუნებით.' },
-  nav: { aria: 'მთავარი მენიუ', top: 'Katrin Luxe Locks — ზემოთ', about: 'ჩემ შესახებ', services: 'სერვისები', works: 'ნამუშევრები', lab: 'Hair Lab', reviews: 'შეფასებები', faq: 'კითხვები', book: 'ჩაწერა', menu: 'მენიუს გახსნა', footer: 'ქვედა მენიუ', lang: 'ენა' },
+  nav: { aria: 'მთავარი მენიუ', top: 'Katrin Luxe Locks — ზემოთ', about: 'ჩემ შესახებ', services: 'სერვისები', works: 'ნამუშევრები', lab: 'Hair Lab', reviews: 'შეფასებები', faq: 'კითხვები', book: 'ჩაწერა', menu: 'მენიუს გახსნა', footer: 'ქვედა მენიუ', lang: 'ენა', toTop: 'ზემოთ' },
   cur: { works: 'ნამუშევრები', view: 'ნახვა', drag: 'გადაწიე' },
   hero: {
     tag1: 'კაფსულები', tag2: 'ლენტები', tag3: 'Hair Talk',
@@ -372,7 +372,7 @@ ka: {
   about: {
     label: 'ჩემ შესახებ',
     statement: 'მე ვარ კატრინი, თმის დაგრძელების სპეციალისტი. ჩემი მიზანი მარტივია: სარკეში ჩახედვისას დაინახო შენი საკუთარი თმა — უბრალოდ უფრო გრძელი, უფრო ხშირი და უფრო ფუფუნებით. ბუნებრიობაზე კომპრომისის გარეშე.',
-    img: 'გრძელი აბრეშუმისებრი თმა',
+    img: 'კატრინი — თმის დაგრძელების სპეციალისტი',
     f1t: 'ინდივიდუალური შერჩევა', f1p: 'ფერი, სიგრძე და სიხშირე — შენს თმას, ცხოვრების სტილსა და ბიუჯეტს მორგებული.',
     f2t: 'ფრთხილად შენს თმასთან', f2p: 'ტექნიკას თმის მდგომარეობის მიხედვით ვარჩევ. თუ დაგრძელება არ გჭირდება, გულწრფელად გეტყვი.',
     f3t: 'გამჭვირვალე ფასი', f3p: 'ფასს მუშაობის დაწყებამდე გეტყვი. ბოლოს სიურპრიზები არ იქნება.',

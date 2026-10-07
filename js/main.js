@@ -167,7 +167,7 @@ function initReveal() {
 const observe = (scope, instant) => $$('[data-reveal]', scope).forEach(el => instant ? el.classList.add('in') : revealIO.observe(el));
 
 function initScroll() {
-  const bar = $('.progress span'), nav = $('#nav'), dock = $('#dock');
+  const bar = $('.progress span'), nav = $('#nav'), dock = $('#dock'), totop = $('#totop');
   const st = $('.statement'), heroImg = $('.hero__media img'), aboutImg = $('.about__img img');
   let lastY = scrollY, ticking = false;
   const upd = () => {
@@ -186,7 +186,9 @@ function initScroll() {
       if (ar.top < vh && ar.bottom > 0) aboutImg.style.transform = `translateY(${-((vh - ar.top) / (vh + ar.height)) * 14}%)`;
     }
     const b = $('#book').getBoundingClientRect();
-    dock.classList.toggle('is-on', y > vh * .8 && !(b.top < vh && b.bottom > 0));
+    const dockOn = y > vh * .8 && !(b.top < vh && b.bottom > 0);
+    dock.classList.toggle('is-on', dockOn); document.body.classList.toggle('dock-on', dockOn);
+    totop.classList.toggle('is-on', y > vh * .9);
     ticking = false;
   };
   addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(upd); } }, { passive: true });
@@ -204,6 +206,7 @@ function initScroll() {
   burger.addEventListener('click', () => setMenu(!menu.classList.contains('is-open')));
   $$('a', menu).forEach(a => a.addEventListener('click', () => setMenu(false)));
   $('#year').textContent = new Date().getFullYear();
+  totop.addEventListener('click', e => { e.preventDefault(); scrollTo({ top: 0, behavior: REDUCED ? 'auto' : 'smooth' }); history.replaceState(null, '', location.pathname + location.search); });
 }
 
 /* =========================================================
@@ -309,7 +312,30 @@ function buildWorks() {
   let touched = false, raf = 0, cur = 0;
   const setPos = v => { ba.style.setProperty('--pos', v + '%'); range.value = v; };
   range.addEventListener('input', () => { touched = true; cancelAnimationFrame(raf); ba.style.setProperty('--pos', range.value + '%'); });
-  range.addEventListener('pointerdown', () => { touched = true; cancelAnimationFrame(raf); });
+  // перетаскивание пальцем/мышью в любом месте фото; вертикальный свайп по-прежнему прокручивает страницу
+  let dragging = false, sx = 0, sy = 0, decided = false;
+  const posFrom = e => { const r = ba.getBoundingClientRect(); return clamp((e.clientX - r.left) / r.width * 100, 0, 100); };
+  ba.addEventListener('pointerdown', e => {
+    if (e.button > 0) return;
+    touched = true; cancelAnimationFrame(raf);
+    dragging = true; decided = e.pointerType === 'mouse'; sx = e.clientX; sy = e.clientY;
+    if (decided) { ba.setPointerCapture(e.pointerId); ba.classList.add('is-drag'); setPos(posFrom(e)); }
+  });
+  ba.addEventListener('pointermove', e => {
+    if (!dragging) return;
+    if (!decided) {
+      const dx = Math.abs(e.clientX - sx), dy = Math.abs(e.clientY - sy);
+      if (dx < 6 && dy < 6) return;
+      if (dy > dx) { dragging = false; return; }       // вертикальный жест — это прокрутка
+      decided = true; try { ba.setPointerCapture(e.pointerId); } catch (_) {} ba.classList.add('is-drag');
+    }
+    setPos(posFrom(e));
+  });
+  const stop = e => {
+    if (dragging && !decided && e.type === 'pointerup') setPos(posFrom(e)); // короткий тап — перенос рамки в точку касания
+    dragging = false; ba.classList.remove('is-drag');
+  };
+  ba.addEventListener('pointerup', stop); ba.addEventListener('pointercancel', () => { dragging = false; ba.classList.remove('is-drag'); });
   const hint = () => {
     if (REDUCED || touched) return;
     const keys = [[50, 28], [28, 72], [72, 50]]; let s = 0, t0 = performance.now();
