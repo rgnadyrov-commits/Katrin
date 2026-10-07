@@ -1,21 +1,32 @@
 <!doctype html>
-<html lang="ru">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Katrin Luxe Locks — наращивание волос</title>
-<meta name="description" content="Katrin Luxe Locks — мастер по наращиванию волос. Капсульное, ленточное наращивание и Hair Talk. Естественно, бережно, роскошно.">
+<title>Katrin Luxe Locks — Hair Extensions</title>
+<meta name="description" content="Katrin Luxe Locks — hair extension specialist. Capsule, tape-in and Hair Talk extensions. Natural, gentle, luxurious.">
 <meta name="theme-color" content="#c9d5e1">
 <meta property="og:title" content="Katrin Luxe Locks — Hair Extensions Studio">
-<meta property="og:description" content="Длиннее. Гуще. Роскошнее. Наращивание волос от Катрин.">
+<meta property="og:description" content="Longer. Fuller. Luxurious.">
 <meta property="og:image" content="assets/img/logo.webp">
-<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="alternate" hreflang="en" href="?lang=en"><link rel="alternate" hreflang="ru" href="?lang=ru">
+<link rel="alternate" hreflang="tr" href="?lang=tr"><link rel="alternate" hreflang="ka" href="?lang=ka">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://images.unsplash.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700&family=Inter:wght@400;500;600&family=Great+Vibes&family=Cormorant+Garamond:wght@600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=4">
-<script>document.documentElement.classList.add('js')</script>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700&family=Inter:wght@400;500;600&family=Noto+Sans+Georgian:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css?v=5">
+<script>
+  // язык выбирается до отрисовки, чтобы не мигал английский текст
+  (function () {
+    var L = ['en', 'ru', 'tr', 'ka'], q = new URLSearchParams(location.search).get('lang'), s = null;
+    try { s = localStorage.getItem('kll-lang'); } catch (e) {}
+    var lang = L.indexOf(q) > -1 ? q : (L.indexOf(s) > -1 ? s : 'en');
+    document.documentElement.lang = lang; document.documentElement.classList.add('js');
+  })();
+</script>
 </head>
 <body class="is-loading">
 
@@ -24,78 +35,50 @@
     <symbol id="arrow" viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
     <symbol id="plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
     <symbol id="star" viewBox="0 0 24 24"><path d="M12 2.5l2.9 6 6.6.8-4.9 4.5 1.3 6.5L12 17l-5.9 3.3 1.3-6.5L2.5 9.3l6.6-.8z" fill="currentColor"/></symbol>
-    <symbol id="i-whatsapp" viewBox="0 0 24 24"><path d="M12 2.5a9.5 9.5 0 0 0-8.1 14.4L2.6 21.4l4.6-1.2A9.5 9.5 0 1 0 12 2.5Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M8.8 7.6c.3-.5.7-.4.9-.2l.9 1.900c.1.3 0 .5-.3.8-.2.2-.4.4-.2.7.5.9 1.3 1.7 2.3 2.2.4.2.5 0 .7-.2.3-.4.5-.5.9-.3l1.7.8c.3.2.3.5.1 1-.4.8-1.4 1.2-2.2 1-2.9-.7-5.1-2.8-5.7-5.6-.1-.5 0-.9.3-1.4Z" fill="currentColor"/></symbol>
+    <symbol id="globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3Z" fill="none" stroke="currentColor" stroke-width="1.6"/></symbol>
+    <symbol id="i-whatsapp" viewBox="0 0 24 24"><path d="M12 2.5a9.5 9.5 0 0 0-8.1 14.4L2.6 21.4l4.6-1.2A9.5 9.5 0 1 0 12 2.5Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M8.8 7.6c.3-.5.7-.4.9-.2l.9 1.9c.1.3 0 .5-.3.8-.2.2-.4.4-.2.7.5.9 1.3 1.7 2.3 2.2.4.2.5 0 .7-.2.3-.4.5-.5.9-.3l1.7.8c.3.2.3.5.1 1-.4.8-1.4 1.2-2.2 1-2.9-.7-5.1-2.8-5.7-5.6-.1-.5 0-.9.3-1.4Z" fill="currentColor"/></symbol>
     <symbol id="i-telegram" viewBox="0 0 24 24"><path d="M21.5 3.6 2.6 10.9c-.9.4-.9 1.1-.2 1.3l4.8 1.5 1.9 5.8c.2.6.4.7.9.4l2.7-2.2 4.7 3.5c.9.5 1.5.2 1.7-.9L22.9 4.9c.3-1.3-.5-1.9-1.4-1.3Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="m9.3 14.3 8.4-6.2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
     <symbol id="i-instagram" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5.5" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor"/></symbol>
-    <!-- ===== brand logo ===== -->
-  <linearGradient id="lgGold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e9d39c"/><stop offset=".45" stop-color="#c6a15b"/><stop offset="1" stop-color="#9c7a36"/></linearGradient>
-  <linearGradient id="lgHair" x1="0" y1="0" x2=".35" y2="1"><stop offset="0" stop-color="#6e4223"/><stop offset=".45" stop-color="#b07a45"/><stop offset=".8" stop-color="#d9b07a"/><stop offset="1" stop-color="#ecd2a2"/></linearGradient>
-  <linearGradient id="lgBlue" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9fbfd3"/><stop offset="1" stop-color="#d6e6ef"/></linearGradient>
-  <symbol id="leaf" viewBox="-2 -14 44 28"><path d="M0 0C9-11 27-13 40 0 27 13 9 11 0 0Z"/><path d="M2 0H36" stroke="#c6a15b" stroke-width="1" fill="none" stroke-linecap="round"/></symbol>
-  <symbol id="brand" viewBox="0 0 420 420">
-    <!-- ring with an opening on the right -->
-    <path d="M343 300A160 160 0 1 1 291 72" fill="none" stroke="url(#lgGold)" stroke-width="2.2" stroke-linecap="round"/>
-    <!-- hair lock: three interwoven strands -->
-    <defs><linearGradient id="lgHair2" x1="0" y1="0" x2=".3" y2="1"><stop offset="0" stop-color="#a06a3a"/><stop offset=".6" stop-color="#e2bd86"/><stop offset="1" stop-color="#f3dfb8"/></linearGradient></defs>
-    <path d="M316 110C358 160 300 224 334 288 354 326 340 362 300 394 344 370 364 330 348 290 326 240 374 176 324 108Z" fill="url(#lgHair)"/>
-    <path d="M324 128C358 172 318 222 346 274 362 304 358 330 340 352 366 330 374 300 358 270 338 230 370 182 328 126Z" fill="url(#lgBlue)"/>
-    <path d="M330 118C372 168 322 230 354 290 370 322 362 352 334 382 370 354 384 318 364 282 344 242 388 184 336 116Z" fill="url(#lgHair2)"/>
-    <g fill="none" stroke-linecap="round">
-      <path d="M320 114C358 164 306 226 340 288 358 324 342 360 306 390" stroke="#f6e3b8" stroke-width="1" opacity=".8"/>
-      <path d="M334 122C372 172 326 232 358 290 372 320 362 350 338 376" stroke="#8a5a30" stroke-width=".8" opacity=".5"/>
-      <path d="M327 116C366 168 316 228 349 288" stroke="#c6a15b" stroke-width=".7"/>
-    </g>
-    <!-- sprig -->
-    <path d="M318 150C322 118 334 86 356 56" fill="none" stroke="#1d4a3b" stroke-width="2" stroke-linecap="round"/>
-    <use href="#leaf" x="0" y="0" width="44" height="28" fill="#1d4a3b" transform="translate(352 54) rotate(-60) scale(.95) translate(-2 -14)"/>
-    <use href="#leaf" fill="#9fbfd3" transform="translate(338 84) rotate(-10) scale(.85) translate(-2 -14)" width="44" height="28"/>
-    <use href="#leaf" fill="#1d4a3b" transform="translate(332 98) rotate(-150) scale(.8) translate(-2 -14)" width="44" height="28"/>
-    <use href="#leaf" fill="#9fbfd3" transform="translate(326 124) rotate(-165) scale(.7) translate(-2 -14)" width="44" height="28"/>
-    <use href="#leaf" fill="#1d4a3b" transform="translate(328 118) rotate(10) scale(.6) translate(-2 -14)" width="44" height="28"/>
-    <!-- wordmark -->
-    <text x="186" y="226" text-anchor="middle" font-family="'Great Vibes',cursive" font-size="112" fill="#12352a">Katrin</text>
-    <text x="190" y="272" text-anchor="middle" font-family="'Cormorant Garamond',serif" font-weight="600" font-size="23" letter-spacing="9" fill="#a8843f">LUXE LOCKS</text>
-    <path d="M120 293H178M202 293H260" stroke="url(#lgGold)" stroke-width="1.2" stroke-linecap="round"/>
-    <path d="M190 285C191 290 192 292 197 293 192 294 191 296 190 301 189 296 188 294 183 293 188 292 189 290 190 285Z" fill="#c6a15b"/>
-    <text x="190" y="320" text-anchor="middle" font-family="Inter,sans-serif" font-weight="500" font-size="10.5" letter-spacing="4.2" fill="#12352a" opacity=".75">HAIR EXTENSIONS STUDIO</text>
-  </symbol>
-  <symbol id="brandMark" viewBox="0 0 100 100">
-    <path d="M80 72A36 36 0 1 1 72 20" fill="none" stroke="url(#lgGold)" stroke-width="1.8" stroke-linecap="round"/>
-    <path d="M72 24C86 38 72 54 82 68 87 76 82 84 72 90 86 84 94 72 88 62 82 52 94 38 76 22Z" fill="url(#lgHair)"/>
-    <path d="M70 26C68 20 72 14 79 11" fill="none" stroke="#1d4a3b" stroke-width="1.4" stroke-linecap="round"/>
-    <path d="M79 11C82 6 88 6 91 8 88 12 83 13 79 11Z" fill="#1d4a3b"/><path d="M73 17C70 12 64 12 61 14 64 18 69 19 73 17Z" fill="#9fbfd3"/>
-    <text x="44" y="67" text-anchor="middle" font-family="'Great Vibes',cursive" font-size="56" fill="#12352a">K</text>
-  </symbol>
   </defs>
 </svg>
-<span class="font-warm" aria-hidden="true"><i style="font-family:'Great Vibes'">Katrin K</i><i style="font-family:'Cormorant Garamond';font-weight:600">LUXE</i></span>
 
-<div id="loader" aria-hidden="true"><svg class="loader__logo"><use href="#brand"/></svg><span class="loader__bar"><i></i></span></div>
+<div id="loader" aria-hidden="true"><img src="assets/img/logo.webp" alt="" class="loader__logo" width="640" height="574"><span class="loader__bar"><i></i></span></div>
 <canvas id="fx" aria-hidden="true"></canvas>
 <div class="cursor" aria-hidden="true"><i class="cursor__dot"></i><i class="cursor__ring"><b></b></i></div>
 <div class="progress" aria-hidden="true"><span></span></div>
 
 <!-- ================= NAV ================= -->
 <header class="nav" id="nav">
-  <nav class="nav__pills" aria-label="Основная навигация">
-    <a href="#top" class="nav__logo magnetic" aria-label="Katrin Luxe Locks — наверх"><svg><use href="#brandMark"/></svg></a>
-    <a href="#about" class="pill">Обо мне</a>
-    <a href="#services" class="pill">Услуги</a>
-    <a href="#works" class="pill">Работы</a>
-    <a href="#lab" class="pill">Hair Lab</a>
-    <a href="#reviews" class="pill">Отзывы</a>
-    <a href="#faq" class="pill">Вопросы</a>
+  <a href="#top" class="nav__brand" data-i18n-attr="aria-label=nav.top"><img src="assets/img/logo-sm.webp" alt="Katrin Luxe Locks" width="280" height="251"></a>
+  <nav class="nav__pills" data-i18n-attr="aria-label=nav.aria">
+    <a href="#about" class="pill" data-i18n="nav.about">About</a>
+    <a href="#services" class="pill" data-i18n="nav.services">Services</a>
+    <a href="#works" class="pill" data-i18n="nav.works">Works</a>
+    <a href="#lab" class="pill" data-i18n="nav.lab">Hair Lab</a>
+    <a href="#reviews" class="pill" data-i18n="nav.reviews">Reviews</a>
+    <a href="#faq" class="pill" data-i18n="nav.faq">FAQ</a>
   </nav>
-  <a href="#book" class="btn btn--dark nav__cta magnetic"><span>Записаться</span><svg class="arr"><use href="#arrow"/></svg></a>
-  <button class="nav__burger" id="burger" aria-label="Открыть меню" aria-expanded="false"><i></i><i></i></button>
+  <div class="nav__right">
+    <div class="lang" id="lang">
+      <button type="button" class="lang__btn" aria-haspopup="listbox" aria-expanded="false" data-i18n-attr="aria-label=nav.lang"><svg><use href="#globe"/></svg><span id="langCode">EN</span></button>
+      <ul class="lang__list" role="listbox">
+        <li><button type="button" data-lang="en" role="option">English</button></li>
+        <li><button type="button" data-lang="ru" role="option">Русский</button></li>
+        <li><button type="button" data-lang="tr" role="option">Türkçe</button></li>
+        <li><button type="button" data-lang="ka" role="option">ქართული</button></li>
+      </ul>
+    </div>
+    <a href="#book" class="btn btn--dark nav__cta magnetic"><span data-i18n="nav.book">Book now</span><svg class="arr"><use href="#arrow"/></svg></a>
+    <button class="nav__burger" id="burger" aria-expanded="false" data-i18n-attr="aria-label=nav.menu"><i></i><i></i></button>
+  </div>
 </header>
 
 <div class="menu" id="menu" aria-hidden="true">
   <nav>
-    <a href="#about">Обо мне</a><a href="#services">Услуги</a><a href="#works">Работы</a>
-    <a href="#lab">Hair Lab</a><a href="#reviews">Отзывы</a><a href="#faq">Вопросы</a>
+    <a href="#about" data-i18n="nav.about">About</a><a href="#services" data-i18n="nav.services">Services</a><a href="#works" data-i18n="nav.works">Works</a>
+    <a href="#lab" data-i18n="nav.lab">Hair Lab</a><a href="#reviews" data-i18n="nav.reviews">Reviews</a><a href="#faq" data-i18n="nav.faq">FAQ</a>
   </nav>
-  <a href="#book" class="btn btn--dark btn--lg menu__cta"><span>Записаться</span><svg class="arr"><use href="#arrow"/></svg></a>
+  <a href="#book" class="btn btn--dark btn--lg menu__cta"><span data-i18n="nav.book">Book now</span><svg class="arr"><use href="#arrow"/></svg></a>
 </div>
 
 <main>
@@ -111,27 +94,23 @@
   <div class="container hero__inner">
     <div class="hero__copy">
       <div class="tags" data-reveal>
-        <a href="#services" class="tag">Капсулы</a>
-        <a href="#services" class="tag">Ленты</a>
-        <a href="#services" class="tag">Hair Talk</a>
+        <a href="#services" class="tag" data-i18n="hero.tag1">Capsules</a>
+        <a href="#services" class="tag" data-i18n="hero.tag2">Tape-ins</a>
+        <a href="#services" class="tag" data-i18n="hero.tag3">Hair Talk</a>
       </div>
-      <h1 class="hero__title" data-split>
-        <span class="t-light">Длиннее.</span> Гуще.<br>Роскошнее.
-      </h1>
+      <h1 class="hero__title" data-split data-i18n="hero.title"><span class="t-light">Longer.</span> Fuller.<br>Luxurious.</h1>
       <div class="hero__cta" data-reveal style="--d:450">
-        <a href="#book" class="btn btn--dark btn--lg magnetic"><span>Подобрать образ</span><svg class="arr"><use href="#arrow"/></svg></a>
-        <a href="#works" class="hero__thumb" data-cursor="Работы" aria-label="Смотреть работы"><img src="assets/img/work-brown-after.webp" alt=""></a>
-        <a href="#lab" class="hero__orb" data-cursor="Hair Lab" aria-label="Открыть Hair Lab"></a>
+        <a href="#book" class="btn btn--dark btn--lg magnetic"><span data-i18n="hero.cta">Find my look</span><svg class="arr"><use href="#arrow"/></svg></a>
+        <a href="#works" class="hero__thumb" data-i18n-attr="data-cursor=cur.works;aria-label=hero.thumb"><img src="assets/img/work-brown-after.webp" alt=""></a>
+        <a href="#lab" class="hero__orb" data-cursor="Hair Lab" data-i18n-attr="aria-label=hero.orb"></a>
       </div>
     </div>
 
-    <p class="hero__note" data-reveal style="--d:650">
-      Наращивание волос, которое не отличить от своих. Капсулы, ленты и Hair Talk — с индивидуальным подбором длины, густоты и оттенка.
-    </p>
+    <p class="hero__note" data-reveal style="--d:650" data-i18n="hero.note">Hair extensions that look and feel like your own. Capsules, tape-ins and Hair Talk — with length, density and shade matched just for you.</p>
 
-    <a href="#works" class="hero__card" data-reveal style="--d:850" data-cursor="Смотреть">
+    <a href="#works" class="hero__card" data-reveal style="--d:850" data-i18n-attr="data-cursor=cur.view">
       <span class="hero__card-img"><img src="assets/img/work-pink-after.webp" alt=""></span>
-      <span class="hero__card-txt"><b>До и после</b><small>Реальные работы Катрин</small></span>
+      <span class="hero__card-txt"><b data-i18n="hero.cardT">Before &amp; after</b><small data-i18n="hero.cardS">Katrin’s real work</small></span>
       <svg class="arr"><use href="#arrow"/></svg>
     </a>
   </div>
@@ -140,29 +119,18 @@
 <!-- ================= ABOUT ================= -->
 <section class="section about" id="about">
   <div class="container">
-    <p class="label" data-reveal>Обо мне</p>
-    <p class="statement" data-fill>
-      Меня зовут Катрин, я мастер по наращиванию волос. Моя цель — чтобы ты смотрела в зеркало и видела свои волосы, только длиннее, гуще и роскошнее. Без компромиссов в естественности.
-    </p>
+    <p class="label" data-reveal data-i18n="about.label">About me</p>
+    <p class="statement" data-fill data-i18n="about.statement">I’m Katrin, a hair extension specialist.</p>
 
     <div class="about__grid">
       <figure class="about__img" data-reveal>
-        <img src="https://images.unsplash.com/photo-1758315949140-1972ace0644e?w=1000&q=80&auto=format&fit=crop" alt="Длинные шелковистые волосы" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1758315949140-1972ace0644e?w=1000&q=80&auto=format&fit=crop" data-i18n-attr="alt=about.img" alt="Long silky hair" loading="lazy">
       </figure>
       <div class="features">
-        <div class="feature" data-reveal>
-          <span class="feature__n">01</span>
-          <div><h3>Индивидуальный подбор</h3><p>Оттенок, длина и густота — под твои волосы, образ жизни и бюджет.</p></div>
-        </div>
-        <div class="feature" data-reveal style="--d:100">
-          <span class="feature__n">02</span>
-          <div><h3>Бережно к своим волосам</h3><p>Техника выбирается по состоянию волос. Если наращивание тебе не нужно — скажу честно.</p></div>
-        </div>
-        <div class="feature" data-reveal style="--d:200">
-          <span class="feature__n">03</span>
-          <div><h3>Прозрачная стоимость</h3><p>Цену называю до начала работы. Никаких сюрпризов в конце.</p></div>
-        </div>
-        <a href="#book" class="btn btn--line magnetic" data-reveal style="--d:300"><span>Обсудить мой образ</span><svg class="arr"><use href="#arrow"/></svg></a>
+        <div class="feature" data-reveal><span class="feature__n">01</span><div><h3 data-i18n="about.f1t"></h3><p data-i18n="about.f1p"></p></div></div>
+        <div class="feature" data-reveal style="--d:100"><span class="feature__n">02</span><div><h3 data-i18n="about.f2t"></h3><p data-i18n="about.f2p"></p></div></div>
+        <div class="feature" data-reveal style="--d:200"><span class="feature__n">03</span><div><h3 data-i18n="about.f3t"></h3><p data-i18n="about.f3p"></p></div></div>
+        <a href="#book" class="btn btn--line magnetic" data-reveal style="--d:300"><span data-i18n="about.btn">Discuss my look</span><svg class="arr"><use href="#arrow"/></svg></a>
       </div>
     </div>
   </div>
@@ -173,10 +141,10 @@
   <div class="container">
     <header class="head">
       <div>
-        <p class="label" data-reveal>Услуги</p>
-        <h2 class="h2" data-split><span class="t-light">Техники,</span> подобранные под тебя</h2>
+        <p class="label" data-reveal data-i18n="services.label">Services</p>
+        <h2 class="h2" data-split data-i18n="services.title"></h2>
       </div>
-      <p class="head__sub" data-reveal>Нажми на карточку, чтобы узнать подробности. Время и сроки ориентировочные — точные зависят от твоих волос.</p>
+      <p class="head__sub" data-reveal data-i18n="services.sub"></p>
     </header>
     <div class="svc-grid" id="svcGrid"></div>
     <div class="extra" id="svcExtra"></div>
@@ -188,76 +156,80 @@
   <div class="container">
     <header class="head">
       <div>
-        <p class="label" data-reveal>Работы</p>
-        <h2 class="h2" data-split><span class="t-light">Результат,</span> который говорит сам</h2>
+        <p class="label" data-reveal data-i18n="works.label">Works</p>
+        <h2 class="h2" data-split data-i18n="works.title"></h2>
       </div>
-      <p class="head__sub" data-reveal>Потяни разделитель, чтобы сравнить до и после. Реальные работы Катрин.</p>
+      <p class="head__sub" data-reveal data-i18n="works.sub"></p>
     </header>
 
     <div class="ba-wrap">
       <div class="ba" id="ba" style="--pos:50%" data-reveal>
-        <img class="ba__img ba__img--before" alt="Волосы до наращивания">
-        <img class="ba__img ba__img--after" alt="Волосы после наращивания">
-        <span class="ba__tag ba__tag--l">До</span><span class="ba__tag ba__tag--r">После</span>
+        <img class="ba__img ba__img--before" data-i18n-attr="alt=works.beforeAlt" alt="">
+        <img class="ba__img ba__img--after" data-i18n-attr="alt=works.afterAlt" alt="">
+        <span class="ba__tag ba__tag--l" data-i18n="works.before">Before</span><span class="ba__tag ba__tag--r" data-i18n="works.after">After</span>
         <div class="ba__handle" aria-hidden="true"><span>‹ ›</span></div>
-        <input type="range" class="ba__range" min="0" max="100" value="50" aria-label="Сравнение до и после" data-cursor="Тяни">
+        <input type="range" class="ba__range" min="0" max="100" value="50" data-i18n-attr="aria-label=works.range;data-cursor=cur.drag">
       </div>
       <div class="ba-side" data-reveal style="--d:150">
         <div class="ba-tabs" id="baTabs"></div>
         <div class="ba-info" id="baInfo"></div>
-        <a href="#book" class="btn btn--dark magnetic"><span>Хочу так же</span><svg class="arr"><use href="#arrow"/></svg></a>
+        <a href="#book" class="btn btn--dark magnetic"><span data-i18n="works.btn">I want this too</span><svg class="arr"><use href="#arrow"/></svg></a>
       </div>
     </div>
 
-    <div class="gallery" id="gallery" data-cursor="Тяни"></div>
+    <div class="gallery" id="gallery" data-i18n-attr="data-cursor=cur.drag"></div>
   </div>
 </section>
 
 <!-- ================= HAIR LAB ================= -->
 <section class="section lab" id="lab">
   <div class="container lab__grid">
-    <div class="lab__stage" data-reveal>
-      <canvas id="hairCanvas" aria-label="Визуализация длины и оттенка волос" role="img"></canvas>
-      <div class="lab__ruler" id="ruler" aria-hidden="true"></div>
-      <span class="lab__badge" id="labBadge">до лопаток · Карамель</span>
-    </div>
-
     <div class="lab__panel">
-      <p class="label" data-reveal>Hair Lab</p>
-      <h2 class="h2" data-split><span class="t-light">Примерь</span> длину и оттенок</h2>
-      <p class="sub" data-reveal>Выбери цвет, длину и густоту — визуализация сразу покажет, как может выглядеть результат.</p>
+      <p class="label" data-reveal data-i18n="lab.label">Hair Lab</p>
+      <h2 class="h2" data-split data-i18n="lab.title"></h2>
+      <p class="sub" data-reveal data-i18n="lab.sub"></p>
 
       <div class="ctrl" data-reveal>
-        <div class="ctrl__k"><span>Оттенок</span><b id="shadeName">Карамель</b></div>
-        <div class="swatches" id="swatches" role="radiogroup" aria-label="Оттенок"></div>
+        <div class="ctrl__k"><span data-i18n="lab.shade">Shade</span><b id="shadeName"></b></div>
+        <div class="swatches" id="swatches" role="radiogroup" data-i18n-attr="aria-label=lab.shade"></div>
       </div>
 
       <div class="ctrl" data-reveal>
-        <div class="ctrl__k"><span>Длина</span><b id="lenName">до лопаток · 55 см</b></div>
-        <input type="range" id="lenRange" min="30" max="80" value="55" aria-label="Длина волос, см">
+        <div class="ctrl__k"><span data-i18n="lab.length">Length</span><b id="lenName"></b></div>
+        <input type="range" id="lenRange" min="30" max="80" value="55" data-i18n-attr="aria-label=lab.length">
         <div class="marks" id="lenMarks"></div>
       </div>
 
       <div class="ctrl ctrl--row" data-reveal>
         <div>
-          <div class="ctrl__k"><span>Густота</span></div>
-          <div class="seg" id="densSeg" role="radiogroup" aria-label="Густота">
-            <button type="button" data-v="0" role="radio">Лёгкая</button>
-            <button type="button" data-v="1" role="radio" class="is-on">Естественная</button>
-            <button type="button" data-v="2" role="radio">Пышная</button>
+          <div class="ctrl__k"><span data-i18n="lab.density">Density</span></div>
+          <div class="seg" id="densSeg" role="radiogroup" data-i18n-attr="aria-label=lab.density">
+            <button type="button" data-v="0" role="radio" data-i18n="lab.d0">Light</button>
+            <button type="button" data-v="1" role="radio" class="is-on" data-i18n="lab.d1">Natural</button>
+            <button type="button" data-v="2" role="radio" data-i18n="lab.d2">Voluminous</button>
           </div>
         </div>
         <div>
-          <div class="ctrl__k"><span>Текстура</span></div>
-          <div class="seg" id="waveSeg" role="radiogroup" aria-label="Текстура">
-            <button type="button" data-v="0" role="radio" class="is-on">Прямые</button>
-            <button type="button" data-v="1" role="radio">Волна</button>
+          <div class="ctrl__k"><span data-i18n="lab.texture">Texture</span></div>
+          <div class="seg" id="waveSeg" role="radiogroup" data-i18n-attr="aria-label=lab.texture">
+            <button type="button" data-v="0" role="radio" class="is-on" data-i18n="lab.w0">Straight</button>
+            <button type="button" data-v="1" role="radio" data-i18n="lab.w1">Wavy</button>
           </div>
         </div>
       </div>
+    </div>
 
-      <button class="btn btn--dark btn--lg magnetic" id="labSend" type="button" data-reveal><span>Хочу такой образ</span><svg class="arr"><use href="#arrow"/></svg></button>
-      <p class="fine" data-reveal>Визуализация приблизительная. Точный подбор оттенка и длины — на консультации.</p>
+    <div class="lab__stage" id="labStage" data-reveal>
+      <canvas id="hairCanvas" role="img" data-i18n-attr="aria-label=lab.canvas"></canvas>
+      <div class="lab__ruler" id="ruler" aria-hidden="true"></div>
+      <div class="lab__handle" id="labHandle" aria-hidden="true"><span><b id="labHandleTxt">55 cm</b><i>↕</i></span></div>
+      <span class="lab__hint" id="labHint" data-i18n="lab.hint"></span>
+      <span class="lab__badge" id="labBadge"></span>
+    </div>
+
+    <div class="lab__foot">
+      <button class="btn btn--dark btn--lg magnetic" id="labSend" type="button" data-reveal><span data-i18n="lab.btn">I want this look</span><svg class="arr"><use href="#arrow"/></svg></button>
+      <p class="fine" data-reveal data-i18n="lab.fine"></p>
     </div>
   </div>
 </section>
@@ -266,16 +238,16 @@
 <section class="section process" id="process">
   <div class="container process__grid">
     <header class="head head--stack">
-      <p class="label" data-reveal>Как это проходит</p>
-      <h2 class="h2" data-split><span class="t-light">Пять шагов</span> к волосам мечты</h2>
-      <a href="#book" class="btn btn--line magnetic" data-reveal><span>Начать с консультации</span><svg class="arr"><use href="#arrow"/></svg></a>
+      <p class="label" data-reveal data-i18n="process.label">How it works</p>
+      <h2 class="h2" data-split data-i18n="process.title"></h2>
+      <a href="#book" class="btn btn--line magnetic" data-reveal><span data-i18n="process.btn">Start with a consultation</span><svg class="arr"><use href="#arrow"/></svg></a>
     </header>
     <ol class="steps">
-      <li class="step" data-reveal><span class="step__n">01</span><div><h3>Знакомство</h3><p>Пишешь мне или проходишь мини-анкету. Уточняю пожелания и показываю варианты.</p></div></li>
-      <li class="step" data-reveal><span class="step__n">02</span><div><h3>Подбор</h3><p>Оттенок, длина, густота и техника — под твои волосы и бюджет. Стоимость называю заранее.</p></div></li>
-      <li class="step" data-reveal><span class="step__n">03</span><div><h3>Наращивание</h3><p>Спокойно и без спешки. Ты отдыхаешь — я работаю.</p></div></li>
-      <li class="step" data-reveal><span class="step__n">04</span><div><h3>Укладка</h3><p>Финальные штрихи, чтобы результат выглядел безупречно с первой минуты.</p></div></li>
-      <li class="step" data-reveal><span class="step__n">05</span><div><h3>Уход и коррекция</h3><p>Расскажу, как ухаживать, и напомню о коррекции, чтобы волосы всегда выглядели идеально.</p></div></li>
+      <li class="step" data-reveal><span class="step__n">01</span><div><h3 data-i18n="process.s1t"></h3><p data-i18n="process.s1p"></p></div></li>
+      <li class="step" data-reveal><span class="step__n">02</span><div><h3 data-i18n="process.s2t"></h3><p data-i18n="process.s2p"></p></div></li>
+      <li class="step" data-reveal><span class="step__n">03</span><div><h3 data-i18n="process.s3t"></h3><p data-i18n="process.s3p"></p></div></li>
+      <li class="step" data-reveal><span class="step__n">04</span><div><h3 data-i18n="process.s4t"></h3><p data-i18n="process.s4p"></p></div></li>
+      <li class="step" data-reveal><span class="step__n">05</span><div><h3 data-i18n="process.s5t"></h3><p data-i18n="process.s5p"></p></div></li>
     </ol>
   </div>
 </section>
@@ -285,25 +257,25 @@
   <div class="container">
     <header class="head">
       <div>
-        <p class="label" data-reveal>Отзывы</p>
-        <h2 class="h2" data-split><span class="t-light">Что говорят</span> клиентки</h2>
+        <p class="label" data-reveal data-i18n="reviews.label">Reviews</p>
+        <h2 class="h2" data-split data-i18n="reviews.title"></h2>
       </div>
       <div class="rv-nav" data-reveal>
-        <button class="round" id="rvPrev" aria-label="Назад"><svg style="transform:scaleX(-1)"><use href="#arrow"/></svg></button>
-        <button class="round" id="rvNext" aria-label="Вперёд"><svg><use href="#arrow"/></svg></button>
+        <button class="round" id="rvPrev" data-i18n-attr="aria-label=reviews.prev"><svg style="transform:scaleX(-1)"><use href="#arrow"/></svg></button>
+        <button class="round" id="rvNext" data-i18n-attr="aria-label=reviews.next"><svg><use href="#arrow"/></svg></button>
       </div>
     </header>
   </div>
-  <div class="rv-scroll" id="rvScroll" data-cursor="Тяни"><div class="rv-track" id="rvTrack"></div></div>
+  <div class="rv-scroll" id="rvScroll" data-i18n-attr="data-cursor=cur.drag"><div class="rv-track" id="rvTrack"></div></div>
 </section>
 
 <!-- ================= FAQ ================= -->
 <section class="section faq" id="faq">
   <div class="container faq__grid">
     <header class="head head--stack">
-      <p class="label" data-reveal>Вопросы</p>
-      <h2 class="h2" data-split><span class="t-light">Всё, что ты хотела</span> спросить</h2>
-      <p class="head__sub" data-reveal>Не нашла ответ? Напиши мне — отвечу лично.</p>
+      <p class="label" data-reveal data-i18n="faq.label">FAQ</p>
+      <h2 class="h2" data-split data-i18n="faq.title"></h2>
+      <p class="head__sub" data-reveal data-i18n="faq.sub"></p>
     </header>
     <div class="acc" id="acc"></div>
   </div>
@@ -315,13 +287,11 @@
     <img class="book__bg" src="https://images.unsplash.com/photo-1496440737103-cd596325d314?w=1600&q=70&auto=format&fit=crop" alt="" loading="lazy" aria-hidden="true">
     <div class="book__grid">
       <div class="book__copy">
-        <p class="label label--light" data-reveal>Запись</p>
-        <h2 class="h2 h2--light" data-split><span class="t-light">Давай создадим</span> твой образ</h2>
-        <p class="sub sub--light" data-reveal>Пять коротких вопросов — и я вернусь с вариантами и расчётом стоимости.</p>
+        <p class="label label--light" data-reveal data-i18n="book.label">Booking</p>
+        <h2 class="h2 h2--light" data-split data-i18n="book.title"></h2>
+        <p class="sub sub--light" data-reveal data-i18n="book.sub"></p>
         <ul class="perks" data-reveal>
-          <li>Консультация без обязательств</li>
-          <li>Стоимость — до начала работы</li>
-          <li>Подбор оттенка и длины под тебя</li>
+          <li data-i18n="book.p1"></li><li data-i18n="book.p2"></li><li data-i18n="book.p3"></li>
         </ul>
         <div class="soc" data-reveal>
           <a data-link="instagram" class="soc__a" aria-label="Instagram"><svg><use href="#i-instagram"/></svg></a>
@@ -331,81 +301,81 @@
       </div>
 
       <form class="quiz" id="quiz" novalidate autocomplete="off" data-reveal>
-        <div class="quiz__top"><span class="quiz__step" id="qCount">Шаг 1 из 5</span><div class="quiz__bar"><i id="qBar"></i></div></div>
+        <div class="quiz__top"><span class="quiz__step" id="qCount"></span><div class="quiz__bar"><i id="qBar"></i></div></div>
 
         <div class="quiz__steps">
           <fieldset class="qs is-active" data-step="1">
-            <legend>Что ты хочешь получить?</legend>
+            <legend data-i18n="quiz.q1"></legend>
             <div class="opts opts--2">
-              <label class="opt"><input type="radio" name="goal" value="Длину"><span><b>Длину</b><small>хочу длиннее</small></span></label>
-              <label class="opt"><input type="radio" name="goal" value="Густоту и объём"><span><b>Густоту</b><small>хочу пышнее</small></span></label>
-              <label class="opt"><input type="radio" name="goal" value="Длину и густоту"><span><b>Всё сразу</b><small>длина и объём</small></span></label>
-              <label class="opt"><input type="radio" name="goal" value="Коррекцию или снятие"><span><b>Коррекцию</b><small>или снятие</small></span></label>
-              <label class="opt opt--wide"><input type="radio" name="goal" value="Пока не знаю — нужна консультация"><span><b>Пока не знаю</b><small>подскажи, что мне подойдёт</small></span></label>
+              <label class="opt"><input type="radio" name="goal" value="length"><span><b data-i18n="quiz.goal_length"></b><small data-i18n="quiz.goal_length_s"></small></span></label>
+              <label class="opt"><input type="radio" name="goal" value="volume"><span><b data-i18n="quiz.goal_volume"></b><small data-i18n="quiz.goal_volume_s"></small></span></label>
+              <label class="opt"><input type="radio" name="goal" value="both"><span><b data-i18n="quiz.goal_both"></b><small data-i18n="quiz.goal_both_s"></small></span></label>
+              <label class="opt"><input type="radio" name="goal" value="fix"><span><b data-i18n="quiz.goal_fix"></b><small data-i18n="quiz.goal_fix_s"></small></span></label>
+              <label class="opt opt--wide"><input type="radio" name="goal" value="unsure"><span><b data-i18n="quiz.goal_unsure"></b><small data-i18n="quiz.goal_unsure_s"></small></span></label>
             </div>
           </fieldset>
           <fieldset class="qs" data-step="2">
-            <legend>Какие у тебя волосы сейчас?</legend>
-            <p class="qs__k">Длина</p>
+            <legend data-i18n="quiz.q2"></legend>
+            <p class="qs__k" data-i18n="quiz.len"></p>
             <div class="opts opts--3">
-              <label class="opt opt--sm"><input type="radio" name="now" value="до плеч"><span><b>До плеч</b></span></label>
-              <label class="opt opt--sm"><input type="radio" name="now" value="до лопаток"><span><b>До лопаток</b></span></label>
-              <label class="opt opt--sm"><input type="radio" name="now" value="ниже лопаток"><span><b>Ниже</b></span></label>
+              <label class="opt opt--sm"><input type="radio" name="now" value="shoulders"><span><b data-i18n="quiz.now_shoulders"></b></span></label>
+              <label class="opt opt--sm"><input type="radio" name="now" value="blades"><span><b data-i18n="quiz.now_blades"></b></span></label>
+              <label class="opt opt--sm"><input type="radio" name="now" value="below"><span><b data-i18n="quiz.now_below"></b></span></label>
             </div>
-            <p class="qs__k">Густота</p>
+            <p class="qs__k" data-i18n="quiz.dens"></p>
             <div class="opts opts--3">
-              <label class="opt opt--sm"><input type="radio" name="dens" value="тонкие"><span><b>Тонкие</b></span></label>
-              <label class="opt opt--sm"><input type="radio" name="dens" value="средние"><span><b>Средние</b></span></label>
-              <label class="opt opt--sm"><input type="radio" name="dens" value="густые"><span><b>Густые</b></span></label>
+              <label class="opt opt--sm"><input type="radio" name="dens" value="fine"><span><b data-i18n="quiz.dens_fine"></b></span></label>
+              <label class="opt opt--sm"><input type="radio" name="dens" value="medium"><span><b data-i18n="quiz.dens_medium"></b></span></label>
+              <label class="opt opt--sm"><input type="radio" name="dens" value="thick"><span><b data-i18n="quiz.dens_thick"></b></span></label>
             </div>
           </fieldset>
           <fieldset class="qs" data-step="3">
-            <legend>Какой образ мечтаешь?</legend>
-            <p class="qs__k">Длина <b id="qLenOut">55 см</b></p>
-            <input type="range" id="qLen" min="30" max="80" value="55" aria-label="Желаемая длина, см">
-            <p class="qs__k">Оттенок <b id="qShadeOut">Карамель</b></p>
-            <div class="swatches swatches--sm" id="qSwatches" role="radiogroup" aria-label="Оттенок"></div>
-            <p class="qs__hint">Можно пропустить — подберём вместе на консультации.</p>
+            <legend data-i18n="quiz.q3"></legend>
+            <p class="qs__k"><span data-i18n="quiz.len"></span> <b id="qLenOut"></b></p>
+            <input type="range" id="qLen" min="30" max="80" value="55" data-i18n-attr="aria-label=quiz.len">
+            <p class="qs__k"><span data-i18n="quiz.shade"></span> <b id="qShadeOut"></b></p>
+            <div class="swatches swatches--sm" id="qSwatches" role="radiogroup" data-i18n-attr="aria-label=quiz.shade"></div>
+            <p class="qs__hint" data-i18n="quiz.hint"></p>
           </fieldset>
           <fieldset class="qs" data-step="4">
-            <legend>Когда тебе удобно?</legend>
+            <legend data-i18n="quiz.q4"></legend>
             <div class="opts opts--3">
-              <label class="opt opt--sm"><input type="radio" name="when" value="на этой неделе"><span><b>Скоро</b><small>эта неделя</small></span></label>
-              <label class="opt opt--sm"><input type="radio" name="when" value="в течение месяца"><span><b>В месяце</b><small>до 30 дней</small></span></label>
-              <label class="opt opt--sm"><input type="radio" name="when" value="пока присматриваюсь"><span><b>Позже</b><small>присматриваюсь</small></span></label>
+              <label class="opt opt--sm"><input type="radio" name="when" value="week"><span><b data-i18n="quiz.when_week"></b><small data-i18n="quiz.when_week_s"></small></span></label>
+              <label class="opt opt--sm"><input type="radio" name="when" value="month"><span><b data-i18n="quiz.when_month"></b><small data-i18n="quiz.when_month_s"></small></span></label>
+              <label class="opt opt--sm"><input type="radio" name="when" value="later"><span><b data-i18n="quiz.when_later"></b><small data-i18n="quiz.when_later_s"></small></span></label>
             </div>
-            <label class="field"><span>Город <em>(необязательно)</em></span><input type="text" name="city" placeholder="Твой город" maxlength="40" autocomplete="address-level2"></label>
+            <label class="field"><span><span data-i18n="quiz.city"></span> <em data-i18n="quiz.optional"></em></span><input type="text" name="city" maxlength="40" autocomplete="address-level2" data-i18n-attr="placeholder=quiz.cityPh"></label>
           </fieldset>
           <fieldset class="qs" data-step="5">
-            <legend>Как с тобой связаться?</legend>
-            <label class="field"><span>Имя</span><input type="text" name="name" id="fName" placeholder="Как к тебе обращаться" maxlength="40" autocomplete="given-name"></label>
-            <div class="seg seg--full" id="chanSeg" role="radiogroup" aria-label="Мессенджер">
+            <legend data-i18n="quiz.q5"></legend>
+            <label class="field"><span data-i18n="quiz.name"></span><input type="text" name="name" id="fName" maxlength="40" autocomplete="given-name" data-i18n-attr="placeholder=quiz.namePh"></label>
+            <div class="seg seg--full" id="chanSeg" role="radiogroup" data-i18n-attr="aria-label=quiz.channel">
               <button type="button" data-v="WhatsApp" role="radio" class="is-on">WhatsApp</button>
               <button type="button" data-v="Telegram" role="radio">Telegram</button>
               <button type="button" data-v="Instagram" role="radio">Instagram</button>
             </div>
-            <label class="field"><span id="contactLbl">Номер WhatsApp</span><input type="text" name="contact" id="fContact" placeholder="+995 ..." maxlength="60" inputmode="tel" autocomplete="tel"></label>
-            <label class="field"><span>Комментарий <em>(необязательно)</em></span><textarea name="comment" rows="2" maxlength="300" placeholder="Например: хочу как на фото из Pinterest"></textarea></label>
+            <label class="field"><span id="contactLbl"></span><input type="text" name="contact" id="fContact" placeholder="+995 ..." maxlength="60" inputmode="tel" autocomplete="tel"></label>
+            <label class="field"><span><span data-i18n="quiz.comment"></span> <em data-i18n="quiz.optional"></em></span><textarea name="comment" rows="2" maxlength="300" data-i18n-attr="placeholder=quiz.commentPh"></textarea></label>
           </fieldset>
         </div>
 
         <p class="quiz__err" id="qErr" role="alert"></p>
         <div class="quiz__nav">
-          <button type="button" class="btn btn--text" id="qBack"><span>Назад</span></button>
-          <button type="button" class="btn btn--dark btn--lg" id="qNext"><span>Далее</span><svg class="arr"><use href="#arrow"/></svg></button>
+          <button type="button" class="btn btn--text" id="qBack"><span data-i18n="quiz.back">Back</span></button>
+          <button type="button" class="btn btn--dark btn--lg" id="qNext"><span>Next</span><svg class="arr"><use href="#arrow"/></svg></button>
         </div>
 
         <div class="done" id="qDone" hidden>
           <span class="done__ok" aria-hidden="true"><svg><use href="#arrow"/></svg></span>
-          <h3 class="done__t">Заявка готова</h3>
-          <p class="done__sub">Отправь её мне в удобный мессенджер — отвечу лично.</p>
+          <h3 class="done__t" data-i18n="quiz.doneT"></h3>
+          <p class="done__sub" data-i18n="quiz.doneS"></p>
           <dl class="summary" id="summary"></dl>
           <div class="done__btns">
             <a class="btn btn--dark" id="sendWa" target="_blank" rel="noopener"><svg><use href="#i-whatsapp"/></svg><span>WhatsApp</span></a>
             <a class="btn btn--dark" id="sendTg" target="_blank" rel="noopener"><svg><use href="#i-telegram"/></svg><span>Telegram</span></a>
-            <button type="button" class="btn btn--line" id="copyReq"><span>Скопировать</span></button>
+            <button type="button" class="btn btn--line" id="copyReq"><span data-i18n="quiz.copy">Copy</span></button>
           </div>
-          <button type="button" class="btn btn--text" id="qAgain"><span>Заполнить заново</span></button>
+          <button type="button" class="btn btn--text" id="qAgain"><span data-i18n="quiz.again">Start over</span></button>
         </div>
       </form>
     </div>
@@ -415,10 +385,10 @@
 
 <footer class="footer">
   <div class="container footer__grid">
-    <a href="#top" class="footer__logo" aria-label="Katrin Luxe Locks — Hair Extensions Studio"><svg><use href="#brand"/></svg></a>
-    <nav class="footer__nav" aria-label="Нижняя навигация">
-      <a href="#about">Обо мне</a><a href="#services">Услуги</a><a href="#works">Работы</a>
-      <a href="#lab">Hair Lab</a><a href="#reviews">Отзывы</a><a href="#faq">Вопросы</a>
+    <a href="#top" class="footer__logo" data-i18n-attr="aria-label=nav.top"><img src="assets/img/logo.webp" alt="Katrin Luxe Locks — Hair Extensions Studio" width="640" height="574" loading="lazy"></a>
+    <nav class="footer__nav" data-i18n-attr="aria-label=nav.footer">
+      <a href="#about" data-i18n="nav.about">About</a><a href="#services" data-i18n="nav.services">Services</a><a href="#works" data-i18n="nav.works">Works</a>
+      <a href="#lab" data-i18n="nav.lab">Hair Lab</a><a href="#reviews" data-i18n="nav.reviews">Reviews</a><a href="#faq" data-i18n="nav.faq">FAQ</a>
     </nav>
     <div class="footer__soc">
       <a data-link="instagram" class="round" aria-label="Instagram"><svg><use href="#i-instagram"/></svg></a>
@@ -428,20 +398,21 @@
   </div>
   <div class="container footer__bot">
     <span>© <span id="year">2026</span> Katrin Luxe Locks</span>
-    <span>Hair Extensions Studio</span>
+    <span data-i18n="footer.studio">Hair Extensions Studio</span>
   </div>
 </footer>
 
-<div class="dock" id="dock"><a href="#book" class="btn btn--dark btn--lg"><span>Записаться</span><svg class="arr"><use href="#arrow"/></svg></a></div>
+<div class="dock" id="dock"><a href="#book" class="btn btn--dark btn--lg"><span data-i18n="nav.book">Book now</span><svg class="arr"><use href="#arrow"/></svg></a></div>
 
 <div class="lb" id="lb" hidden>
-  <button class="round lb__x" id="lbX" aria-label="Закрыть"><svg style="transform:rotate(45deg)"><use href="#plus"/></svg></button>
-  <button class="round lb__nav lb__nav--p" id="lbP" aria-label="Предыдущее"><svg style="transform:scaleX(-1)"><use href="#arrow"/></svg></button>
-  <button class="round lb__nav lb__nav--n" id="lbN" aria-label="Следующее"><svg><use href="#arrow"/></svg></button>
+  <button class="round lb__x" id="lbX" aria-label="×"><svg style="transform:rotate(45deg)"><use href="#plus"/></svg></button>
+  <button class="round lb__nav lb__nav--p" id="lbP" data-i18n-attr="aria-label=reviews.prev"><svg style="transform:scaleX(-1)"><use href="#arrow"/></svg></button>
+  <button class="round lb__nav lb__nav--n" id="lbN" data-i18n-attr="aria-label=reviews.next"><svg><use href="#arrow"/></svg></button>
   <figure><img id="lbImg" alt=""><figcaption id="lbCap"></figcaption></figure>
 </div>
 
-<script src="js/hair.js?v=4"></script>
-<script src="js/main.js?v=4"></script>
+<script src="js/i18n.js?v=5"></script>
+<script src="js/hair.js?v=5"></script>
+<script src="js/main.js?v=5"></script>
 </body>
 </html>

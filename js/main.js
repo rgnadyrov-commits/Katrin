@@ -1,5 +1,5 @@
 /* =========================================================
-   Katrin Luxe Locks — interactions
+   Katrin Luxe Locks — interactions + i18n (en / ru / tr / ka)
    ========================================================= */
 (() => {
 'use strict';
@@ -24,79 +24,50 @@ const IMG = 'assets/img/';
 const UNS = id => `https://images.unsplash.com/photo-${id}?w=900&q=78&auto=format&fit=crop`;
 
 /* =========================================================
-   ДАННЫЕ
+   i18n
    ========================================================= */
-const SERVICES = [
-  { t: 'Капсульное наращивание', s: 'Классика, которую не отличить от своих волос. Подходит для длины и густоты.',
-    img: UNS('1652204234951-17c05a05bb94'), time: '≈ 3–4 часа', wear: 'до 2–3 месяцев',
-    det: 'Микрокапсулы закрепляются на тонких прядях у корней и не видны даже вблизи. Можно собирать волосы в хвост и делать укладки.' },
-  { t: 'Ленточное наращивание', s: 'Самый быстрый способ получить объём — плоско и незаметно.',
-    img: UNS('1496440737103-cd596325d314'), time: '≈ 1–1,5 часа', wear: '6–8 недель',
-    det: 'Тонкие ленты ложатся плоско и не ощущаются. Отличный вариант для тонких и средних волос, когда нужен объём.' },
-  { t: 'Hair Talk', s: 'Деликатная техника без нагрева — для тонких и ослабленных волос.',
-    img: UNS('1628695444176-79ef329a6015'), time: '≈ 1,5–2 часа', wear: '1,5–2 месяца',
-    det: 'Бережное крепление, которое почти не нагружает собственные волосы. Подходит, когда важна максимальная деликатность.' }
-];
-const EXTRA = [
-  { t: 'Коррекция', s: 'Обновляем посадку и свежесть' },
-  { t: 'Бережное снятие', s: 'Без боли и потерь для своих волос' },
-  { t: 'Консультация', s: 'Подбор оттенка, длины и расчёт' }
-];
+const LANGS = ['en', 'ru', 'tr', 'ka'];
+let lang = LANGS.includes(root.lang) ? root.lang : 'en';
+let D = window.I18N[lang];
+const get = (obj, path) => path.split('.').reduce((o, k) => (o == null ? o : o[k]), obj);
+const t = (path, vars) => {
+  let s = get(D, path); if (s == null) s = get(window.I18N.en, path); if (s == null) return path;
+  if (vars && typeof s === 'string') s = s.replace(/\{(\w+)\}/g, (_, k) => (vars[k] ?? ''));
+  return s;
+};
+const onLang = []; // функции перерисовки, вызываются при смене языка
 
-// Пары «до / после» — проверьте, что фото в парах соответствуют друг другу.
+/* =========================================================
+   Неязыковые данные (фото, цвета)
+   ========================================================= */
+const SERVICE_IMGS = [UNS('1652204234951-17c05a05bb94'), UNS('1496440737103-cd596325d314'), UNS('1628695444176-79ef329a6015')];
+// Пары «до / после» — проверьте соответствие фото.
 const STORIES = [
-  { before: 'work-pink-before.webp', after: 'work-pink-after.webp', h: 'Больше длины, плотнее низ', p: 'Тонкие уставшие кончики превратились в густые шелковистые волосы ниже лопаток. Переход не заметен даже вблизи.' },
-  { before: 'work-blonde-before.webp', after: 'work-blonde-after.webp', h: 'Блонд, который сияет', p: 'Из пушащегося блонда — в ровное гладкое полотно с мягким переходом оттенка.' },
-  { before: 'work-brown-before.webp', after: 'work-brown-after.webp', h: 'Шатен как с обложки', p: 'Глубокий натуральный оттенок и длина, о которой мечтаешь: густо, ровно и с блеском.' }
+  { before: 'work-pink-before.webp', after: 'work-pink-after.webp' },
+  { before: 'work-blonde-before.webp', after: 'work-blonde-after.webp' },
+  { before: 'work-brown-before.webp', after: 'work-brown-after.webp' }
 ];
-const GALLERY = [
-  { f: 'work-brown-after.webp', c: 'Шатен · длина и блеск' },
-  { f: 'work-choco.webp', c: 'Тёмный шоколад' },
-  { f: 'work-pink-after.webp', c: 'Плотный низ' },
-  { f: 'work-black.webp', c: 'Глубокий чёрный' },
-  { f: 'work-blonde-after.webp', c: 'Блонд · мягкий переход' }
-];
-
+const GALLERY = ['work-brown-after.webp', 'work-choco.webp', 'work-pink-after.webp', 'work-black.webp', 'work-blonde-after.webp'];
 const SHADES = [
-  { n: 'Платиновый', c: ['#a8946b', '#d8c79f', '#efe3c4'] },
-  { n: 'Пепельный', c: ['#6f665c', '#a69c8c', '#cfc6b6'] },
-  { n: 'Карамель', c: ['#4a2e1c', '#8a5a34', '#c08a55'] },
-  { n: 'Шоколад', c: ['#24150d', '#46291a', '#6a4128'] },
-  { n: 'Чёрный', c: ['#0c0a09', '#17120f', '#2a221d'] },
-  { n: 'Медный', c: ['#4e2412', '#8d4523', '#c06a36'] },
-  { n: 'Омбре', c: ['#2a1c14', '#6b4c33', '#dcc391'] }
+  ['#a8946b', '#d8c79f', '#efe3c4'], ['#6f665c', '#a69c8c', '#cfc6b6'], ['#4a2e1c', '#8a5a34', '#c08a55'],
+  ['#24150d', '#46291a', '#6a4128'], ['#0c0a09', '#17120f', '#2a221d'], ['#4e2412', '#8d4523', '#c06a36'], ['#2a1c14', '#6b4c33', '#dcc391']
 ];
-
-/* ПРИМЕРЫ ОТЗЫВОВ — замените на реальные отзывы клиенток. */
-const REVIEWS = [
-  { n: 'Анна', svc: 'Капсульное наращивание', t: 'Боялась, что капсулы будет видно, — вообще не видно! Подруги не поверили, что это наращённые. Оттенок подобрали идеально с первого раза.' },
-  { n: 'Мария', svc: 'Ленточное наращивание', t: 'Тонкие волосы, всегда мечтала об объёме. Сделали быстро, без дискомфорта и ощущения тяжести.' },
-  { n: 'Дина', svc: 'Консультация', t: 'Пришла со скриншотом из Pinterest — ушла с результатом даже лучше. Всё объяснила и ничего не навязывала.' },
-  { n: 'Нино', svc: 'Коррекция', t: 'После коррекции волосы как новые. Приятно, что мастер следит и за состоянием моих собственных волос.' },
-  { n: 'Лейла', svc: 'Hair Talk', t: 'Очень переживала за свои тонкие волосы. Техника подошла идеально — лёгкость и никакого дискомфорта.' }
-];
-
-const FAQ = [
-  ['Это больно?', 'Нет. Во время процедуры ты не должна чувствовать боли. В первые 1–3 дня возможно ощущение «новых волос» — это нормально и быстро проходит.'],
-  ['Испортит ли наращивание мои волосы?', 'При правильном выборе техники и уходе — нет. Поэтому мы начинаем с консультации: я смотрю на состояние твоих волос и честно говорю, что подойдёт.'],
-  ['Сколько можно носить?', 'Зависит от техники: капсулы обычно носят до 2–3 месяцев до коррекции, ленты — около 6–8 недель. Точные сроки обсудим на консультации.'],
-  ['Можно ли красить и укладывать?', 'Да. Наращённые волосы можно укладывать и подкручивать — с термозащитой и без лишнего нагрева у креплений. После визита дам подробную памятку.'],
-  ['Как ухаживать за наращёнными волосами?', 'Мягкий шампунь, бережное расчёсывание и сушка — расскажу всё лично и дам памятку по уходу.'],
-  ['Как узнать стоимость?', 'Пройди короткую анкету ниже. Итоговая цена зависит от длины, объёма и техники — я назову её до начала работы.'],
-  ['Как записаться?', 'Заполни анкету или напиши мне в мессенджер. Я отвечу, предложу удобное время и подготовлю расчёт.']
-];
+const DENS_V = [.82, 1, 1.2];
+const MARK_CM = [30, 40, 55, 65, 80];
+// шкала длин под фото девушки в Hair Lab (px холста 600×900)
+const LAB_MARKS = [[30, 352], [40, 400], [55, 488], [65, 652], [80, 770]];
 
 /* =========================================================
    Helpers
    ========================================================= */
 function toast(msg) {
-  let t = $('.toast');
-  if (!t) { t = document.createElement('div'); t.className = 'toast'; t.setAttribute('role', 'status'); document.body.appendChild(t); }
-  t.textContent = msg; t.classList.add('is-on');
-  clearTimeout(toast._t); toast._t = setTimeout(() => t.classList.remove('is-on'), 2800);
+  let el = $('.toast');
+  if (!el) { el = document.createElement('div'); el.className = 'toast'; el.setAttribute('role', 'status'); document.body.appendChild(el); }
+  el.textContent = msg; el.classList.add('is-on');
+  clearTimeout(toast._t); toast._t = setTimeout(() => el.classList.remove('is-on'), 2800);
 }
 const scrollToEl = sel => { const el = $(sel); if (el) el.scrollIntoView({ behavior: REDUCED ? 'auto' : 'smooth', block: 'start' }); };
-const escapeHTML = s => s.replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+const escapeHTML = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 
 function applyContactLinks() {
   const map = {
@@ -128,6 +99,46 @@ function splitWords(el) {
   walk(el);
 }
 
+/* статические тексты: data-i18n (innerHTML) и data-i18n-attr="attr=key;attr2=key2" */
+function applyStatic() {
+  document.title = t('meta.title');
+  const md = $('meta[name=description]'); if (md) md.content = t('meta.desc');
+  $$('[data-i18n]').forEach(el => {
+    const html = t(el.dataset.i18n);
+    if (el.hasAttribute('data-split')) {
+      const wasIn = el.classList.contains('in');
+      el.innerHTML = html; splitWords(el);
+      if (wasIn) { el.classList.add('in'); }
+      el.setAttribute('aria-label', el.textContent.replace(/\s+/g, ' ').trim());
+    } else if (el.hasAttribute('data-fill')) {
+      el.innerHTML = html.trim().split(/\s+/).map(w => `<span class="fw">${w}</span>`).join(' ');
+    } else el.innerHTML = html;
+  });
+  $$('[data-i18n-attr]').forEach(el => el.dataset.i18nAttr.split(';').forEach(pair => {
+    const [attr, key] = pair.split('='); if (attr && key) el.setAttribute(attr.trim(), t(key.trim()));
+  }));
+  $('#langCode').textContent = lang.toUpperCase();
+  $$('.lang__list [data-lang]').forEach(b => b.setAttribute('aria-selected', b.dataset.lang === lang));
+}
+
+function setLang(l) {
+  if (!LANGS.includes(l) || l === lang) return;
+  lang = l; D = window.I18N[l]; root.lang = l;
+  try { localStorage.setItem('kll-lang', l); } catch (e) {}
+  const u = new URL(location.href); u.searchParams.set('lang', l); history.replaceState(null, '', u);
+  applyStatic();
+  onLang.forEach(fn => fn(true));
+}
+
+function initLangSwitch() {
+  const box = $('#lang'), btn = $('.lang__btn', box);
+  const close = () => { box.classList.remove('is-open'); btn.setAttribute('aria-expanded', false); };
+  btn.addEventListener('click', e => { e.stopPropagation(); const o = !box.classList.contains('is-open'); box.classList.toggle('is-open', o); btn.setAttribute('aria-expanded', o); });
+  $$('[data-lang]', box).forEach(b => b.addEventListener('click', () => { setLang(b.dataset.lang); close(); }));
+  document.addEventListener('click', e => { if (!box.contains(e.target)) close(); });
+  addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
+}
+
 /* =========================================================
    Loader, reveal, scroll
    ========================================================= */
@@ -143,7 +154,6 @@ function initLoader() {
 }
 
 function initReveal() {
-  $$('[data-split]').forEach(splitWords);
   revealIO = new IntersectionObserver(es => es.forEach(e => {
     if (e.isIntersecting) { e.target.classList.add('in'); revealIO.unobserve(e.target); }
   }), { threshold: .15, rootMargin: '0px 0px -5% 0px' });
@@ -153,14 +163,12 @@ function initReveal() {
   });
   $$('[data-split]').forEach(el => { if (!el.closest('.hero')) revealIO.observe(el); });
 }
-const observe = scope => $$('[data-reveal]', scope).forEach(el => revealIO.observe(el));
+// instant = при смене языка новые элементы показываем сразу
+const observe = (scope, instant) => $$('[data-reveal]', scope).forEach(el => instant ? el.classList.add('in') : revealIO.observe(el));
 
 function initScroll() {
   const bar = $('.progress span'), nav = $('#nav'), dock = $('#dock');
   const st = $('.statement'), heroImg = $('.hero__media img'), aboutImg = $('.about__img img');
-  // statement: word-by-word fill
-  st.innerHTML = st.textContent.trim().split(/\s+/).map(w => `<span class="fw">${w}</span>`).join(' ');
-  const words = $$('.fw', st);
   let lastY = scrollY, ticking = false;
   const upd = () => {
     const y = scrollY, vh = innerHeight, h = root.scrollHeight - vh;
@@ -169,11 +177,11 @@ function initScroll() {
     if (y > 600 && y > lastY + 6 && !$('#menu').classList.contains('is-open')) nav.classList.add('is-hidden');
     else if (y < lastY - 6 || y < 600) nav.classList.remove('is-hidden');
     lastY = y;
-    const r = st.getBoundingClientRect();
+    const words = $$('.fw', st), r = st.getBoundingClientRect();
     const p = clamp((vh * .82 - r.top) / (r.height + vh * .3), 0, 1), n = Math.round(p * words.length);
     words.forEach((w, i) => w.classList.toggle('on', i < n));
     if (!REDUCED) {
-      if (y < vh) heroImg.style.translate = `0 ${y * .12}px`;
+      if (y < vh && innerWidth > 760) heroImg.style.translate = `0 ${y * .12}px`;
       const ar = aboutImg.parentElement.getBoundingClientRect();
       if (ar.top < vh && ar.bottom > 0) aboutImg.style.transform = `translateY(${-((vh - ar.top) / (vh + ar.height)) * 14}%)`;
     }
@@ -183,6 +191,7 @@ function initScroll() {
   };
   addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(upd); } }, { passive: true });
   addEventListener('resize', upd); upd();
+  onLang.push(upd);
 
   const pills = $$('.nav__pills .pill');
   const spy = new IntersectionObserver(es => es.forEach(e => {
@@ -202,8 +211,8 @@ function initScroll() {
    ========================================================= */
 function initPointer() {
   const cv = $('#fx'), ctx = cv.getContext('2d');
-  let W, H, dpr; const parts = []; let running = false;
-  const resize = () => { dpr = Math.min(devicePixelRatio || 1, 2); W = innerWidth; H = innerHeight; cv.width = W * dpr; cv.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0); };
+  let W, H; const parts = []; let running = false;
+  const resize = () => { const dpr = Math.min(devicePixelRatio || 1, 2); W = innerWidth; H = innerHeight; cv.width = W * dpr; cv.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0); };
   resize(); addEventListener('resize', resize);
   const loop = () => {
     ctx.clearRect(0, 0, W, H);
@@ -233,21 +242,17 @@ function initPointer() {
   addEventListener('pointermove', e => {
     m.x = e.clientX; m.y = e.clientY;
     dot.style.transform = `translate3d(${m.x}px,${m.y}px,0)`;
-    const t = e.target;
-    const lab = t.closest && t.closest('[data-cursor]');
-    const link = t.closest && t.closest('a,button,label,input,.svc,.g,.sw,.ba-tab');
+    const tg = e.target;
+    const lab = tg.closest && tg.closest('[data-cursor]');
+    const link = tg.closest && tg.closest('a,button,label,input,.svc,.g,.sw,.ba-tab,.lab__stage');
     cur.classList.toggle('is-label', !!lab); cur.classList.toggle('is-link', !lab && !!link);
-    cur.classList.toggle('is-dark', !!(t.closest && t.closest('.book__copy,.book__box > img')));
+    cur.classList.toggle('is-dark', !!(tg.closest && tg.closest('.book__copy')));
     if (lab) lbl.textContent = lab.dataset.cursor;
     cur.classList.remove('is-hidden');
     if (scrollY < innerHeight) { hero.style.setProperty('--lx', m.x + 'px'); hero.style.setProperty('--ly', m.y + scrollY + 'px'); }
   }, { passive: true });
   document.addEventListener('mouseleave', () => cur.classList.add('is-hidden'));
-  (function follow() {
-    r.x = lerp(r.x, m.x, .18); r.y = lerp(r.y, m.y, .18);
-    ring.style.transform = `translate3d(${r.x}px,${r.y}px,0)`;
-    requestAnimationFrame(follow);
-  })();
+  (function follow() { r.x = lerp(r.x, m.x, .18); r.y = lerp(r.y, m.y, .18); ring.style.transform = `translate3d(${r.x}px,${r.y}px,0)`; requestAnimationFrame(follow); })();
 
   $$('.magnetic').forEach(el => {
     el.addEventListener('pointermove', e => {
@@ -263,35 +268,37 @@ function initPointer() {
    ========================================================= */
 let quiz;
 function buildServices() {
-  $('#svcGrid').innerHTML = SERVICES.map((s, i) => `
-    <article class="svc" data-reveal style="--d:${i * 120}">
-      <div class="svc__img"><img src="${s.img}" alt="" loading="lazy"></div>
-      <div class="svc__body">
-        <h3>${s.t}</h3>
-        <p>${s.s}</p>
-        <div class="svc__meta"><span>${s.time}</span><span>носка ${s.wear}</span></div>
-        <div class="svc__det"><div>
-          <p>${s.det}</p>
-          <button type="button" class="btn btn--dark" data-svc="${s.t}"><span>Записаться</span><svg class="arr"><use href="#arrow"/></svg></button>
-        </div></div>
-        <button type="button" class="svc__more" aria-expanded="false"><span>Подробнее</span><i><svg><use href="#plus"/></svg></i></button>
-      </div>
-    </article>`).join('');
-  $('#svcExtra').innerHTML = EXTRA.map((s, i) => `
-    <button type="button" class="ex" data-svc="${s.t}" data-reveal style="--d:${i * 100}">
-      <div><b>${s.t}</b><small>${s.s}</small></div><span class="round"><svg><use href="#arrow"/></svg></span>
-    </button>`).join('');
+  const render = instant => {
+    $('#svcGrid').innerHTML = t('data.services').map((s, i) => `
+      <article class="svc" data-reveal style="--d:${i * 120}">
+        <div class="svc__img"><img src="${SERVICE_IMGS[i]}" alt="" loading="lazy"></div>
+        <div class="svc__body">
+          <h3>${s.t}</h3><p>${s.s}</p>
+          <div class="svc__meta"><span>${s.time}</span><span>${s.wear}</span></div>
+          <div class="svc__det"><div>
+            <p>${s.det}</p>
+            <button type="button" class="btn btn--dark" data-svc="${i}"><span>${t('services.book')}</span><svg class="arr"><use href="#arrow"/></svg></button>
+          </div></div>
+          <button type="button" class="svc__more" aria-expanded="false"><span>${t('services.more')}</span><i><svg><use href="#plus"/></svg></i></button>
+        </div>
+      </article>`).join('');
+    $('#svcExtra').innerHTML = t('data.extra').map((s, i) => `
+      <button type="button" class="ex" data-svc="x${i}" data-reveal style="--d:${i * 100}">
+        <div><b>${s.t}</b><small>${s.s}</small></div><span class="round"><svg><use href="#arrow"/></svg></span>
+      </button>`).join('');
+    observe($('#services'), instant);
+  };
+  render(false); onLang.push(render);
   $('#services').addEventListener('click', e => {
     const go = e.target.closest('[data-svc]');
     if (go) { quiz.setService(go.dataset.svc); return; }
-    const card = e.target.closest('.svc');
-    if (!card) return;
+    const card = e.target.closest('.svc'); if (!card) return;
     const open = !card.classList.contains('is-open');
     card.classList.toggle('is-open', open); $('.svc__more', card).setAttribute('aria-expanded', open);
-    $('.svc__more span', card).textContent = open ? 'Свернуть' : 'Подробнее';
+    $('.svc__more span', card).textContent = open ? t('services.less') : t('services.more');
   });
-  observe($('#services'));
 }
+const serviceName = code => code == null || code === '' ? '' : (code[0] === 'x' ? t('data.extra')[+code.slice(1)].t : t('data.services')[+code].t);
 
 /* =========================================================
    Works: before/after, gallery, lightbox
@@ -299,42 +306,50 @@ function buildServices() {
 function buildWorks() {
   const ba = $('#ba'), range = $('.ba__range', ba), iB = $('.ba__img--before', ba), iA = $('.ba__img--after', ba);
   const tabs = $('#baTabs'), info = $('#baInfo');
-  let touched = false, raf = 0;
+  let touched = false, raf = 0, cur = 0;
   const setPos = v => { ba.style.setProperty('--pos', v + '%'); range.value = v; };
   range.addEventListener('input', () => { touched = true; cancelAnimationFrame(raf); ba.style.setProperty('--pos', range.value + '%'); });
   range.addEventListener('pointerdown', () => { touched = true; cancelAnimationFrame(raf); });
   const hint = () => {
     if (REDUCED || touched) return;
     const keys = [[50, 28], [28, 72], [72, 50]]; let s = 0, t0 = performance.now();
-    const step = t => {
+    const step = tm => {
       if (touched) return;
-      const k = clamp((t - t0) / 900, 0, 1), e = k < .5 ? 2 * k * k : 1 - Math.pow(-2 * k + 2, 2) / 2;
+      const k = clamp((tm - t0) / 900, 0, 1), e = k < .5 ? 2 * k * k : 1 - Math.pow(-2 * k + 2, 2) / 2;
       setPos(lerp(keys[s][0], keys[s][1], e));
       if (k < 1) raf = requestAnimationFrame(step); else if (++s < keys.length) { t0 = performance.now(); raf = requestAnimationFrame(step); }
     };
     raf = requestAnimationFrame(step);
   };
-  const render = i => {
-    const s = STORIES[i];
-    $$('.ba-tab', tabs).forEach((b, k) => b.classList.toggle('is-on', k === i));
-    iB.src = IMG + s.before; iA.src = IMG + s.after; setPos(50);
+  const renderInfo = i => {
+    const s = t('data.stories')[i];
     info.innerHTML = `<span class="n">0${i + 1} / 0${STORIES.length}</span><h3>${s.h}</h3><p>${s.p}</p>`;
   };
-  tabs.innerHTML = STORIES.map((s, i) => `<button class="ba-tab" aria-label="История ${i + 1}"><img src="${IMG + s.after}" alt=""></button>`).join('');
+  const show = i => {
+    cur = i;
+    $$('.ba-tab', tabs).forEach((b, k) => b.classList.toggle('is-on', k === i));
+    iB.src = IMG + STORIES[i].before; iA.src = IMG + STORIES[i].after; setPos(50); renderInfo(i);
+  };
+  tabs.innerHTML = STORIES.map((s, i) => `<button class="ba-tab" data-i="${i}"><img src="${IMG + s.after}" alt=""></button>`).join('');
+  const labelTabs = () => $$('.ba-tab', tabs).forEach((b, i) => b.setAttribute('aria-label', `${t('works.story')} ${i + 1}`));
   tabs.addEventListener('click', e => {
     const b = e.target.closest('.ba-tab'); if (!b) return;
-    const i = $$('.ba-tab', tabs).indexOf(b);
     info.style.opacity = 0; ba.style.opacity = .6;
-    setTimeout(() => { render(i); info.style.opacity = 1; ba.style.opacity = 1; touched = false; hint(); }, 250);
+    setTimeout(() => { show(+b.dataset.i); info.style.opacity = 1; ba.style.opacity = 1; touched = false; hint(); }, 250);
   });
   ba.style.transition = 'opacity .3s';
-  render(0);
+  show(0); labelTabs();
   new IntersectionObserver((es, o) => { if (es[0].isIntersecting) { setTimeout(hint, 700); o.disconnect(); } }, { threshold: .5 }).observe(ba);
 
   const g = $('#gallery');
-  g.innerHTML = GALLERY.map((x, i) => `<figure class="g" data-i="${i}" data-reveal style="--d:${i * 80}"><img src="${IMG + x.f}" alt="${x.c}" loading="lazy"><figcaption>${x.c}</figcaption></figure>`).join('');
-  observe(g);
+  const renderGallery = instant => {
+    const caps = t('data.gallery');
+    g.innerHTML = GALLERY.map((f, i) => `<figure class="g" data-i="${i}" data-reveal style="--d:${i * 80}"><img src="${IMG + f}" alt="${escapeHTML(caps[i])}" loading="lazy"><figcaption>${caps[i]}</figcaption></figure>`).join('');
+    observe(g, instant);
+  };
+  renderGallery(false);
   dragScroll(g, i => lightbox.open(i));
+  onLang.push(instant => { renderInfo(cur); labelTabs(); renderGallery(instant); });
 }
 
 function dragScroll(el, onClick) {
@@ -348,7 +363,7 @@ function dragScroll(el, onClick) {
 let lightbox;
 function initLightbox() {
   const lb = $('#lb'), img = $('#lbImg'), cap = $('#lbCap'); let i = 0;
-  const show = n => { i = (n + GALLERY.length) % GALLERY.length; img.src = IMG + GALLERY[i].f; img.alt = cap.textContent = GALLERY[i].c; };
+  const show = n => { i = (n + GALLERY.length) % GALLERY.length; img.src = IMG + GALLERY[i]; img.alt = cap.textContent = t('data.gallery')[i]; };
   lightbox = {
     open(n) { show(n); lb.hidden = false; document.body.style.overflow = 'hidden'; },
     close() { lb.hidden = true; document.body.style.overflow = ''; }
@@ -359,37 +374,51 @@ function initLightbox() {
 }
 
 /* =========================================================
-   Hair Lab
+   Hair Lab — длину можно выбрать касанием фото или перетаскиванием метки
    ========================================================= */
 const lab = { shade: 2, len: 55, dens: 1, wave: 0 };
-const DENS = [{ n: 'лёгкая', v: .82 }, { n: 'естественная', v: 1 }, { n: 'пышная', v: 1.2 }];
-const MARKS = [[30, 'каре'], [40, 'плечи'], [55, 'лопатки'], [65, 'талия'], [80, 'бёдра']];
-const lenName = L => L < 35 ? 'каре' : L < 47 ? 'до плеч' : L < 60 ? 'до лопаток' : L < 72 ? 'до талии' : 'до бёдер';
+const lenIdx = L => L < 35 ? 0 : L < 47 ? 1 : L < 60 ? 2 : L < 72 ? 3 : 4;
+const lenName = L => t('data.lengths')[lenIdx(L)];
+const shadeName = i => t('data.shades')[i];
 
 function initLab() {
   const hair = window.HairRenderer.create($('#hairCanvas'), {
     // фото: Unsplash (бесплатная лицензия) — девушка со спины, волосы собраны
     photo: { src: 'https://images.unsplash.com/photo-1735463358546-fc3c6741dfa4?w=1200&q=82&auto=format', x: -55, y: -148, w: 783, h: 1175 },
-    marks: [[30, 352], [40, 400], [55, 488], [65, 652], [80, 770]]
+    marks: LAB_MARKS
   });
-  const swHTML = SHADES.map((s, i) => `<button type="button" class="sw" data-i="${i}" role="radio" aria-label="${s.n}" title="${s.n}" style="--c1:${s.c[0]};--c2:${s.c[1]};--c3:${s.c[2]}"></button>`).join('');
+  const stage = $('#labStage'), handle = $('#labHandle'), hintEl = $('#labHint');
+  const swHTML = SHADES.map((c, i) => `<button type="button" class="sw" data-i="${i}" role="radio" style="--c1:${c[0]};--c2:${c[1]};--c3:${c[2]}"></button>`).join('');
   $('#swatches').innerHTML = swHTML; $('#qSwatches').innerHTML = swHTML;
-  $('#lenMarks').innerHTML = MARKS.map(([l, t]) => `<span style="left:${(l - 30) / 50 * 100}%">${t}</span>`).join('');
-  $('#ruler').innerHTML = MARKS.map(([l, t]) => `<span class="m" data-l="${l}" style="top:${hair.endYFor(l) / hair.H * 100}%">${t}</span>`).join('');
+
+  // y на холсте (0..900) → см, обратная функция к шкале
+  const cmForY = y => {
+    const M = LAB_MARKS;
+    if (y <= M[0][1]) return M[0][0];
+    for (let i = 1; i < M.length; i++) if (y <= M[i][1]) return M[i - 1][0] + (M[i][0] - M[i - 1][0]) * (y - M[i - 1][1]) / (M[i][1] - M[i - 1][1]);
+    return M[M.length - 1][0];
+  };
 
   let pending = false;
   const draw = () => {
     if (pending) return; pending = true;
     requestAnimationFrame(() => {
       pending = false;
-      hair.render({ length: lab.len, shade: SHADES[lab.shade].c, density: DENS[lab.dens].v, wave: lab.wave ? 9 : 2.5 });
+      hair.render({ length: lab.len, shade: SHADES[lab.shade], density: DENS_V[lab.dens], wave: lab.wave ? 9 : 2.5 });
     });
   };
+  const labels = () => {
+    $$('.sw').forEach(b => { const i = +b.dataset.i; b.setAttribute('aria-label', shadeName(i)); b.title = shadeName(i); });
+    $('#lenMarks').innerHTML = MARK_CM.map((cm, i) => `<span style="left:${(cm - 30) / 50 * 100}%">${t('data.marks')[i]}</span>`).join('');
+    $('#ruler').innerHTML = MARK_CM.map((cm, i) => `<span class="m" data-l="${cm}" style="top:${hair.endYFor(cm) / hair.H * 100}%">${t('data.marks')[i]}</span>`).join('');
+  };
   const ui = () => {
-    const s = SHADES[lab.shade];
-    $('#shadeName').textContent = s.n; $('#qShadeOut').textContent = s.n;
-    $('#lenName').textContent = `${lenName(lab.len)} · ${lab.len} см`; $('#qLenOut').textContent = lab.len + ' см';
-    $('#labBadge').textContent = `${lenName(lab.len)} · ${s.n}`;
+    const cm = t('lab.cm');
+    $('#shadeName').textContent = shadeName(lab.shade); $('#qShadeOut').textContent = shadeName(lab.shade);
+    $('#lenName').textContent = `${lenName(lab.len)} · ${lab.len} ${cm}`; $('#qLenOut').textContent = `${lab.len} ${cm}`;
+    $('#labBadge').textContent = `${lenName(lab.len)} · ${shadeName(lab.shade)}`;
+    $('#labHandleTxt').textContent = `${lab.len} ${cm}`;
+    handle.style.top = hair.endYFor(lab.len) / hair.H * 100 + '%';
     $$('.sw').forEach(b => { const on = +b.dataset.i === lab.shade; b.classList.toggle('is-on', on); b.setAttribute('aria-checked', on); });
     $$('#densSeg button').forEach(b => b.classList.toggle('is-on', +b.dataset.v === lab.dens));
     $$('#waveSeg button').forEach(b => b.classList.toggle('is-on', +b.dataset.v === lab.wave));
@@ -397,12 +426,26 @@ function initLab() {
     ['#lenRange', '#qLen'].forEach(id => { const r = $(id); r.value = lab.len; r.style.setProperty('--fill', (lab.len - 30) / 50 * 100 + '%'); });
     draw();
   };
+  const setLen = v => { lab.len = clamp(Math.round(v), 30, 80); ui(); };
+  const lenFromPointer = e => { const r = stage.getBoundingClientRect(); return cmForY((e.clientY - r.top) / r.height * hair.H); };
+  const used = () => stage.classList.add('is-used');
+
+  // касание/клик по фото — длина до этой точки
+  stage.addEventListener('click', e => { if (e.target.closest('.lab__handle')) return; used(); setLen(lenFromPointer(e)); });
+  // перетаскивание метки
+  let drag = false;
+  handle.addEventListener('pointerdown', e => { drag = true; used(); handle.setPointerCapture(e.pointerId); handle.classList.add('is-drag'); e.preventDefault(); });
+  handle.addEventListener('pointermove', e => { if (drag) setLen(lenFromPointer(e)); });
+  const end = () => { drag = false; handle.classList.remove('is-drag'); };
+  handle.addEventListener('pointerup', end); handle.addEventListener('pointercancel', end);
+
   document.addEventListener('click', e => { const b = e.target.closest('.sw'); if (b) { lab.shade = +b.dataset.i; ui(); } });
-  ['#lenRange', '#qLen'].forEach(id => $(id).addEventListener('input', e => { lab.len = +e.target.value; ui(); }));
+  ['#lenRange', '#qLen'].forEach(id => $(id).addEventListener('input', e => setLen(+e.target.value)));
   $('#densSeg').addEventListener('click', e => { const b = e.target.closest('button'); if (b) { lab.dens = +b.dataset.v; ui(); } });
   $('#waveSeg').addEventListener('click', e => { const b = e.target.closest('button'); if (b) { lab.wave = +b.dataset.v; ui(); } });
-  $('#labSend').addEventListener('click', () => { toast('Образ сохранён в анкете'); scrollToEl('#book'); });
-  ui();
+  $('#labSend').addEventListener('click', () => { toast(t('lab.saved')); scrollToEl('#book'); });
+  labels(); ui();
+  onLang.push(() => { labels(); ui(); });
   lab.reset = () => { Object.assign(lab, { shade: 2, len: 55, dens: 1, wave: 0 }); ui(); };
 }
 
@@ -412,13 +455,16 @@ function initLab() {
 function buildReviews() {
   const track = $('#rvTrack'), sc = $('#rvScroll');
   const stars = '<svg><use href="#star"/></svg>'.repeat(5);
-  track.innerHTML = REVIEWS.map((r, i) => `
-    <article class="rv" data-reveal style="--d:${i * 80}">
-      <div class="rv__stars" aria-label="5 из 5">${stars}</div>
-      <p class="rv__txt">«${r.t}»</p>
-      <div class="rv__who"><span class="rv__av">${r.n[0]}</span><div><b>${r.n}</b><span>${r.svc}</span></div></div>
-    </article>`).join('');
-  observe(track);
+  const render = instant => {
+    track.innerHTML = t('data.reviews').map((r, i) => `
+      <article class="rv" data-reveal style="--d:${i * 80}">
+        <div class="rv__stars" aria-label="${t('reviews.stars')}">${stars}</div>
+        <p class="rv__txt">“${r.t}”</p>
+        <div class="rv__who"><span class="rv__av">${r.n[0]}</span><div><b>${r.n}</b><span>${r.svc}</span></div></div>
+      </article>`).join('');
+    observe(track, instant);
+  };
+  render(false); onLang.push(render);
   const by = d => sc.scrollBy({ left: d * (track.firstElementChild.offsetWidth + 20), behavior: 'smooth' });
   $('#rvPrev').onclick = () => by(-1); $('#rvNext').onclick = () => by(1);
   dragScroll(sc);
@@ -426,12 +472,18 @@ function buildReviews() {
 
 function buildFAQ() {
   const acc = $('#acc');
-  acc.innerHTML = FAQ.map(([q, a], i) => `
-    <div class="acc__i${i ? '' : ' is-open'}" data-reveal style="--d:${i * 60}">
-      <button class="acc__q" aria-expanded="${!i}" aria-controls="fa${i}"><span>${q}</span><i><svg><use href="#plus"/></svg></i></button>
-      <div class="acc__a" id="fa${i}" role="region"><div><p>${a}</p></div></div>
-    </div>`).join('');
-  observe(acc);
+  const render = instant => {
+    const open = $$('.acc__i', acc).findIndex(x => x.classList.contains('is-open'));
+    acc.innerHTML = t('data.faq').map(([q, a], i) => {
+      const on = open === -1 ? i === 0 : i === open;
+      return `<div class="acc__i${on ? ' is-open' : ''}" data-reveal style="--d:${i * 60}">
+        <button class="acc__q" aria-expanded="${on}" aria-controls="fa${i}"><span>${q}</span><i><svg><use href="#plus"/></svg></i></button>
+        <div class="acc__a" id="fa${i}" role="region"><div><p>${a}</p></div></div>
+      </div>`;
+    }).join('');
+    observe(acc, instant);
+  };
+  render(false); onLang.push(render);
   acc.addEventListener('click', e => {
     const b = e.target.closest('.acc__q'); if (!b) return;
     const it = b.parentElement, open = !it.classList.contains('is-open');
@@ -446,81 +498,96 @@ function buildFAQ() {
 function initQuiz() {
   const form = $('#quiz'), steps = $$('.qs', form), TOTAL = steps.length;
   const err = $('#qErr'), back = $('#qBack'), next = $('#qNext'), done = $('#qDone');
-  let cur = 1, chan = 'WhatsApp', service = '';
+  let cur = 1, chan = 'WhatsApp', service = '', lastErr = '';
   const val = () => Object.fromEntries(new FormData(form).entries());
-  const hints = { WhatsApp: ['Номер WhatsApp', '+995 ...', 'tel'], Telegram: ['Telegram — @username или номер', '@username', 'text'], Instagram: ['Instagram — @username', '@username', 'text'] };
+  const contactKey = { WhatsApp: 'quiz.cWa', Telegram: 'quiz.cTg', Instagram: 'quiz.cIg' };
 
   const validate = n => {
     const v = val();
-    if (n === 1 && !v.goal) return 'Выбери вариант, чтобы продолжить';
-    if (n === 2 && (!v.now || !v.dens)) return 'Выбери длину и густоту волос';
-    if (n === 4 && !v.when) return 'Выбери удобное время';
+    if (n === 1 && !v.goal) return 'quiz.e1';
+    if (n === 2 && (!v.now || !v.dens)) return 'quiz.e2';
+    if (n === 4 && !v.when) return 'quiz.e4';
     if (n === 5) {
-      if (!v.name || v.name.trim().length < 2) { $('#fName').parentElement.classList.add('is-bad'); return 'Подскажи, как к тебе обращаться'; }
+      if (!v.name || v.name.trim().length < 2) { $('#fName').parentElement.classList.add('is-bad'); return 'quiz.eName'; }
       const c = (v.contact || '').trim();
       const ok = chan === 'WhatsApp' ? c.replace(/\D/g, '').length >= 7 : c.replace('@', '').length >= 3;
-      if (!ok) { $('#fContact').parentElement.classList.add('is-bad'); return chan === 'WhatsApp' ? 'Укажи номер (минимум 7 цифр)' : 'Укажи ник или номер'; }
+      if (!ok) { $('#fContact').parentElement.classList.add('is-bad'); return chan === 'WhatsApp' ? 'quiz.eWa' : 'quiz.eNick'; }
     }
     return '';
   };
+  const labels = () => {
+    $('#qCount').textContent = t('quiz.step', { n: cur, t: TOTAL });
+    $('span', next).textContent = cur === TOTAL ? t('quiz.submit') : t('quiz.next');
+    $('#contactLbl').textContent = t(contactKey[chan]);
+    err.textContent = lastErr ? t(lastErr) : '';
+  };
   const go = n => {
     steps.forEach((s, i) => { s.classList.toggle('is-active', i + 1 === n); s.setAttribute('aria-hidden', i + 1 !== n); });
-    cur = n; err.textContent = '';
-    $('#qBar').style.transform = `scaleX(${n / TOTAL})`; $('#qCount').textContent = `Шаг ${n} из ${TOTAL}`;
+    cur = n; lastErr = '';
+    $('#qBar').style.transform = `scaleX(${n / TOTAL})`;
     back.disabled = n === 1;
-    $('span', next).textContent = n === TOTAL ? 'Получить расчёт' : 'Далее';
+    labels();
   };
   const tryNext = () => {
     const e = validate(cur);
-    if (e) { err.textContent = e; return; }
+    if (e) { lastErr = e; err.textContent = t(e); return; }
     if (cur < TOTAL) go(cur + 1); else submit();
   };
   next.addEventListener('click', tryNext);
   back.addEventListener('click', () => cur > 1 && go(cur - 1));
   form.addEventListener('keydown', e => { if (e.key === 'Enter' && e.target.tagName !== 'TEXTAREA') { e.preventDefault(); tryNext(); } });
-  form.addEventListener('input', () => { err.textContent = ''; $$('.field.is-bad', form).forEach(f => f.classList.remove('is-bad')); });
+  form.addEventListener('input', () => { lastErr = ''; err.textContent = ''; $$('.field.is-bad', form).forEach(f => f.classList.remove('is-bad')); });
   $$('input[name=goal]', form).forEach(r => r.addEventListener('change', () => setTimeout(() => cur === 1 && go(2), 350)));
   $('#chanSeg').addEventListener('click', e => {
     const b = e.target.closest('button'); if (!b) return; chan = b.dataset.v;
     $$('#chanSeg button').forEach(x => x.classList.toggle('is-on', x === b));
-    const [l, ph, t] = hints[chan]; $('#contactLbl').textContent = l; const c = $('#fContact'); c.placeholder = ph; c.inputMode = t;
+    const c = $('#fContact'); c.placeholder = chan === 'WhatsApp' ? '+995 ...' : '@username'; c.inputMode = chan === 'WhatsApp' ? 'tel' : 'text';
+    labels();
   });
 
+  const L = (group, v) => t(`quiz.${group}_${v}`);
   const message = v => [
-    `Здравствуйте, Катрин! Меня зовут ${v.name.trim()}.`,
-    `Хочу: ${v.goal}.`,
-    service ? `Интересует: ${service}.` : '',
-    `Мои волосы сейчас: ${v.now}, ${v.dens}.`,
-    `Желаемый образ: ${lenName(lab.len)} (~${lab.len} см), оттенок «${SHADES[lab.shade].n}», густота ${DENS[lab.dens].n}${lab.wave ? ', волна' : ''}.`,
-    `Когда удобно: ${v.when}.${v.city && v.city.trim() ? ' Город: ' + v.city.trim() + '.' : ''}`,
-    `Связь: ${chan} — ${v.contact.trim()}.`,
-    v.comment && v.comment.trim() ? `Комментарий: ${v.comment.trim()}` : ''
+    t('msg.hello', { name: v.name.trim() }),
+    t('msg.goal', { v: L('goal', v.goal) }),
+    service !== '' ? t('msg.service', { v: serviceName(service) }) : '',
+    t('msg.now', { a: L('now', v.now), b: L('dens', v.dens) }),
+    t('msg.look', { len: lenName(lab.len), cm: lab.len, shade: shadeName(lab.shade), dens: t('data.dens')[lab.dens], wave: lab.wave ? t('msg.wave') : '' }),
+    t('msg.when', { v: L('when', v.when) }) + (v.city && v.city.trim() ? t('msg.city', { v: v.city.trim() }) : ''),
+    t('msg.contact', { ch: chan, v: v.contact.trim() }),
+    v.comment && v.comment.trim() ? t('msg.comment', { v: v.comment.trim() }) : ''
   ].filter(Boolean).join('\n');
 
-  function submit() {
+  const renderSummary = () => {
     const v = val(), msg = message(v), enc = encodeURIComponent(msg);
-    const rows = [['Имя', v.name.trim()], ['Цель', v.goal], ['Образ', `${lenName(lab.len)}, ${SHADES[lab.shade].n}`], ['Когда', v.when], ['Связь', chan], ['Услуга', service || 'подберём вместе']];
-    $('#summary').innerHTML = rows.map(([k, x]) => `<div><dt>${k}</dt><dd>${escapeHTML(x)}</dd></div>`).join('');
+    const rows = [['sName', v.name.trim()], ['sGoal', L('goal', v.goal)], ['sLook', `${lenName(lab.len)}, ${shadeName(lab.shade)}`], ['sWhen', L('when', v.when)], ['sChannel', chan], ['sService', service !== '' ? serviceName(service) : t('quiz.sServiceNone')]];
+    $('#summary').innerHTML = rows.map(([k, x]) => `<div><dt>${t('quiz.' + k)}</dt><dd>${escapeHTML(x)}</dd></div>`).join('');
     $('#sendWa').href = CONFIG.whatsapp ? `https://wa.me/${CONFIG.whatsapp.replace(/\D/g, '')}?text=${enc}` : `https://wa.me/?text=${enc}`;
     $('#sendTg').href = CONFIG.telegram ? `https://t.me/${CONFIG.telegram}?text=${enc}` : `https://t.me/share/url?url=%20&text=${enc}`;
     form._msg = msg;
-    if (CONFIG.endpoint) fetch(CONFIG.endpoint, { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify({ ...v, service, length: lab.len, shade: SHADES[lab.shade].n, channel: chan, message: msg }) }).catch(() => {});
+    return { v, msg };
+  };
+  function submit() {
+    const { v, msg } = renderSummary();
+    if (CONFIG.endpoint) fetch(CONFIG.endpoint, { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify({ ...v, lang, service: serviceName(service), length: lab.len, shade: shadeName(lab.shade), channel: chan, message: msg }) }).catch(() => {});
     done.hidden = false;
     const r = $('.done__ok').getBoundingClientRect();
     if (initPointer.burst) { initPointer.burst(r.left + r.width / 2, r.top + r.height / 2, 14); setTimeout(() => initPointer.burst(r.left + r.width / 2, r.top + r.height / 2, 10), 220); }
   }
   $('#copyReq').addEventListener('click', async () => {
-    try { await navigator.clipboard.writeText(form._msg || ''); toast('Заявка скопирована'); } catch { toast('Не удалось скопировать'); }
+    try { await navigator.clipboard.writeText(form._msg || ''); toast(t('quiz.copied')); } catch { toast(t('quiz.copyFail')); }
   });
   $('#qAgain').addEventListener('click', () => { form.reset(); done.hidden = true; service = ''; lab.reset(); go(1); });
   go(1);
-  quiz = { setService(name) { service = name; toast(`«${name}» — добавлено в анкету`); scrollToEl('#book'); } };
+  onLang.push(() => { labels(); if (!done.hidden) renderSummary(); });
+  quiz = { setService(code) { service = code; toast(t('quiz.added', { s: serviceName(code) })); scrollToEl('#book'); } };
 }
 
 /* =========================================================
    Boot
    ========================================================= */
+applyStatic();
 applyContactLinks();
+initLangSwitch();
 initLoader();
 initReveal();
 initQuiz();
