@@ -40,7 +40,8 @@ const onLang = []; // функции перерисовки, вызываютс�
 /* =========================================================
    Неязыковые данные (фото, цвета)
    ========================================================= */
-const SERVICE_IMGS = [UNS('1652204234951-17c05a05bb94'), UNS('1496440737103-cd596325d314'), UNS('1628695444176-79ef329a6015')];
+// кадры из промо-ролика Катрин
+const SERVICE_IMGS = [IMG + 'svc-capsule.webp', IMG + 'svc-tape.webp', IMG + 'svc-talk.webp'];
 // Пары «до / после» — проверьте соответствие фото.
 const STORIES = [
   { before: 'work-pink-before.webp', after: 'work-pink-after.webp' },
@@ -609,6 +610,49 @@ function initQuiz() {
 }
 
 /* =========================================================
+   Видео: шоурил с раскрытием при прокрутке, процесс, окно со звуком
+   ========================================================= */
+function initVideos() {
+  const small = matchMedia('(max-width:760px)').matches;
+  const reel = $('#reel'), frame = $('#reelFrame'), rv = $('#reelVideo'), pv = $('#procVideo');
+  // источник подставляем лениво: на телефоне — лёгкая версия без звука
+  const load = v => { if (!v.src) { v.src = (small && v.dataset.srcSm) || v.dataset.src; } };
+  const play = v => { if (REDUCED) return; load(v); const p = v.play(); if (p && p.catch) p.catch(() => {}); };
+  const vio = new IntersectionObserver(es => es.forEach(e => e.isIntersecting ? play(e.target) : e.target.pause()), { threshold: .25 });
+  [rv, pv].forEach(v => vio.observe(v));
+
+  // раскрытие шоурила: из скруглённой карточки — во весь экран
+  if (!small && !REDUCED) {
+    let ticking = false;
+    const upd = () => {
+      ticking = false;
+      const r = reel.getBoundingClientRect(), total = r.height - innerHeight;
+      const p = clamp(-r.top / (total * .6), 0, 1), e = 1 - Math.pow(1 - p, 3);
+      frame.style.setProperty('--ry', (12 * (1 - e)).toFixed(2) + '%');
+      frame.style.setProperty('--rx', (8 * (1 - e)).toFixed(2) + '%');
+      frame.style.setProperty('--rr', (36 * (1 - e)).toFixed(1) + 'px');
+      frame.style.setProperty('--rs', (1.12 - .12 * e).toFixed(3));
+      frame.style.setProperty('--ro', clamp((p - .45) / .4, 0, 1).toFixed(3));
+    };
+    addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(upd); } }, { passive: true });
+    addEventListener('resize', upd); upd();
+  }
+
+  // окно просмотра со звуком
+  const modal = $('#vmodal'), mv = $('#vmodalV');
+  const open = (src, poster) => {
+    [rv, pv].forEach(v => v.pause());
+    mv.poster = poster || ''; mv.src = src; modal.hidden = false; document.body.style.overflow = 'hidden';
+    mv.muted = false; const p = mv.play(); if (p && p.catch) p.catch(() => {});
+  };
+  const close = () => { mv.pause(); mv.removeAttribute('src'); mv.load(); modal.hidden = true; document.body.style.overflow = ''; };
+  $$('[data-video]').forEach(b => b.addEventListener('click', () => open(b.dataset.video, b.dataset.poster)));
+  $('#vmodalX').addEventListener('click', close);
+  modal.addEventListener('click', e => { if (e.target === modal) close(); });
+  addEventListener('keydown', e => { if (e.key === 'Escape' && !modal.hidden) close(); });
+}
+
+/* =========================================================
    Boot
    ========================================================= */
 applyStatic();
@@ -624,5 +668,6 @@ initLab();
 buildReviews();
 buildFAQ();
 initScroll();
+initVideos();
 initPointer();
 })();

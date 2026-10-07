@@ -18,6 +18,7 @@ en: {
     note: 'Hair extensions that look and feel like your own. Capsules, tape-ins and Hair Talk — with length, density and shade matched just for you.',
     cardT: 'Before & after', cardS: 'Katrin’s real work'
   },
+  reel: { label: 'Showreel', title: 'Your hair.<br>Your moment.', sub: 'Luxury you can feel — from the first strand to the final look in the mirror.', watch: 'Watch with sound', watchProcess: 'Watch the process', katrin: 'Katrin at work', close: 'Close' },
   about: {
     label: 'About me',
     statement: 'I’m Katrin, a hair extension specialist. My goal is simple: when you look in the mirror, you see your own hair — just longer, fuller and more luxurious. With zero compromise on how natural it looks.',
@@ -135,6 +136,7 @@ ru: {
     note: 'Наращивание волос, которое не отличить от своих. Капсулы, ленты и Hair Talk — с индивидуальным подбором длины, густоты и оттенка.',
     cardT: 'До и после', cardS: 'Реальные работы Катрин'
   },
+  reel: { label: 'Шоурил', title: 'Твои волосы.<br>Твой момент.', sub: 'Роскошь, которую чувствуешь — от первой пряди до финального взгляда в зеркало.', watch: 'Смотреть со звуком', watchProcess: 'Смотреть процесс', katrin: 'Катрин за работой', close: 'Закрыть' },
   about: {
     label: 'Обо мне',
     statement: 'Меня зовут Катрин, я мастер по наращиванию волос. Моя цель — чтобы ты смотрела в зеркало и видела свои волосы, только длиннее, гуще и роскошнее. Без компромиссов в естественности.',
@@ -252,6 +254,7 @@ tr: {
     note: 'Kendi saçınızdan ayırt edilemeyen saç kaynak. Kapsül, bant ve Hair Talk — uzunluk, yoğunluk ve renk size özel seçilir.',
     cardT: 'Öncesi ve sonrası', cardS: 'Katrin’in gerçek çalışmaları'
   },
+  reel: { label: 'Tanıtım filmi', title: 'Saçların.<br>Senin anın.', sub: 'Hissedilen lüks — ilk tutamdan aynadaki son bakışa kadar.', watch: 'Sesli izle', watchProcess: 'Süreci izle', katrin: 'Katrin iş başında', close: 'Kapat' },
   about: {
     label: 'Hakkımda',
     statement: 'Ben Katrin, saç kaynak uzmanıyım. Amacım basit: aynaya baktığınızda kendi saçınızı görmeniz — sadece daha uzun, daha gür ve daha lüks. Doğallıktan hiç ödün vermeden.',
@@ -369,6 +372,7 @@ ka: {
     note: 'თმის დაგრძელება, რომელსაც საკუთარი თმისგან ვერ გაარჩევ. კაფსულები, ლენტები და Hair Talk — სიგრძის, სიხშირისა და ფერის ინდივიდუალური შერჩევით.',
     cardT: 'მანამდე და შემდეგ', cardS: 'კატრინის რეალური ნამუშევრები'
   },
+  reel: { label: 'შოურილი', title: 'შენი თმა.<br>შენი მომენტი.', sub: 'ფუფუნება, რომელსაც გრძნობ — პირველი კულულიდან სარკეში ბოლო მზერამდე.', watch: 'ნახე ხმით', watchProcess: 'ნახე პროცესი', katrin: 'კატრინი მუშაობისას', close: 'დახურვა' },
   about: {
     label: 'ჩემ შესახებ',
     statement: 'მე ვარ კატრინი, თმის დაგრძელების სპეციალისტი. ჩემი მიზანი მარტივია: სარკეში ჩახედვისას დაინახო შენი საკუთარი თმა — უბრალოდ უფრო გრძელი, უფრო ხშირი და უფრო ფუფუნებით. ბუნებრიობაზე კომპრომისის გარეშე.',

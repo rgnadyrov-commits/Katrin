@@ -17,7 +17,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://images.unsplash.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700&family=Inter:wght@400;500;600&family=Noto+Sans+Georgian:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=7">
+<link rel="stylesheet" href="css/style.css?v=8">
 <script>
   // язык выбирается до отрисовки, чтобы не мигал английский текст
   (function () {
@@ -36,6 +36,7 @@
     <symbol id="plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
     <symbol id="star" viewBox="0 0 24 24"><path d="M12 2.5l2.9 6 6.6.8-4.9 4.5 1.3 6.5L12 17l-5.9 3.3 1.3-6.5L2.5 9.3l6.6-.8z" fill="currentColor"/></symbol>
     <symbol id="up" viewBox="0 0 24 24"><path d="M12 19V5M6 11l6-6 6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="play" viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></symbol>
     <symbol id="globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3Z" fill="none" stroke="currentColor" stroke-width="1.6"/></symbol>
     <symbol id="i-whatsapp" viewBox="0 0 24 24"><path d="M12 2.5a9.5 9.5 0 0 0-8.1 14.4L2.6 21.4l4.6-1.2A9.5 9.5 0 1 0 12 2.5Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M8.8 7.6c.3-.5.7-.4.9-.2l.9 1.9c.1.3 0 .5-.3.8-.2.2-.4.4-.2.7.5.9 1.3 1.7 2.3 2.2.4.2.5 0 .7-.2.3-.4.5-.5.9-.3l1.7.8c.3.2.3.5.1 1-.4.8-1.4 1.2-2.2 1-2.9-.7-5.1-2.8-5.7-5.6-.1-.5 0-.9.3-1.4Z" fill="currentColor"/></symbol>
     <symbol id="i-telegram" viewBox="0 0 24 24"><path d="M21.5 3.6 2.6 10.9c-.9.4-.9 1.1-.2 1.3l4.8 1.5 1.9 5.8c.2.6.4.7.9.4l2.7-2.2 4.7 3.5c.9.5 1.5.2 1.7-.9L22.9 4.9c.3-1.3-.5-1.9-1.4-1.3Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="m9.3 14.3 8.4-6.2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
@@ -114,6 +115,22 @@
       <span class="hero__card-txt"><b data-i18n="hero.cardT">Before &amp; after</b><small data-i18n="hero.cardS">Katrin’s real work</small></span>
       <svg class="arr"><use href="#arrow"/></svg>
     </a>
+  </div>
+</section>
+
+<!-- ================= SHOWREEL ================= -->
+<section class="reel" id="reel">
+  <div class="reel__sticky">
+    <div class="reel__frame" id="reelFrame">
+      <video class="reel__video" id="reelVideo" muted loop playsinline preload="none" poster="assets/img/poster-showreel.webp" data-src="assets/video/showreel.mp4" data-src-sm="assets/video/showreel-sm.mp4" aria-hidden="true"></video>
+      <div class="reel__shade" aria-hidden="true"></div>
+      <div class="reel__copy">
+        <p class="label label--light" data-i18n="reel.label">Showreel</p>
+        <h2 class="reel__title" data-i18n="reel.title">Your hair.<br>Your moment.</h2>
+        <p class="reel__sub" data-i18n="reel.sub"></p>
+        <button type="button" class="reel__play" data-video="assets/video/showreel.mp4" data-poster="assets/img/poster-showreel.webp"><span class="reel__ico"><svg><use href="#play"/></svg></span><span data-i18n="reel.watch">Watch with sound</span></button>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -242,6 +259,11 @@
       <p class="label" data-reveal data-i18n="process.label">How it works</p>
       <h2 class="h2" data-split data-i18n="process.title"></h2>
       <a href="#book" class="btn btn--line magnetic" data-reveal><span data-i18n="process.btn">Start with a consultation</span><svg class="arr"><use href="#arrow"/></svg></a>
+      <div class="pvideo" data-reveal>
+        <video class="pvideo__v" id="procVideo" muted loop playsinline preload="none" poster="assets/img/poster-process.webp" data-src="assets/video/process.mp4" aria-hidden="true"></video>
+        <span class="pvideo__tag" data-i18n="reel.katrin">Katrin at work</span>
+        <button type="button" class="reel__play reel__play--sm" data-video="assets/video/process.mp4" data-poster="assets/img/poster-process.webp"><span class="reel__ico"><svg><use href="#play"/></svg></span><span data-i18n="reel.watchProcess">Watch the process</span></button>
+      </div>
     </header>
     <ol class="steps">
       <li class="step" data-reveal><span class="step__n">01</span><div><h3 data-i18n="process.s1t"></h3><p data-i18n="process.s1p"></p></div></li>
@@ -285,7 +307,7 @@
 <!-- ================= BOOKING ================= -->
 <section class="book" id="book">
   <div class="book__box">
-    <img class="book__bg" src="https://images.unsplash.com/photo-1496440737103-cd596325d314?w=1600&q=70&auto=format&fit=crop" alt="" loading="lazy" aria-hidden="true">
+    <img class="book__bg" src="assets/img/book-bg.webp" alt="" loading="lazy" aria-hidden="true">
     <div class="book__grid">
       <div class="book__copy">
         <p class="label label--light" data-reveal data-i18n="book.label">Booking</p>
@@ -407,6 +429,11 @@
 
 <div class="dock" id="dock"><a href="#book" class="btn btn--dark btn--lg"><span data-i18n="nav.book">Book now</span><svg class="arr"><use href="#arrow"/></svg></a></div>
 
+<div class="vmodal" id="vmodal" hidden>
+  <button class="round vmodal__x" id="vmodalX" data-i18n-attr="aria-label=reel.close"><svg style="transform:rotate(45deg)"><use href="#plus"/></svg></button>
+  <video id="vmodalV" controls playsinline preload="none"></video>
+</div>
+
 <div class="lb" id="lb" hidden>
   <button class="round lb__x" id="lbX" aria-label="×"><svg style="transform:rotate(45deg)"><use href="#plus"/></svg></button>
   <button class="round lb__nav lb__nav--p" id="lbP" data-i18n-attr="aria-label=reviews.prev"><svg style="transform:scaleX(-1)"><use href="#arrow"/></svg></button>
@@ -414,8 +441,8 @@
   <figure><img id="lbImg" alt=""><figcaption id="lbCap"></figcaption></figure>
 </div>
 
-<script src="js/i18n.js?v=6"></script>
-<script src="js/hair.js?v=6"></script>
-<script src="js/main.js?v=6"></script>
+<script src="js/i18n.js?v=8"></script>
+<script src="js/hair.js?v=8"></script>
+<script src="js/main.js?v=8"></script>
 </body>
 </html>

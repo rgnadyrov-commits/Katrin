@@ -349,7 +349,8 @@ input[type=range]:active::-webkit-slider-thumb{transform:scale(1.15)}
 /* ---------- BOOKING ---------- */
 .book{padding:0 clamp(10px,1.4vw,20px) clamp(10px,1.4vw,20px);background:var(--white)}
 .book__box{position:relative;border-radius:clamp(24px,3vw,40px);overflow:hidden;background:linear-gradient(150deg,var(--green-2),var(--green) 45%,var(--green-3))}
-.book__bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.16;mix-blend-mode:luminosity;pointer-events:none}
+.book__bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:60% 40%;opacity:.42;pointer-events:none}
+.book__box::before{content:"";position:absolute;inset:0;background:linear-gradient(100deg,rgba(11,35,28,.92) 0%,rgba(18,53,42,.72) 48%,rgba(18,53,42,.35) 100%);pointer-events:none}
 .book__grid{position:relative;display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(30px,6vw,90px);align-items:center;padding:clamp(40px,7vw,110px) clamp(22px,6vw,90px)}
 .book__copy{color:#fff}
 .perks{margin-top:32px;display:grid;gap:12px}
@@ -517,3 +518,47 @@ html[lang="ka"] .pill{padding:0 16px;font-size:14px}
   body.dock-on .totop{bottom:calc(88px + env(safe-area-inset-bottom))}
   .ba__handle span{width:60px;height:60px;margin:-30px;font-size:20px}
 }
+
+/* ---------- шоурил (видео 2) ---------- */
+.reel{position:relative;height:170vh;background:var(--white)}
+.reel__sticky{position:sticky;top:0;height:100vh;display:grid;place-items:center;overflow:hidden}
+.reel__frame{position:relative;width:100%;height:100%;overflow:hidden;background:#0b1a16;clip-path:inset(var(--ry,12%) var(--rx,8%) round var(--rr,36px));will-change:clip-path}
+.reel__video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(var(--rs,1.12));will-change:transform}
+.reel__shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,20,16,.15) 0%,rgba(7,20,16,0) 35%,rgba(7,20,16,.65) 100%),radial-gradient(70% 60% at 20% 90%,rgba(7,20,16,.55),transparent 70%)}
+.reel__copy{position:absolute;left:0;right:0;bottom:0;padding:0 max(var(--gutter),calc((100vw - 1280px)/2)) clamp(48px,9vh,96px);color:#fff;opacity:var(--ro,0);transform:translateY(calc((1 - var(--ro,0)) * 30px))}
+.reel__title{font:600 clamp(2.6rem,6.4vw,6rem)/1 var(--f-head);letter-spacing:-.05em;margin-top:18px;text-shadow:0 10px 40px rgba(0,0,0,.25)}
+.reel__sub{max-width:44ch;margin-top:18px;font-size:clamp(1rem,1.3vw,1.15rem);color:rgba(255,255,255,.82)}
+.reel__play{display:inline-flex;align-items:center;gap:14px;margin-top:30px;height:60px;padding:0 28px 0 8px;border-radius:999px;background:rgba(255,255,255,.16);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.35);color:#fff;font:500 15.5px/1 var(--f-body);transition:background .3s,transform .3s var(--ease)}
+.reel__play:hover{background:rgba(255,255,255,.28);transform:translateY(-2px)}
+.reel__ico{width:44px;height:44px;border-radius:50%;background:var(--gold-2);color:var(--green-3);display:grid;place-items:center;position:relative}
+.reel__ico svg{width:18px;height:18px;margin-left:2px}
+.reel__ico::after{content:"";position:absolute;inset:-6px;border-radius:50%;border:1px solid rgba(227,203,151,.7);animation:pulseRing 2.2s ease-out infinite}
+@keyframes pulseRing{from{transform:scale(.85);opacity:1}to{transform:scale(1.35);opacity:0}}
+
+/* ---------- видео процесса (видео 1) ---------- */
+.pvideo{position:relative;margin-top:36px;border-radius:var(--r);overflow:hidden;aspect-ratio:16/10;background:var(--bg);box-shadow:0 30px 60px -36px rgba(14,23,20,.45)}
+.pvideo__v{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.pvideo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(7,20,16,.55));pointer-events:none}
+.pvideo__tag{position:absolute;left:14px;top:14px;z-index:1;padding:8px 14px;border-radius:99px;background:rgba(255,255,255,.85);backdrop-filter:blur(8px);font-size:13px;font-weight:500}
+.reel__play--sm{position:absolute;left:14px;bottom:14px;z-index:1;margin:0;height:52px;padding:0 20px 0 6px;font-size:14.5px}
+.reel__play--sm .reel__ico{width:40px;height:40px}
+
+/* ---------- окно видео со звуком ---------- */
+.vmodal{position:fixed;inset:0;z-index:10045;background:rgba(7,20,16,.92);backdrop-filter:blur(12px);display:flex;align-items:center;justify-content:center;padding:clamp(12px,4vw,48px);animation:fadeIn .4s var(--ease)}
+.vmodal[hidden]{display:none}
+.vmodal video{width:min(1200px,100%);max-height:86vh;border-radius:clamp(14px,2vw,24px);background:#000;box-shadow:0 40px 100px -30px #000}
+.vmodal__x{position:absolute;top:16px;right:16px;background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.3);color:#fff}
+.vmodal__x:hover{background:#fff;color:var(--green)}
+
+@media (max-width:760px){
+  .reel{height:auto;padding:8px 10px 0}
+  .reel__sticky{position:relative;height:auto}
+  .reel__frame{height:auto;aspect-ratio:4/5;clip-path:none;border-radius:28px}
+  .reel__video{transform:none}
+  .reel__copy{opacity:1;transform:none;padding:0 22px 30px}
+  .reel__title{font-size:clamp(2.2rem,10vw,3rem)}
+  .reel__sub{font-size:15px}
+  .reel__play{margin-top:22px;height:54px}
+}
+@media (prefers-reduced-motion:reduce){.reel__copy{opacity:1;transform:none}.reel__ico::after{display:none}}
+.book__bg{z-index:0}.book__box::before{z-index:1}.book__grid{z-index:2}
