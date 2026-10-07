@@ -619,7 +619,7 @@ function initVideos() {
   const load = v => { if (!v.src) { v.src = (small && v.dataset.srcSm) || v.dataset.src; } };
   const play = v => { if (REDUCED) return; load(v); const p = v.play(); if (p && p.catch) p.catch(() => {}); };
   const vio = new IntersectionObserver(es => es.forEach(e => e.isIntersecting ? play(e.target) : e.target.pause()), { threshold: .25 });
-  [rv, pv].forEach(v => vio.observe(v));
+  $$('video[data-src]').forEach(v => vio.observe(v));
 
   // раскрытие шоурила: из скруглённой карточки — во весь экран
   if (!small && !REDUCED) {
@@ -641,7 +641,7 @@ function initVideos() {
   // окно просмотра со звуком
   const modal = $('#vmodal'), mv = $('#vmodalV');
   const open = (src, poster) => {
-    [rv, pv].forEach(v => v.pause());
+    $$('video[data-src]').forEach(v => v.pause());
     mv.poster = poster || ''; mv.src = src; modal.hidden = false; document.body.style.overflow = 'hidden';
     mv.muted = false; const p = mv.play(); if (p && p.catch) p.catch(() => {});
   };

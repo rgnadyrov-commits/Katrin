@@ -33,6 +33,7 @@ en: {
     sub: 'Tap a card for details. Times are approximate — the exact ones depend on your hair.',
     more: 'Details', less: 'Close', book: 'Book this'
   },
+  macro: { label: 'Real work · close-up', title: '<span class="t-light">Capsules</span> you can’t see', text: 'This is a real video of Katrin’s work: a neat row of micro-capsules right at the roots. Even this close up they’re barely visible — in everyday life no one will ever notice them.', tag: 'Katrin · micro-capsules' },
   works: {
     label: 'Works', title: '<span class="t-light">Results</span> that speak for themselves',
     sub: 'Drag the divider to compare before and after. Katrin’s real work.',
@@ -151,6 +152,7 @@ ru: {
     sub: 'Нажми на карточку, чтобы узнать подробности. Время и сроки ориентировочные — точные зависят от твоих волос.',
     more: 'Подробнее', less: 'Свернуть', book: 'Записаться'
   },
+  macro: { label: 'Реальная работа · крупный план', title: '<span class="t-light">Капсулы,</span> которых не видно', text: 'Это реальное видео работы Катрин: ровный ряд микрокапсул у самых корней. Даже на таком крупном плане они почти незаметны — а в жизни их не увидит никто.', tag: 'Катрин · микрокапсулы' },
   works: {
     label: 'Работы', title: '<span class="t-light">Результат,</span> который говорит сам',
     sub: 'Потяни разделитель, чтобы сравнить до и после. Реальные работы Катрин.',
@@ -269,6 +271,7 @@ tr: {
     sub: 'Ayrıntılar için karta dokunun. Süreler yaklaşıktır — kesin süre saçınıza bağlıdır.',
     more: 'Detaylar', less: 'Kapat', book: 'Randevu al'
   },
+  macro: { label: 'Gerçek çalışma · yakın çekim', title: '<span class="t-light">Görünmeyen</span> kapsüller', text: 'Bu, Katrin’in gerçek çalışmasının videosu: köklerde düzgün bir mikro kapsül sırası. Bu kadar yakından bile neredeyse görünmüyorlar — günlük hayatta ise kimse fark etmez.', tag: 'Katrin · mikro kapsüller' },
   works: {
     label: 'Çalışmalar', title: '<span class="t-light">Kendini anlatan</span> sonuçlar',
     sub: 'Öncesi ve sonrasını karşılaştırmak için ayırıcıyı kaydırın. Katrin’in gerçek çalışmaları.',
@@ -387,6 +390,7 @@ ka: {
     sub: 'დეტალებისთვის დააჭირე ბარათს. დრო მიახლოებითია — ზუსტი შენს თმაზეა დამოკიდებული.',
     more: 'დეტალები', less: 'დახურვა', book: 'ჩაწერა'
   },
+  macro: { label: 'რეალური ნამუშევარი · ახლო ხედი', title: '<span class="t-light">კაფსულები,</span> რომლებიც არ ჩანს', text: 'ეს კატრინის რეალური ნამუშევრის ვიდეოა: მიკროკაფსულების თანაბარი რიგი ფესვებთან. ასე ახლოდანაც თითქმის არ ჩანს — ყოველდღიურ ცხოვრებაში კი ვერავინ შეამჩნევს.', tag: 'კატრინი · მიკროკაფსულები' },
   works: {
     label: 'ნამუშევრები', title: '<span class="t-light">შედეგი,</span> რომელიც თავად ლაპარაკობს',
     sub: 'გადაწიე გამყოფი, რომ შეადარო მანამდე და შემდეგ. კატრინის რეალური ნამუშევრები.',

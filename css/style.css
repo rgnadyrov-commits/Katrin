@@ -141,7 +141,7 @@ svg use{pointer-events:none}
 /* ---------- HERO ---------- */
 .hero{position:relative;min-height:100svh;overflow:hidden;background:linear-gradient(180deg,#bccad8 0%,#cfdae5 38%,#e3e9f0 72%,var(--white) 100%)}
 .hero__media{position:absolute;top:0;right:0;bottom:0;width:58%;pointer-events:none}
-.hero__media img{width:100%;height:100%;object-fit:cover;object-position:50% 74%;mix-blend-mode:multiply;filter:saturate(.92) contrast(1.02);
+.hero__media img{width:100%;height:100%;object-fit:cover;object-position:52% 50%;filter:saturate(1.02) contrast(1.03);
   -webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 30%),linear-gradient(0deg,transparent 0%,#000 22%);-webkit-mask-composite:source-in;
   mask-image:linear-gradient(90deg,transparent 0%,#000 30%),linear-gradient(0deg,transparent 0%,#000 22%);mask-composite:intersect;
   transform:scale(1.08);transform-origin:60% 40%;animation:heroImg 2.4s var(--ease) both .2s;will-change:transform}
@@ -562,3 +562,23 @@ html[lang="ka"] .pill{padding:0 16px;font-size:14px}
 }
 @media (prefers-reduced-motion:reduce){.reel__copy{opacity:1;transform:none}.reel__ico::after{display:none}}
 .book__bg{z-index:0}.book__box::before{z-index:1}.book__grid{z-index:2}
+
+/* ---------- новый кадр первого экрана: процесс наращивания ---------- */
+@media (min-width:1001px){
+  .hero__media{width:60%}
+  .hero__media img{-webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 26%),linear-gradient(0deg,transparent 0%,#000 18%);mask-image:linear-gradient(90deg,transparent 0%,#000 26%),linear-gradient(0deg,transparent 0%,#000 18%)}
+}
+@media (max-width:1000px){.hero__media{width:100%}.hero__media img{object-position:48% 45%}}
+
+/* ---------- микрокапсулы крупным планом (видео 3) ---------- */
+.macro{display:grid;grid-template-columns:1fr auto;gap:clamp(30px,6vw,96px);align-items:center;margin-top:clamp(70px,9vw,130px);padding:clamp(28px,4vw,56px);border-radius:calc(var(--r) + 8px);background:linear-gradient(135deg,var(--bg),#e6edf3)}
+.macro__title{font-size:clamp(1.9rem,3.6vw,3.2rem)}
+.macro__copy .sub{max-width:46ch}
+.macro__phone{position:relative;width:clamp(230px,24vw,330px);aspect-ratio:9/16;border-radius:34px;overflow:hidden;background:#1a1410;box-shadow:0 0 0 8px #0e1714,0 40px 80px -30px rgba(14,23,20,.6);transform:rotate(2deg)}
+.macro__v{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.macro__tag{position:absolute;left:12px;right:12px;bottom:12px;display:flex;align-items:center;gap:8px;padding:9px 12px;border-radius:14px;background:rgba(255,255,255,.85);backdrop-filter:blur(8px);font-size:12.5px;font-weight:600}
+.macro__tag i{width:8px;height:8px;border-radius:50%;background:#e0483e;box-shadow:0 0 0 0 rgba(224,72,62,.6);animation:ping 2s infinite;flex:none}
+@media (max-width:760px){
+  .macro{grid-template-columns:1fr;padding:24px 18px 30px;text-align:left}
+  .macro__phone{width:min(78vw,320px);justify-self:center;transform:none}
+}
