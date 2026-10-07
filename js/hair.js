@@ -8,7 +8,7 @@ window.HairRenderer = (() => {
   const W = 600, H = 900;
   const CX = 300, CY = 205, RX = 86, RY = 100;
   // длина (см) → нижняя точка прядей (px)
-  const MARKS = [[30, 300], [40, 372], [55, 482], [65, 612], [80, 792]];
+  let MARKS = [[30, 300], [40, 372], [55, 482], [65, 612], [80, 792]];
   const endYFor = cm => {
     for (let i = 1; i < MARKS.length; i++) {
       const [a, ya] = MARKS[i - 1], [b, yb] = MARKS[i];
@@ -22,11 +22,19 @@ window.HairRenderer = (() => {
   const hexToRgb = h => { const n = parseInt(h.slice(1), 16); return [(n >> 16) & 255, (n >> 8) & 255, n & 255]; };
   const mk = () => { const c = document.createElement('canvas'); c.width = W; c.height = H; return c; };
 
-  function create(canvas) {
+  /* opts.photo = { src, x, y, w, h } — реальное фото девушки со спины (волосы собраны),
+     размещённое так, чтобы голова совпала с CX/CY. opts.marks — шкала длин под это фото. */
+  function create(canvas, opts = {}) {
     canvas.width = W; canvas.height = H;
     const ctx = canvas.getContext('2d');
     const bodyC = mk(), shadeC = mk(), hiC = mk(), colC = mk(), tmpC = mk();
-    let bodyDrawn = false;
+    let bodyDrawn = false, photo = null, last = null;
+    if (opts.marks) MARKS = opts.marks;
+    if (opts.photo) {
+      const im = new Image();
+      im.onload = () => { photo = im; if (last) render(last); };
+      im.src = opts.photo.src;
+    }
 
     /* ---------- Body (back view) ---------- */
     function drawBody() {
@@ -110,8 +118,8 @@ window.HairRenderer = (() => {
       if (y < CY) { const t = (y - CY) / (RY + 6); return (RX + 8) * Math.sqrt(Math.max(0, 1 - t * t)); }
       const base = RX + 8;
       if (y < 292) return base - 10 * smooth(CY, 292, y);
-      const flare = (48 * dens) * smooth(292, 410, y);
-      return base - 10 + flare + Math.max(0, y - 400) * .05 * dens;
+      const flare = (42 * dens) * smooth(300, 430, y);
+      return base - 10 + flare + Math.max(0, y - 420) * .035 * dens;
     }
 
     function strandPath(u, s, endY, dens, wave) {
@@ -143,8 +151,10 @@ window.HairRenderer = (() => {
     }
 
     /* ---------- Render ---------- */
-    function render({ length = 55, shade = ['#3b2416', '#7a4a2a', '#b07a48'], density = 1, wave = 3 }) {
-      if (!bodyDrawn) drawBody();
+    function render(o) {
+      last = o;
+      const { length = 55, shade = ['#3b2416', '#7a4a2a', '#b07a48'], density = 1, wave = 3 } = o;
+      if (!opts.photo && !bodyDrawn) drawBody();
       const endY = endYFor(length);
       const N = Math.round(2600 * density);
 
@@ -253,13 +263,15 @@ window.HairRenderer = (() => {
 
       // 4. compose
       ctx.clearRect(0, 0, W, H);
-      ctx.drawImage(bodyC, 0, 0);
+      if (opts.photo) { if (photo) { const p = opts.photo; ctx.drawImage(photo, p.x, p.y, p.w, p.h); } }
+      else ctx.drawImage(bodyC, 0, 0);
       // soft contact shadow of the hair on the back
       ctx.save(); ctx.filter = 'blur(12px)'; ctx.globalAlpha = .35; ctx.drawImage(shadeC, 4, 10); ctx.restore();
-      ctx.drawImage(colC, 0, 0);
+      if (opts.photo) { ctx.filter = 'contrast(.9) brightness(1.05) saturate(.95) blur(.35px)'; ctx.drawImage(colC, 0, 0); ctx.filter = 'none'; }
+      else ctx.drawImage(colC, 0, 0);
     }
 
-    return { render, endYFor, MARKS, W, H };
+    return { render, endYFor, get MARKS() { return MARKS; }, W, H };
   }
   return { create };
 })();

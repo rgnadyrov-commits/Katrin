@@ -367,7 +367,11 @@ const MARKS = [[30, 'каре'], [40, 'плечи'], [55, 'лопатки'], [65
 const lenName = L => L < 35 ? 'каре' : L < 47 ? 'до плеч' : L < 60 ? 'до лопаток' : L < 72 ? 'до талии' : 'до бёдер';
 
 function initLab() {
-  const hair = window.HairRenderer.create($('#hairCanvas'));
+  const hair = window.HairRenderer.create($('#hairCanvas'), {
+    // фото: Unsplash (бесплатная лицензия) — девушка со спины, волосы собраны
+    photo: { src: 'https://images.unsplash.com/photo-1735463358546-fc3c6741dfa4?w=1200&q=82&auto=format', x: -55, y: -148, w: 783, h: 1175 },
+    marks: [[30, 352], [40, 400], [55, 488], [65, 652], [80, 770]]
+  });
   const swHTML = SHADES.map((s, i) => `<button type="button" class="sw" data-i="${i}" role="radio" aria-label="${s.n}" title="${s.n}" style="--c1:${s.c[0]};--c2:${s.c[1]};--c3:${s.c[2]}"></button>`).join('');
   $('#swatches').innerHTML = swHTML; $('#qSwatches').innerHTML = swHTML;
   $('#lenMarks').innerHTML = MARKS.map(([l, t]) => `<span style="left:${(l - 30) / 50 * 100}%">${t}</span>`).join('');
