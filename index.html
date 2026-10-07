@@ -13,8 +13,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://images.unsplash.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700&family=Inter:wght@400;500;600&family=Great+Vibes&family=Cormorant+Garamond:wght@600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css?v=4">
 <script>document.documentElement.classList.add('js')</script>
 </head>
 <body class="is-loading">
@@ -27,10 +27,50 @@
     <symbol id="i-whatsapp" viewBox="0 0 24 24"><path d="M12 2.5a9.5 9.5 0 0 0-8.1 14.4L2.6 21.4l4.6-1.2A9.5 9.5 0 1 0 12 2.5Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M8.8 7.6c.3-.5.7-.4.9-.2l.9 1.900c.1.3 0 .5-.3.8-.2.2-.4.4-.2.7.5.9 1.3 1.7 2.3 2.2.4.2.5 0 .7-.2.3-.4.5-.5.9-.3l1.7.8c.3.2.3.5.1 1-.4.8-1.4 1.2-2.2 1-2.9-.7-5.1-2.8-5.7-5.6-.1-.5 0-.9.3-1.4Z" fill="currentColor"/></symbol>
     <symbol id="i-telegram" viewBox="0 0 24 24"><path d="M21.5 3.6 2.6 10.9c-.9.4-.9 1.1-.2 1.3l4.8 1.5 1.9 5.8c.2.6.4.7.9.4l2.7-2.2 4.7 3.5c.9.5 1.5.2 1.7-.9L22.9 4.9c.3-1.3-.5-1.9-1.4-1.3Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="m9.3 14.3 8.4-6.2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
     <symbol id="i-instagram" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5.5" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor"/></symbol>
+    <!-- ===== brand logo ===== -->
+  <linearGradient id="lgGold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e9d39c"/><stop offset=".45" stop-color="#c6a15b"/><stop offset="1" stop-color="#9c7a36"/></linearGradient>
+  <linearGradient id="lgHair" x1="0" y1="0" x2=".35" y2="1"><stop offset="0" stop-color="#6e4223"/><stop offset=".45" stop-color="#b07a45"/><stop offset=".8" stop-color="#d9b07a"/><stop offset="1" stop-color="#ecd2a2"/></linearGradient>
+  <linearGradient id="lgBlue" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9fbfd3"/><stop offset="1" stop-color="#d6e6ef"/></linearGradient>
+  <symbol id="leaf" viewBox="-2 -14 44 28"><path d="M0 0C9-11 27-13 40 0 27 13 9 11 0 0Z"/><path d="M2 0H36" stroke="#c6a15b" stroke-width="1" fill="none" stroke-linecap="round"/></symbol>
+  <symbol id="brand" viewBox="0 0 420 420">
+    <!-- ring with an opening on the right -->
+    <path d="M343 300A160 160 0 1 1 291 72" fill="none" stroke="url(#lgGold)" stroke-width="2.2" stroke-linecap="round"/>
+    <!-- hair lock: three interwoven strands -->
+    <defs><linearGradient id="lgHair2" x1="0" y1="0" x2=".3" y2="1"><stop offset="0" stop-color="#a06a3a"/><stop offset=".6" stop-color="#e2bd86"/><stop offset="1" stop-color="#f3dfb8"/></linearGradient></defs>
+    <path d="M316 110C358 160 300 224 334 288 354 326 340 362 300 394 344 370 364 330 348 290 326 240 374 176 324 108Z" fill="url(#lgHair)"/>
+    <path d="M324 128C358 172 318 222 346 274 362 304 358 330 340 352 366 330 374 300 358 270 338 230 370 182 328 126Z" fill="url(#lgBlue)"/>
+    <path d="M330 118C372 168 322 230 354 290 370 322 362 352 334 382 370 354 384 318 364 282 344 242 388 184 336 116Z" fill="url(#lgHair2)"/>
+    <g fill="none" stroke-linecap="round">
+      <path d="M320 114C358 164 306 226 340 288 358 324 342 360 306 390" stroke="#f6e3b8" stroke-width="1" opacity=".8"/>
+      <path d="M334 122C372 172 326 232 358 290 372 320 362 350 338 376" stroke="#8a5a30" stroke-width=".8" opacity=".5"/>
+      <path d="M327 116C366 168 316 228 349 288" stroke="#c6a15b" stroke-width=".7"/>
+    </g>
+    <!-- sprig -->
+    <path d="M318 150C322 118 334 86 356 56" fill="none" stroke="#1d4a3b" stroke-width="2" stroke-linecap="round"/>
+    <use href="#leaf" x="0" y="0" width="44" height="28" fill="#1d4a3b" transform="translate(352 54) rotate(-60) scale(.95) translate(-2 -14)"/>
+    <use href="#leaf" fill="#9fbfd3" transform="translate(338 84) rotate(-10) scale(.85) translate(-2 -14)" width="44" height="28"/>
+    <use href="#leaf" fill="#1d4a3b" transform="translate(332 98) rotate(-150) scale(.8) translate(-2 -14)" width="44" height="28"/>
+    <use href="#leaf" fill="#9fbfd3" transform="translate(326 124) rotate(-165) scale(.7) translate(-2 -14)" width="44" height="28"/>
+    <use href="#leaf" fill="#1d4a3b" transform="translate(328 118) rotate(10) scale(.6) translate(-2 -14)" width="44" height="28"/>
+    <!-- wordmark -->
+    <text x="186" y="226" text-anchor="middle" font-family="'Great Vibes',cursive" font-size="112" fill="#12352a">Katrin</text>
+    <text x="190" y="272" text-anchor="middle" font-family="'Cormorant Garamond',serif" font-weight="600" font-size="23" letter-spacing="9" fill="#a8843f">LUXE LOCKS</text>
+    <path d="M120 293H178M202 293H260" stroke="url(#lgGold)" stroke-width="1.2" stroke-linecap="round"/>
+    <path d="M190 285C191 290 192 292 197 293 192 294 191 296 190 301 189 296 188 294 183 293 188 292 189 290 190 285Z" fill="#c6a15b"/>
+    <text x="190" y="320" text-anchor="middle" font-family="Inter,sans-serif" font-weight="500" font-size="10.5" letter-spacing="4.2" fill="#12352a" opacity=".75">HAIR EXTENSIONS STUDIO</text>
+  </symbol>
+  <symbol id="brandMark" viewBox="0 0 100 100">
+    <path d="M80 72A36 36 0 1 1 72 20" fill="none" stroke="url(#lgGold)" stroke-width="1.8" stroke-linecap="round"/>
+    <path d="M72 24C86 38 72 54 82 68 87 76 82 84 72 90 86 84 94 72 88 62 82 52 94 38 76 22Z" fill="url(#lgHair)"/>
+    <path d="M70 26C68 20 72 14 79 11" fill="none" stroke="#1d4a3b" stroke-width="1.4" stroke-linecap="round"/>
+    <path d="M79 11C82 6 88 6 91 8 88 12 83 13 79 11Z" fill="#1d4a3b"/><path d="M73 17C70 12 64 12 61 14 64 18 69 19 73 17Z" fill="#9fbfd3"/>
+    <text x="44" y="67" text-anchor="middle" font-family="'Great Vibes',cursive" font-size="56" fill="#12352a">K</text>
+  </symbol>
   </defs>
 </svg>
+<span class="font-warm" aria-hidden="true"><i style="font-family:'Great Vibes'">Katrin K</i><i style="font-family:'Cormorant Garamond';font-weight:600">LUXE</i></span>
 
-<div id="loader" aria-hidden="true"><img src="assets/img/logo.webp" alt="" class="loader__logo"><span class="loader__bar"><i></i></span></div>
+<div id="loader" aria-hidden="true"><svg class="loader__logo"><use href="#brand"/></svg><span class="loader__bar"><i></i></span></div>
 <canvas id="fx" aria-hidden="true"></canvas>
 <div class="cursor" aria-hidden="true"><i class="cursor__dot"></i><i class="cursor__ring"><b></b></i></div>
 <div class="progress" aria-hidden="true"><span></span></div>
@@ -38,7 +78,7 @@
 <!-- ================= NAV ================= -->
 <header class="nav" id="nav">
   <nav class="nav__pills" aria-label="Основная навигация">
-    <a href="#top" class="nav__logo magnetic" aria-label="Katrin Luxe Locks — наверх"><span>K</span></a>
+    <a href="#top" class="nav__logo magnetic" aria-label="Katrin Luxe Locks — наверх"><svg><use href="#brandMark"/></svg></a>
     <a href="#about" class="pill">Обо мне</a>
     <a href="#services" class="pill">Услуги</a>
     <a href="#works" class="pill">Работы</a>
@@ -375,7 +415,7 @@
 
 <footer class="footer">
   <div class="container footer__grid">
-    <img class="footer__logo" src="assets/img/logo.webp" alt="Katrin Luxe Locks — Hair Extensions Studio" loading="lazy">
+    <a href="#top" class="footer__logo" aria-label="Katrin Luxe Locks — Hair Extensions Studio"><svg><use href="#brand"/></svg></a>
     <nav class="footer__nav" aria-label="Нижняя навигация">
       <a href="#about">Обо мне</a><a href="#services">Услуги</a><a href="#works">Работы</a>
       <a href="#lab">Hair Lab</a><a href="#reviews">Отзывы</a><a href="#faq">Вопросы</a>
@@ -401,7 +441,7 @@
   <figure><img id="lbImg" alt=""><figcaption id="lbCap"></figcaption></figure>
 </div>
 
-<script src="js/hair.js"></script>
-<script src="js/main.js"></script>
+<script src="js/hair.js?v=4"></script>
+<script src="js/main.js?v=4"></script>
 </body>
 </html>
